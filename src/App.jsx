@@ -21,6 +21,7 @@ import * as authService from './services/authService'
 import './App.css'
 import RecList from './pages/RecList/RecList'
 import RecDetails from './pages/RecDetails/RecDetails'
+import PlaylistDetails from './pages/PlaylistDetails/PlaylistDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -97,6 +98,13 @@ const App = () => {
           element={
             // protect route
               <RecDetails/>}
+            
+        />
+        <Route
+          path='/playlist-details'
+          element={
+            // protect route
+              <PlaylistDetails/>}
             
         />
       </Routes>
