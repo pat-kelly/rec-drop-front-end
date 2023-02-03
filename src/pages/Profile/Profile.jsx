@@ -3,7 +3,7 @@ import * as profileService from '../../services/profileService'
 
 import PlaylistList from '../../components/PlaylistList/PlaylistList'
 
-const Profiles = () => {
+const Profile = () => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const Profiles = () => {
   )
 }
 
-export default Profiles
+export default Profile
