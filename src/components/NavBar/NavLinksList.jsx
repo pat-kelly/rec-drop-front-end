@@ -1,19 +1,32 @@
 import { NavLink } from "react-router-dom";
+import Logo from '../../assets/purple-narwhal.png'
 
 const NavLinksList = ({ user, handleLogout }) => {
   return ( 
     <nav>
       {user ?
         <>
-          <p>Welcome, {user.name}</p>
-          <NavLink to="/profiles">Profiles</NavLink>
-          <NavLink to="" onClick={handleLogout}>LOG OUT</NavLink>
-          <NavLink to="/change-password">Change Password</NavLink>
+          <div id="nav-left">
+            <NavLink to='/'>
+              <img src={Logo} alt="purple narwhal" />
+            </NavLink>
+            <NavLink to="/profiles">PROFILES</NavLink>
+          </div>
+          <div id="nav-right">
+            <NavLink to="" onClick={handleLogout}>LOG OUT</NavLink>
+          </div>
         </>
       :
         <>
-          <NavLink to="/login">Log In</NavLink>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <div id="nav-left">
+            <NavLink to='/'>
+              <img src={Logo} alt="put" />
+            </NavLink>
+          </div>
+          <div id="nav-right">
+            <NavLink to="/login">LOG IN</NavLink>
+            <NavLink to="/signup">SIGN UP</NavLink>
+          </div>
         </>
       }
     </nav>

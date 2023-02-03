@@ -1,0 +1,25 @@
+nav {
+  padding: 8px 16px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  height: 72px
+}
+
+#nav-left, #nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+#nav-left > a, #nav-right > a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav-left > a > img {
+  height: 56px;
+}
