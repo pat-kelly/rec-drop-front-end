@@ -6,7 +6,7 @@ const SmallScreenNav = ({ isOpen, handleOpen, user, handleLogout}) => {
       <button onClick={handleOpen}>
         {isOpen ? 'X' : '≡'}
       </button>
-      {isOpen && <NavLinksList />}
+      {isOpen && <NavLinksList user={user} handleLogout={handleLogout}/>}
     </>
   )
 }
