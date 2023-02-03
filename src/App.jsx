@@ -6,7 +6,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
+import Profile from './pages/Profile/Profile'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
@@ -19,6 +19,9 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
+import RecList from './pages/RecList/RecList'
+import RecDetails from './pages/RecDetails/RecDetails'
+import PlaylistDetails from './pages/PlaylistDetails/PlaylistDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -71,10 +74,10 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/profiles"
+          path="/profile"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profile />
             </ProtectedRoute>
           }
         />
@@ -85,6 +88,24 @@ const App = () => {
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path='/rec-list'
+          element={<RecList/>}
+        />
+        <Route
+          path='/rec-details'
+          element={
+            // protect route
+              <RecDetails/>}
+            
+        />
+        <Route
+          path='/playlist-details'
+          element={
+            // protect route
+              <PlaylistDetails/>}
+            
         />
       </Routes>
     </>
