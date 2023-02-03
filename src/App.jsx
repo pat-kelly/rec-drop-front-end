@@ -19,6 +19,8 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
+import RecList from './pages/RecList/RecList'
+import RecDetails from './pages/RecDetails/RecDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -85,6 +87,17 @@ const App = () => {
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path='/rec-list'
+          element={<RecList/>}
+        />
+        <Route
+          path='/rec-details'
+          element={
+            // protect route
+              <RecDetails/>}
+            
         />
       </Routes>
     </>
