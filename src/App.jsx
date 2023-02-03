@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 
 // components
 import NavBar from './components/NavBar/NavBar'
+import SmallScreenNav from './components/NavBar/SmallScreenNav'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
@@ -21,6 +22,8 @@ import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [isOpen, setIsOpen] = useState(false)
+  const [width, setWidth] = useState(window.innerWidth)
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -33,9 +36,30 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      {width < 768 ?
+        <SmallScreenNav 
+          width={width}
+          isOpen={isOpen}
+          handleOpen={handleOpen}
+          user={user}
+          handleLogout={handleLogout}
+        />
+        : <NavBar 
+          width={width}
+          user={user}
+          handleLogout={handleLogout}
+      />
+      }
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
