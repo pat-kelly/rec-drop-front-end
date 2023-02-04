@@ -90,6 +90,15 @@ const NewRec = ({ handleAddRec }) => {
               placeholder='Genre'
               onChange={handleChange}
             />
+            <label htmlFor="description-input">Additional Comments:</label>
+            <textarea 
+              type='text'
+              name='description'
+              id='description-input'
+              value={form.description}
+              placeholder='Comment'
+              onChange={handleChange}
+            />
             <button type='submit'>SUBMIT</button>
           </div>
         }
