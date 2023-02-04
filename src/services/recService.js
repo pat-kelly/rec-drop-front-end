@@ -80,6 +80,18 @@ const deleteComment = async (rid, cid) => {
   }
 }
 
+const like = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/like`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    
+  }
+}
+
 export {
   index,
   show,
@@ -87,4 +99,5 @@ export {
   deleteRec as delete,
   createComment, 
   deleteComment,
+  like,
 }
