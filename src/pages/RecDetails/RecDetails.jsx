@@ -7,7 +7,7 @@ import NewComment from "../../components/NewComment";
 
 import * as recService from '../../services/recService'
 
-const RecDetails = () => {
+const RecDetails = ({ user }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   // const [form, setForm] = useState({
@@ -26,6 +26,11 @@ const RecDetails = () => {
   const handleAddComment = async (commentData) => {
     const newComment = await recService.createComment(id, commentData)
     setRec({...rec, comments: [...rec.comments, newComment]})
+  }
+
+  const handleAddLike = async () => {
+    const updatedRec = await recService.like(id)
+    setRec(updatedRec)
   }
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const RecDetails = () => {
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             <NewComment handleAddComment={handleAddComment} />
             <CommentList/>
-            <Likes/>
+            <Likes user={user} handleAddLike={handleAddLike} likes={rec.likes}/>
           </>
         : <h2>Loading...</h2>
       }
