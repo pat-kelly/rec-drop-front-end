@@ -52,9 +52,39 @@ const deleteRec = async (id) => {
   }
 }
 
+const createComment = async (id, commentData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/comments`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteComment = async (rid, cid) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${rid}/comments/${cid}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
   create,
-  deleteRec as delete
+  deleteRec as delete,
+  createComment, 
+  deleteComment,
 }
