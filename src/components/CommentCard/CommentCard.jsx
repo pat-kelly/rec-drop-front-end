@@ -4,7 +4,7 @@ const CommentCard = () => {
   return ( 
     <>  
       <h1>Comment Card</h1>
-      <OwnerDate/>
+      {/* <OwnerDate/> */}
     </>
   );
 }
