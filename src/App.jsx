@@ -56,8 +56,6 @@ const App = () => {
     navigate('/recs')
   }
 
-  console.log('Recs ', recs)
-
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
@@ -113,7 +111,7 @@ const App = () => {
           element={<RecList recs={recs}/>}
         />
         <Route
-          path='/rec-details'
+          path='/recs/:id'
           element={
             <ProtectedRoute user={user}>
               <RecDetails/>
