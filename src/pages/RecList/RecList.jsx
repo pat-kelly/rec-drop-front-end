@@ -7,8 +7,9 @@ const RecList = ({recs}) => {
   return ( 
     <>  
       <h1>Rec List</h1>
-      {/* map over rec cards */}
-        <RecCard />   
+      {recs.map(rec => (
+        <RecCard key={rec._id} rec={rec} /> 
+      ))}
       
     </>
   );
