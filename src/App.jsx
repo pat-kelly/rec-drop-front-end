@@ -90,7 +90,7 @@ const App = () => {
           }
         />
         <Route
-          path='/rec-list'
+          path='/recs'
           element={<RecList/>}
         />
         <Route
