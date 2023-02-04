@@ -50,6 +50,12 @@ const App = () => {
     fetchAllRecs()
   }, [])
 
+  const handleAddRec = async (recData) => {
+    const newRec = await recService.create(recData)
+    setRecs([newRec, ...recs])
+    navigate('/recs')
+  }
+
   console.log('Recs ', recs)
 
   useEffect(() => {
@@ -117,7 +123,7 @@ const App = () => {
           path='/rec/new'
           element={
             <ProtectedRoute user={user}>
-              <NewRec />
+              <NewRec handleAddRec={handleAddRec}/>
             </ProtectedRoute>}
         />
         <Route
