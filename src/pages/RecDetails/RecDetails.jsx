@@ -19,7 +19,12 @@ const RecDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    handleAddRec(form)
+    handleAddComment(form)
+  }
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await recService.createComment(id, commentData)
+    setRec({...rec, comments: [...rec.comments, newComment]})
   }
 
   useEffect(() => {
@@ -28,8 +33,9 @@ const RecDetails = () => {
       setRec(data)
     }
     fetchRec()
-    console.log('REC DETAILS REC ', rec)
   }, [id])
+
+  console.log(rec)
 
   return ( 
     <>  
@@ -44,12 +50,12 @@ const RecDetails = () => {
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             <form onSubmit={handleSubmit}>
               <label htmlFor="content-input">Add A Comment:</label>
-              <input 
-                type='textarea'
+              <textarea 
+                type='text'
                 name='content'
                 id='content-input'
                 value={form.content}
-                placeholder='Comment'
+                // placeholder='Comment'
                 onChange={handleChange}
               />
               <button type='submit'>SUBMIT</button>
