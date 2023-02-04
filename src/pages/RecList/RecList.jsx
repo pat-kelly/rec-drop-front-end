@@ -1,15 +1,8 @@
 import RecCard from "../../components/RecCard/RecCard";
 
-const RecList = () => {
 
-  const exampleData = [{
-    "title": "fake title",
-    },
-    {
-      "title": "fake title2",
-    }
-]
-
+const RecList = ({recs}) => {
+  console.log(recs)
 
   return ( 
     <>  
