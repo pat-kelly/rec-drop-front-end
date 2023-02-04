@@ -22,6 +22,7 @@ import './App.css'
 import RecList from './pages/RecList/RecList'
 import RecDetails from './pages/RecDetails/RecDetails'
 import PlaylistDetails from './pages/PlaylistDetails/PlaylistDetails'
+import NewRec from './pages/NewRec/NewRec'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -74,7 +75,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/profile"
+          path='/profile/:id'
           element={
             <ProtectedRoute user={user}>
               <Profile user={user}/>
@@ -90,7 +91,7 @@ const App = () => {
           }
         />
         <Route
-          path='/rec-list'
+          path='/recs'
           element={<RecList/>}
         />
         <Route
@@ -99,6 +100,13 @@ const App = () => {
             // protect route
               <RecDetails/>}
             
+        />
+        <Route
+          path='/rec/new'
+          element={
+            // protect route
+            <NewRec />
+          }
         />
         <Route
           path='/playlist-details'
