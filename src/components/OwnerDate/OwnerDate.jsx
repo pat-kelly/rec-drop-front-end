@@ -1,9 +1,9 @@
-const OwnerDate = ({rec}) => {
-  console.log(rec)
+const OwnerDate = ({authorInfo}) => {
+  console.log('OWNER DATE Author info ', authorInfo)
   return ( 
     <>  
-      {/* <p>Owner: {rec.owner.name}</p> */}
-      {/* <p>Date: {rec.createdAt.toISOString().slice(0, 16)}</p> */}
+      <p>{authorInfo.owner.name}</p>
+      <p>{authorInfo.createdAt.slice(0, 10)}</p>
     </>
   );
 }
