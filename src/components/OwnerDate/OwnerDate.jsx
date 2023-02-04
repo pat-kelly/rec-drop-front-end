@@ -1,7 +1,8 @@
 const OwnerDate = () => {
   return ( 
     <>  
-      <h1>Owner Date</h1>
+      <span>Owner: [put owner here ] </span>
+      <span>Date: [put date here] </span>
     </>
   );
 }
