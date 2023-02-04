@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import CommentList from "../../components/CommentList/CommentList";
 import Likes from "../../components/Likes/Likes";
-import NewComment from "../../components/NewComment";
+import NewComment from "../../components/NewComment/NewComment";
 import OwnerDate from "../../components/OwnerDate/OwnerDate";
 
 import * as recService from '../../services/recService'
@@ -33,14 +33,14 @@ const RecDetails = () => {
       {rec 
         ? <>
             <h1>{rec.title}</h1>
-            <OwnerDate rec={rec}/>
+            <OwnerDate authorInfo={rec}/>
             <h3>Creator: {rec.creator}</h3>
             {rec.year ? <h3>Year: {rec.year}</h3> : <></>}
             {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
             {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             <NewComment handleAddComment={handleAddComment} />
-            <CommentList/>
+            <CommentList comments={rec.comments}/>
             <Likes/>
           </>
         : <h2>Loading...</h2>
