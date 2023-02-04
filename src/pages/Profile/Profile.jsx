@@ -15,16 +15,16 @@ const Profile = ({user}) => {
     fetchProfiles()
   }, [])
 
-  console.log(user)
+  console.log(user.profile)
 
-  const profile = profiles.filter(prof => (prof._id === user.profile))
-  console.log('PROFILE ', profile)
+  // const profile = profiles.filter(prof => (prof._id === user.profile))
+  // console.log('PROFILE ', profile)
 
   return (
     <>
       <h1>My Profile</h1>
       <h2>{user.name}</h2>
-      <img src={profile[0].photo} alt={user.name} style={{width: '300px'}}/>
+      {/* <img src={profile[0].photo} alt={user.name} style={{width: '300px'}}/> */}
       <PlaylistList/>
     </>
   )

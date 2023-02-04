@@ -12,7 +12,7 @@ const NavLinksList = ({ user, handleLogout }) => {
             </NavLink>
             <NavLink to='/recs'>RECS</NavLink>
             <NavLink to='/rec/new'>NEW REC</NavLink>
-            <NavLink to="/profile">MY PROFILE</NavLink>
+            <NavLink to={`/profile/${user.profile}`}>MY PROFILE</NavLink>
           </div>
           <div id="nav-right">
             <NavLink to="" onClick={handleLogout}>LOG OUT</NavLink>
