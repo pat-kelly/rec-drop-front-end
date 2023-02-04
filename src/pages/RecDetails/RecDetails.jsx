@@ -3,24 +3,25 @@ import { useParams } from "react-router-dom";
 
 import CommentList from "../../components/CommentList/CommentList";
 import Likes from "../../components/Likes/Likes";
+import NewComment from "../../components/NewComment";
 
 import * as recService from '../../services/recService'
 
 const RecDetails = () => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
-  const [form, setForm] = useState({
-    content: ''
-  })
+  // const [form, setForm] = useState({
+  //   content: ''
+  // })
 
-  const handleChange = ({ target }) => {
-    setForm({...form, [target.name]: target.value})
-  }
+  // const handleChange = ({ target }) => {
+  //   setForm({...form, [target.name]: target.value})
+  // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    handleAddComment(form)
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   handleAddComment(form)
+  // }
 
   const handleAddComment = async (commentData) => {
     const newComment = await recService.createComment(id, commentData)
@@ -48,18 +49,7 @@ const RecDetails = () => {
             {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
             {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="content-input">Add A Comment:</label>
-              <textarea 
-                type='text'
-                name='content'
-                id='content-input'
-                value={form.content}
-                // placeholder='Comment'
-                onChange={handleChange}
-              />
-              <button type='submit'>SUBMIT</button>
-            </form>
+            <NewComment handleAddComment={handleAddComment} />
             <CommentList/>
             <Likes/>
           </>
