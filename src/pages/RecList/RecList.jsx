@@ -1,6 +1,7 @@
 import RecCard from "../../components/RecCard/RecCard";
 
-const RecList = () => {
+const RecList = ({recs}) => {
+  console.log(recs)
   return ( 
     <>  
       <h1>Rec List</h1>

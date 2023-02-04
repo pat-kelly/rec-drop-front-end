@@ -16,6 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as recService from './services/recService'
 
 // styles
 import './App.css'
@@ -48,6 +49,8 @@ const App = () => {
     }
     fetchAllRecs()
   }, [])
+
+  console.log('Recs ', recs)
 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
