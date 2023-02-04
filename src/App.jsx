@@ -97,23 +97,23 @@ const App = () => {
         <Route
           path='/rec-details'
           element={
-            // protect route
-              <RecDetails/>}
-            
+            <ProtectedRoute user={user}>
+              <RecDetails/>
+            </ProtectedRoute>}
         />
         <Route
           path='/rec/new'
           element={
-            // protect route
-            <NewRec />
-          }
+            <ProtectedRoute user={user}>
+              <NewRec />
+            </ProtectedRoute>}
         />
         <Route
-          path='/playlist-details'
+          path='/playlist/:id'
           element={
-            // protect route
-              <PlaylistDetails/>}
-            
+            <ProtectedRoute user={user}>
+              <PlaylistDetails/>
+            </ProtectedRoute>}
         />
       </Routes>
     </>
