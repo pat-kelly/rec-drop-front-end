@@ -28,6 +28,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [isOpen, setIsOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
+  const [recs, setRecs] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -39,6 +40,14 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() => {
+    const fetchAllRecs = async () => {
+      const data = await recService.index()
+      setRecs(data)
+    }
+    fetchAllRecs()
+  }, [])
 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -92,7 +101,7 @@ const App = () => {
         />
         <Route
           path='/recs'
-          element={<RecList/>}
+          element={<RecList recs={recs}/>}
         />
         <Route
           path='/rec-details'
