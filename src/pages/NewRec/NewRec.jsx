@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const NewRec = (props) => {
+const NewRec = ({ handleAddRec }) => {
   const [form, setForm] = useState({
     category: '',
     title: '',
@@ -17,7 +17,7 @@ const NewRec = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // update recs state
+    handleAddRec(form)
   }
 
   const handleCategorySelect = ({ target }) => {
@@ -90,6 +90,7 @@ const NewRec = (props) => {
               placeholder='Genre'
               onChange={handleChange}
             />
+            <button type='submit'>SUBMIT</button>
           </div>
         }
       </form>
