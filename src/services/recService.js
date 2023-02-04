@@ -68,10 +68,23 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const deleteComment = async (rid, cid) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${rid}/comments/${cid}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
   create,
   deleteRec as delete,
   createComment, 
+  deleteComment,
 }
