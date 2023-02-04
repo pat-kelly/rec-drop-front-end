@@ -29,7 +29,7 @@ const RecDetails = () => {
             <h3>Creator: {rec.creator}</h3>
             {rec.year ? <h3>Year: {rec.year}</h3> : <></>}
             {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
-            {rec.description ? <h3>Year: {rec.description}</h3> : <></>}
+            {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             <CommentList/>
             <Likes/>
