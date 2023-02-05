@@ -1,7 +1,20 @@
-const Likes = () => {
+import { useState } from 'react'
+
+const Likes = (props) => {
+  const [alreadyLiked, setAlreadyLiked] = useState((
+    props.likes.some(like => {return like.owner === props.user.profile})
+  ))
+
+  const handleClick = () => {
+    setAlreadyLiked(!alreadyLiked)
+    props.handleAddLike()
+  }
+
   return ( 
     <>  
-      <h1>Likes</h1>
+      <button onClick={handleClick}>
+        {alreadyLiked ? 'Unlike' : 'Like'}
+      </button>
     </>
   );
 }
