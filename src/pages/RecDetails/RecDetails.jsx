@@ -53,7 +53,7 @@ const RecDetails = ({ user }) => {
             <NewComment handleAddComment={handleAddComment} />
             <CommentList comments={rec.comments}/>
             <Likes user={user} handleAddLike={handleAddLike} likes={rec.likes}/>
-            <AddToPlaylist user={user} playlistExpand={playlistExpand} handlePlaylistExpand={handlePlaylistExpand} />
+            <AddToPlaylist user={user} rec={rec} playlistExpand={playlistExpand} handlePlaylistExpand={handlePlaylistExpand} />
           </>
         : <h2>Loading...</h2>
       }
