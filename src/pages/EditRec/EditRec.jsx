@@ -16,7 +16,7 @@ const EditRec = (props) => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div>{!category && 'Select a category:'}</div>
         <label htmlFor="category-select">Category:</label>
         <select
@@ -81,7 +81,9 @@ const EditRec = (props) => {
             <button type='submit'>SUBMIT</button>
           </div>
         }
-      </form>
+      </form> */}
     </main>
   )
 }
+
+export default EditRec
