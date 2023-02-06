@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import CommentList from "../../components/CommentList/CommentList";
 import Likes from "../../components/Likes/Likes";
@@ -55,6 +56,13 @@ const RecDetails = ({ user, playlists }) => {
             {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
             {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
+            {rec.owner._id === user.profile &&
+              <>
+                <Link to={`/recs/${id}/edit`} state={rec}>
+                  <button>Edit</button></Link>
+                <button>Delete</button>
+              </>
+            }
             <NewComment 
               handleAddComment={handleAddComment} 
             />
