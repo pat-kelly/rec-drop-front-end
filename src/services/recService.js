@@ -41,6 +41,22 @@ const create = async (recData) => {
   }
 }
 
+const update = async (recData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${recData._id}`, {
+      method: 'PUT', 
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const deleteRec = async (id) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
@@ -97,6 +113,7 @@ export {
   index,
   show,
   create,
+  update,
   deleteRec as delete,
   createComment, 
   deleteComment,
