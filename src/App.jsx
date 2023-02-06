@@ -70,7 +70,7 @@ const App = () => {
   const handleUpdateRec = async (recData) => {
     const updatedRec = await recService.update(recData)
     setRecs(recs.map((r) => recData._id === r._id ? updatedRec : r))
-    navigate('/recs')
+    navigate(`/recs/${recData._id}`)
   }
 
   const handleDeletePlaylist = async (id) => {
