@@ -15,6 +15,7 @@ const CommentList = (props) => {
           user={props.user}
           comment={comment}
           handleDeleteComment={props.handleDeleteComment}
+          recOwner={props.recOwner}
         />
       ))}
     </>
