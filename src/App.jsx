@@ -68,8 +68,10 @@ const App = () => {
   // }
 
   const handleAddRec = async (recData, photo) => {
-    const newRec = await recService.create(recData, photo)
-    setRecs([newRec, ...recs])
+    const newRec = await recService.create(recData)
+    console.log('NEW REC ', newRec)
+    const newRecWithPhoto = recService.addPic(newRec, photo)
+    setRecs([newRecWithPhoto, ...recs])
     navigate('/recs')
   }
 

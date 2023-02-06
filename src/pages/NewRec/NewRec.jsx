@@ -19,14 +19,13 @@ const NewRec = ({ handleAddRec }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    handleAddRec(form)
+    handleAddRec(form, photoData.photo)
   }
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault()
   //   try {
-  //     await 
-  //     handleAddRec(form, photoData.photo)
+  //     await handleAddRec(form, photoData.photo)
   //     navigate('/recs')
   //   } catch (err) {
   //     console.log(err)

@@ -41,7 +41,7 @@ const show = async (id) => {
 //   }
 // }
 
-const create = async (recData, photo) => {
+const create = async (recData) => {
   console.log('CREATE REC DATA ', recData)
   try {
     const res = await fetch(BASE_URL, {
@@ -52,19 +52,20 @@ const create = async (recData, photo) => {
       },
       body: JSON.stringify(recData)
     })
-    const json = await res.json()
-    if (json.err) {
-      throw new Error(json.err)
-    } else if (photo) {
-        const photoData = new FormData()
-        photoData.append('photo', photo)
-        return await addPhoto(
-          photoData,
-          recData._id
-        )
-      }
+    return res.json()
     } catch (err) {
     throw err
+  }
+}
+
+const addPic = async (recData, photo) => {
+  if (photo) {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await addPhoto(
+      photoData,
+      recData._id
+    )
   }
 }
 
@@ -156,4 +157,5 @@ export {
   createComment, 
   deleteComment,
   like,
+  addPic,
 }
