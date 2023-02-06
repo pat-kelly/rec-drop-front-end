@@ -71,6 +71,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec }) => {
               user={user}
               comments={rec.comments}
               handleDeleteComment={handleDeleteComment}
+              recOwner={rec.owner}
             />
             <Likes 
               user={user} 
