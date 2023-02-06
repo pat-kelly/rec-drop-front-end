@@ -1,5 +1,5 @@
 import NewPlaylist from "../NewPlaylist/NewPlaylist"
-import AddForm from './AddToPlaylist/AddForm'
+import AddForm from "./AddForm";
 
 const AddToPlaylist = (props) => {
   const { rec, playlistExpand, handlePlaylistExpand } = props
@@ -10,7 +10,13 @@ const AddToPlaylist = (props) => {
       </button>
       {playlistExpand && 
         props.playlists.map(playlist => (
-          <AddForm key={playlist._id} playlist={playlist}/>
+          !playlist.recs.includes(rec._id) &&
+            <AddForm 
+              key={playlist._id}
+              playlist={playlist}
+              rec={rec}
+              handlePlaylistExpand={handlePlaylistExpand}
+            />
         ))
       }
       {playlistExpand && <NewPlaylist 
