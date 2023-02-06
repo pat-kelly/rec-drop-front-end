@@ -66,6 +66,12 @@ const App = () => {
     navigate('/recs')
   }
 
+  const handleUpdateRec = async (recData) => {
+    const updatedRec = await recService.update(recData)
+    setRecs(recs.map((r) => recData._id === r._id ? updatedRec : r))
+    navigate('/recs')
+  }
+
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
