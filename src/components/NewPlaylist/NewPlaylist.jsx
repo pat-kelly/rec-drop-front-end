@@ -27,7 +27,7 @@ const NewPlaylist = (props) => {
       <button onClick={handleAddClick}>
         {addingPlaylist ? 
           '-'
-          : '+'
+          : '+ New'
         }
       </button>
       {addingPlaylist && 
