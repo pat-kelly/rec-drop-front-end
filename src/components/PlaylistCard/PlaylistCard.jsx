@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const PlaylistCard = () => {
+const PlaylistCard = ({ playlist }) => {
   return ( 
     <>  
-      <h1>Playlist Card</h1>
-      {/* Link to /playlist/:id */}
-      <h2>Title</h2>
-      {/* map over RecCards */}
+      <h3>{playlist.title}</h3>
+      <Link to={`/playlist/${playlist._id}`}>
+          <button>More Info</button>
+      </Link>
     </>
   );
 }
