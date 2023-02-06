@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as recService from './services/recService'
+import * as playlistService from './services/playlistService'
 
 // styles
 import './App.css'
@@ -30,6 +31,7 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
   const [recs, setRecs] = useState([])
+  const [playlists, setPlaylists] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -48,6 +50,14 @@ const App = () => {
       setRecs(data)
     }
     fetchAllRecs()
+  }, [])
+
+  useEffect(() => {
+    const fetchUserPlaylists = async() => {
+      const data = await playlistService.index()
+      setPlaylists(data)
+    }
+    fetchUserPlaylists()
   }, [])
 
   const handleAddRec = async (recData) => {
@@ -94,7 +104,7 @@ const App = () => {
           path='/profile/:id'
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user}/>
+              <Profile user={user} playlists={playlists}/>
             </ProtectedRoute>
           }
         />
@@ -108,7 +118,7 @@ const App = () => {
         />
         <Route
           path='/recs'
-          element={<RecList recs={recs}/>}
+          element={<RecList recs={recs} user={user}/>}
         />
         <Route
           path='/recs/:id'
