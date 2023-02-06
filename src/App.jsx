@@ -25,6 +25,7 @@ import RecList from './pages/RecList/RecList'
 import RecDetails from './pages/RecDetails/RecDetails'
 import PlaylistDetails from './pages/PlaylistDetails/PlaylistDetails'
 import NewRec from './pages/NewRec/NewRec'
+import EditRec from './pages/EditRec/EditRec'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -63,6 +64,12 @@ const App = () => {
   const handleAddRec = async (recData) => {
     const newRec = await recService.create(recData)
     setRecs([newRec, ...recs])
+    navigate('/recs')
+  }
+
+  const handleUpdateRec = async (recData) => {
+    const updatedRec = await recService.update(recData)
+    setRecs(recs.map((r) => recData._id === r._id ? updatedRec : r))
     navigate('/recs')
   }
 
@@ -126,6 +133,15 @@ const App = () => {
             <ProtectedRoute user={user}>
               <RecDetails user={user}/>
             </ProtectedRoute>}
+        />
+        <Route 
+          path="/recs/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditRec handleUpdateRec={handleUpdateRec} />
+            </ProtectedRoute>
+          }
+        
         />
         <Route
           path='/rec/new'
