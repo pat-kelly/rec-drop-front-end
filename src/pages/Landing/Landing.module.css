@@ -3,3 +3,15 @@
   align-items: center;
   flex-direction: column;
 }
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh 8vw;
+}
+
+.description {
+  text-align: center;
+  padding: 4vh 4vw;
+}
