@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 
 const RecCard = ({rec, user})  => {
+  console.log('RECCARD ', rec)
+  
   return ( 
     <>  
       <div class="rec-card">

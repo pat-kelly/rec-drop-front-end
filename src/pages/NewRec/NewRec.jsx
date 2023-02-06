@@ -17,21 +17,21 @@ const NewRec = ({ handleAddRec }) => {
     setForm({...form, [target.name]: target.value})
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   handleAddRec(form)
-  // }
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    try {
-      await 
-      handleAddRec(form, photoData.photo)
-      navigate('/recs')
-    } catch (err) {
-      console.log(err)
-    }
+    handleAddRec(form)
   }
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     await 
+  //     handleAddRec(form, photoData.photo)
+  //     navigate('/recs')
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
