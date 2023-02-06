@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 const PlaylistCard = ({ playlist }) => {
   return ( 
     <>  
-      <h1>{playlist.title}</h1>
-      {/* Link to /playlist/:id */}
+      <h3>{playlist.title}</h3>
+      <Link to={`/playlist/${playlist._id}`}>
+          <button>More Info</button>
+      </Link>
     </>
   );
 }
