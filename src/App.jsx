@@ -108,7 +108,7 @@ const App = () => {
         />
         <Route
           path='/recs'
-          element={<RecList recs={recs}/>}
+          element={<RecList recs={recs} user={user}/>}
         />
         <Route
           path='/recs/:id'
