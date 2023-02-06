@@ -7,9 +7,11 @@ const NewRec = ({ handleAddRec }) => {
     title: '',
     creator: '',
     year: '',
-    genre: ''
+    genre: '',
+    photo: ''
   })
   const [category, setCategory] = useState('')
+  const [photoData, setPhotoData] = useState({})
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -18,6 +20,10 @@ const NewRec = ({ handleAddRec }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddRec(form)
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
   }
 
   const handleCategorySelect = ({ target }) => {
@@ -89,6 +95,15 @@ const NewRec = ({ handleAddRec }) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+            />
+            <label htmlFor="photo-upload">
+              Upload Photo
+            </label>
+            <input
+              type="file"
+              id="photo-upload"
+              name="photo"
+              onChange={handleChangePhoto}
             />
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
