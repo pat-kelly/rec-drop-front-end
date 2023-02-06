@@ -1,5 +1,4 @@
 import { useState } from "react"
-import * as playlistService from '../../services/playlistService'
 
 const NewPlaylist = (props) => {
   const [addingPlaylist, setAddingPlaylist] = useState(false) 
@@ -19,7 +18,7 @@ const NewPlaylist = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handlePlaylistExpand()
-    playlistService.create(form)
+    props.handleCreatePlaylist(form)
   }
 
   return ( 
@@ -27,7 +26,7 @@ const NewPlaylist = (props) => {
       <button onClick={handleAddClick}>
         {addingPlaylist ? 
           '-'
-          : '+'
+          : '+ New'
         }
       </button>
       {addingPlaylist && 

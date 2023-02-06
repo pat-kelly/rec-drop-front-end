@@ -52,9 +52,26 @@ const deletePlaylist = async (id) => {
   }
 }
 
+const update = async (playlistData, pid) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${pid}`, {
+      method: 'PUT', 
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(playlistData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   create,
   show,
   deletePlaylist as delete,
+  update,
 }
