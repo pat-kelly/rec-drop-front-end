@@ -20,11 +20,6 @@ const EditRec = (props) => {
     props.handleUpdateRec(form)
   }
 
-  // const handleCategorySelect = ({ target }) => {
-  //   setCategory(target.value)
-  //   setForm({...form, 'category': target.value})
-  // }
-
   const displayCreatorLabel = () => {
     if (category === 'Movie' || category === 'TV Show') {
       return 'Director'
@@ -38,20 +33,6 @@ const EditRec = (props) => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        {/* <div>{!category && 'Select a category:'}</div>
-        <label htmlFor="category-select">Category:</label>
-        <select
-          required
-          name="category"
-          id="category-select"
-          onChange={handleCategorySelect}>
-            <option value="">Select...</option>
-            <option value="Movie">Movie</option>
-            <option value="TV Show">TV Show</option>
-            <option value="Song">Song</option>
-            <option value="Album">Album</option>
-            <option value="Book">Book</option>
-        </select> */}
         {category && <div>
             <label htmlFor="title-input">Title:</label>
             <input 
