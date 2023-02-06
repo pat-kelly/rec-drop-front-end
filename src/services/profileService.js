@@ -9,8 +9,8 @@ async function getProfile(id) {
   return await res.json()
 }
 
-async function addPhoto(photoData, profileId) {
-  const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
+async function addPhoto(photoData, id) {
+  const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`

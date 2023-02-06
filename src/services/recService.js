@@ -25,9 +25,26 @@ const show = async (id) => {
   }
 }
 
-const create = async (recData) => {
+// const create = async (recData) => {
+//   try {
+//     const res = await fetch(BASE_URL, {
+//       method: 'POST', 
+//       headers: {
+//         'Authorization': `Bearer ${tokenService.getToken()}`,
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(recData)
+//     })
+//     return res.json()
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
+const create = async (recData, photo) => {
+  console.log('CREATE REC DATA ', recData)
   try {
-    const res = fetch(BASE_URL, {
+    const res = await fetch(BASE_URL, {
       method: 'POST', 
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -35,10 +52,31 @@ const create = async (recData) => {
       },
       body: JSON.stringify(recData)
     })
-    return res.json()
-  } catch (error) {
-    console.log(error)
+    const json = await res.json()
+    if (json.err) {
+      throw new Error(json.err)
+    } else if (photo) {
+        const photoData = new FormData()
+        photoData.append('photo', photo)
+        return await addPhoto(
+          photoData,
+          recData._id
+        )
+      }
+    } catch (err) {
+    throw err
   }
+}
+
+async function addPhoto(photoData, id) {
+  const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: photoData
+  })
+  return await res.json()
 }
 
 const update = async (recData) => {

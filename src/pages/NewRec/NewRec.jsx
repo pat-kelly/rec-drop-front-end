@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 const NewRec = ({ handleAddRec }) => {
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
     title: '',
     creator: '',
     year: '',
-    genre: '',
-    photo: ''
+    genre: ''
   })
   const [category, setCategory] = useState('')
   const [photoData, setPhotoData] = useState({})
@@ -17,9 +17,20 @@ const NewRec = ({ handleAddRec }) => {
     setForm({...form, [target.name]: target.value})
   }
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   handleAddRec(form)
+  // }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    handleAddRec(form)
+    try {
+      await 
+      handleAddRec(form, photoData.photo)
+      navigate('/recs')
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const handleChangePhoto = (evt) => {
