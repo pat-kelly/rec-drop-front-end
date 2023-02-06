@@ -24,6 +24,11 @@ const RecDetails = ({ user }) => {
     setRec(updatedRec)
   }
 
+  const handleDeleteComment = async (recId, commentId) => {
+    await recService.deleteComment(recId, commentId)
+    setRec({...rec, comments: rec.comments.filter((c) => c._id !== commentId)})
+  }
+
   const handlePlaylistExpand = () => {
     setPlaylistExpand(!playlistExpand)
   }
@@ -50,10 +55,24 @@ const RecDetails = ({ user }) => {
             {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
             {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
-            <NewComment handleAddComment={handleAddComment} />
-            <CommentList comments={rec.comments}/>
-            <Likes user={user} handleAddLike={handleAddLike} likes={rec.likes}/>
-            <AddToPlaylist user={user} rec={rec} playlistExpand={playlistExpand} handlePlaylistExpand={handlePlaylistExpand} />
+            <NewComment 
+              handleAddComment={handleAddComment} 
+            />
+            <CommentList 
+              comments={rec.comments}
+              handleDeleteComment={handleDeleteComment}
+            />
+            <Likes 
+              user={user} 
+              handleAddLike={handleAddLike} 
+              likes={rec.likes}
+            />
+            <AddToPlaylist 
+              user={user} 
+              rec={rec} 
+              playlistExpand={playlistExpand} 
+              handlePlaylistExpand={handlePlaylistExpand} 
+            />
           </>
         : <h2>Loading...</h2>
       }
