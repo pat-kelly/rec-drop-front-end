@@ -2,7 +2,7 @@ import NewPlaylist from "../NewPlaylist/NewPlaylist"
 import AddForm from "./AddForm";
 
 const AddToPlaylist = (props) => {
-  const { rec, playlistExpand, handlePlaylistExpand } = props
+  const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist } = props
   return ( 
     <>
       <button onClick={handlePlaylistExpand}>
@@ -15,6 +15,7 @@ const AddToPlaylist = (props) => {
               key={playlist._id}
               playlist={playlist}
               rec={rec}
+              handleAddToPlaylist={handleAddToPlaylist}
               handlePlaylistExpand={handlePlaylistExpand}
             />
         ))

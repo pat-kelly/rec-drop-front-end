@@ -1,5 +1,5 @@
 const AddForm = (props) => {
-  const { playlist, rec, handlePlaylistExpand } = props
+  const { playlist, rec, handlePlaylistExpand, handleAddToPlaylist } = props
 
   const form = {
     title: playlist.title,
@@ -9,7 +9,7 @@ const AddForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     handlePlaylistExpand()
-    // call update service function 
+    handleAddToPlaylist(form, playlist._id)
   }
   
   return (
