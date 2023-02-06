@@ -20,10 +20,10 @@ const EditRec = (props) => {
     props.handleUpdateRec(form)
   }
 
-  const handleCategorySelect = ({ target }) => {
-    setCategory(target.value)
-    setForm({...form, 'category': target.value})
-  }
+  // const handleCategorySelect = ({ target }) => {
+  //   setCategory(target.value)
+  //   setForm({...form, 'category': target.value})
+  // }
 
   const displayCreatorLabel = () => {
     if (category === 'Movie' || category === 'TV Show') {

@@ -137,7 +137,7 @@ const App = () => {
           path='/recs/:id'
           element={
             <ProtectedRoute user={user}>
-              <RecDetails user={user}/>
+              <RecDetails user={user} playlists={playlists}/>
             </ProtectedRoute>}
         />
         <Route 

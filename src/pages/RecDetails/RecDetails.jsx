@@ -10,7 +10,7 @@ import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user }) => {
+const RecDetails = ({ user, playlists }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -82,6 +82,7 @@ const RecDetails = ({ user }) => {
               rec={rec} 
               playlistExpand={playlistExpand} 
               handlePlaylistExpand={handlePlaylistExpand} 
+              playlists={playlists}
             />
           </>
         : <h2>Loading...</h2>

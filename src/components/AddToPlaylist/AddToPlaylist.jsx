@@ -8,7 +8,7 @@ const AddToPlaylist = (props) => {
       <button onClick={handlePlaylistExpand}>
         {playlistExpand ? 'x' : '+'}
       </button>
-      {playlistExpand && <PlaylistList />}
+      {playlistExpand && <PlaylistList playlists={props.playlists}/>}
       {playlistExpand && <NewPlaylist 
         rec={rec} 
         handlePlaylistExpand={handlePlaylistExpand}
