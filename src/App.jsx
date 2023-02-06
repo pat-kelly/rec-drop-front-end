@@ -138,7 +138,7 @@ const App = () => {
           path='/playlist/:id'
           element={
             <ProtectedRoute user={user}>
-              <PlaylistDetails/>
+              <PlaylistDetails user={user}/>
             </ProtectedRoute>}
         />
       </Routes>

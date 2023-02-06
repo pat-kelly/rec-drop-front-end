@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import RecCard from "../../components/RecCard/RecCard";
+import { Link } from 'react-router-dom';
 
 import * as playlistService from '../../services/playlistService'
 
-const PlaylistDetails = () => {
+const PlaylistDetails = ({ user }) => {
   const {id} = useParams()
   const [playlist, setPlaylist] = useState(null)
 
@@ -16,8 +17,6 @@ const PlaylistDetails = () => {
     fetchRec()
   }, [id])
 
-  console.log(playlist);
-
   return ( 
     <> 
       {playlist 
@@ -25,7 +24,7 @@ const PlaylistDetails = () => {
           <h1>{playlist.title}</h1>
           <button>delete</button>
           {playlist.recs.map(rec => (
-            <RecCard key={rec._id} rec={rec} />
+            <RecCard key={rec._id} rec={rec} user={user}/>
           ))}
         </>
         :
