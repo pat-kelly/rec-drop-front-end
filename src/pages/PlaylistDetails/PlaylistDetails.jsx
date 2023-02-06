@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import RecCard from "../../components/RecCard/RecCard";
-import { Link } from 'react-router-dom';
 
 import * as playlistService from '../../services/playlistService'
 
