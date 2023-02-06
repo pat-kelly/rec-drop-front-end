@@ -1,7 +1,6 @@
 import CommentCard from "../CommentCard/CommentCard";
 
 const CommentList = (props) => {
-  console.log('COMMENTLIST PROPS', props)
 
   if(!props.comments.length) return <h3>No comments yet</h3>
 

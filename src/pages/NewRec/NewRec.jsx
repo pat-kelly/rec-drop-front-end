@@ -22,16 +22,6 @@ const NewRec = ({ handleAddRec }) => {
     handleAddRec(form, photoData.photo)
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   try {
-  //     await handleAddRec(form, photoData.photo)
-  //     navigate('/recs')
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
   }
