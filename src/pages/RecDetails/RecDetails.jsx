@@ -59,6 +59,8 @@ const RecDetails = ({ user }) => {
               handleAddComment={handleAddComment} 
             />
             <CommentList 
+              recId={id}
+              user={user}
               comments={rec.comments}
               handleDeleteComment={handleDeleteComment}
             />

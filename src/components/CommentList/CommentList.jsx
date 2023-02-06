@@ -9,7 +9,13 @@ const CommentList = (props) => {
     <>  
       <h2>Comments</h2>
       {props.comments.map(comment => (
-        <CommentCard key={comment._id} comment={comment}/>
+        <CommentCard 
+          key={comment._id} 
+          recId={props.recId}
+          user={props.user}
+          comment={comment}
+          handleDeleteComment={props.handleDeleteComment}
+        />
       ))}
     </>
   );
