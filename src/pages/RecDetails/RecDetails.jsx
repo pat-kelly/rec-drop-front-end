@@ -43,7 +43,7 @@ const RecDetails = ({ user }) => {
       <h1>Rec Details</h1>
       {rec 
         ? <>
-            <h1>{rec.title}</h1>
+            <h2>Title: {rec.title}</h2>
             <OwnerDate authorInfo={rec}/>
             <h3>Creator: {rec.creator}</h3>
             {rec.year ? <h3>Year: {rec.year}</h3> : <></>}
@@ -52,8 +52,8 @@ const RecDetails = ({ user }) => {
             {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             <NewComment handleAddComment={handleAddComment} />
             <CommentList comments={rec.comments}/>
-            <Likes user={user} handleAddLike={handleAddLike} likes={rec.likes}/>
             <AddToPlaylist user={user} rec={rec} playlistExpand={playlistExpand} handlePlaylistExpand={handlePlaylistExpand} />
+            <Likes user={user} handleAddLike={handleAddLike} likes={rec.likes}/>
           </>
         : <h2>Loading...</h2>
       }
