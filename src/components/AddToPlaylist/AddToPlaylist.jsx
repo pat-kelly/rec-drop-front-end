@@ -2,7 +2,6 @@ import PlaylistList from "../PlaylistList/PlaylistList"
 import NewPlaylist from "../NewPlaylist/NewPlaylist"
 
 const AddToPlaylist = (props) => {
-  console.log('THIS ONE!!!',props.playlists);
   const { rec, playlistExpand, handlePlaylistExpand } = props
   return ( 
     <>
