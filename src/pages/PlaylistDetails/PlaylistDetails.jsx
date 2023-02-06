@@ -4,7 +4,7 @@ import RecCard from "../../components/RecCard/RecCard";
 
 import * as playlistService from '../../services/playlistService'
 
-const PlaylistDetails = ({ user }) => {
+const PlaylistDetails = ({ user, handleDeletePlaylist }) => {
   const {id} = useParams()
   const [playlist, setPlaylist] = useState(null)
 
@@ -21,7 +21,9 @@ const PlaylistDetails = ({ user }) => {
       {playlist 
         ? <>
           <h1>{playlist.title}</h1>
-          <button>delete</button>
+          <button onClick={() => handleDeletePlaylist(id)}>
+            Delete
+          </button>
           {playlist.recs.map(rec => (
             <RecCard key={rec._id} rec={rec} user={user}/>
           ))}

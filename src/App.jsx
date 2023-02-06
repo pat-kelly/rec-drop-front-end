@@ -73,6 +73,12 @@ const App = () => {
     navigate('/recs')
   }
 
+  const handleDeletePlaylist = async (id) => {
+    const deletedPlaylist = await playlistService.delete(id)
+    setPlaylists(playlists.filter(p => p._id !== deletedPlaylist._id))
+    navigate(`/profile/${user.profile}`)
+  }
+
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
@@ -154,7 +160,10 @@ const App = () => {
           path='/playlist/:id'
           element={
             <ProtectedRoute user={user}>
-              <PlaylistDetails user={user}/>
+              <PlaylistDetails 
+                user={user}
+                handleDeletePlaylist={handleDeletePlaylist}
+              />
             </ProtectedRoute>}
         />
       </Routes>
