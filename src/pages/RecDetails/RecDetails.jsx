@@ -48,7 +48,7 @@ const RecDetails = ({ user }) => {
       <h1>Rec Details</h1>
       {rec 
         ? <>
-            <h1>{rec.title}</h1>
+            <h2>Title: {rec.title}</h2>
             <OwnerDate authorInfo={rec}/>
             <h3>Creator: {rec.creator}</h3>
             {rec.year ? <h3>Year: {rec.year}</h3> : <></>}
