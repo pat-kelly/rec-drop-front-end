@@ -9,9 +9,13 @@ const AddToPlaylist = (props) => {
 
   useEffect(() => {
     setFilteredPlaylists(
-      playlists.filter(playlist => (
-        playlist.recs.includes(rec._id)
-      ))
+      playlists.filter(playlist => {
+        if (playlist) {
+          return !playlist?.recs.includes(rec._id)
+        } else {
+          return playlist
+        }
+      })
     )
   }, [playlists, rec._id])
 
