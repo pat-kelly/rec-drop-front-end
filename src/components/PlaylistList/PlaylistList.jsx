@@ -1,11 +1,12 @@
 import PlaylistCard from "../PlaylistCard/PlaylistCard";
 
-const PlaylistList = () => {
+const PlaylistList = ({ playlists }) => {
   return ( 
     <>  
       <h1>Playlist List</h1>
-      {/* map over playlists */}
-      <PlaylistCard/>
+      {playlists.map(playlist => (
+        <PlaylistCard key={playlist._id} playlist={playlist} />
+      ))}
     </>
   );
 }
