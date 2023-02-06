@@ -24,6 +24,7 @@ const NavLinksList = ({ user, handleLogout }) => {
             <NavLink to='/'>
               <img src={Logo} alt="put" />
             </NavLink>
+            <NavLink to='/recs'>RECS</NavLink>
           </div>
           <div id="nav-right">
             <NavLink to="/login">LOG IN</NavLink>
