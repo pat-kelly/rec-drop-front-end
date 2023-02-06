@@ -70,6 +70,12 @@ const App = () => {
   const handleUpdateRec = async (recData) => {
     const updatedRec = await recService.update(recData)
     setRecs(recs.map((r) => recData._id === r._id ? updatedRec : r))
+    navigate(`/recs/${recData._id}`)
+  }
+
+  const handleDeleteRec = async (id) => {
+    const deletedRec = await recService.delete(id)
+    setRecs(recs.filter(r => r._id !== deletedRec._id))
     navigate('/recs')
   }
 
@@ -137,7 +143,11 @@ const App = () => {
           path='/recs/:id'
           element={
             <ProtectedRoute user={user}>
-              <RecDetails user={user} playlists={playlists}/>
+              <RecDetails 
+                user={user} 
+                playlists={playlists}
+                handleDeleteRec={handleDeleteRec}
+              />
             </ProtectedRoute>}
         />
         <Route 

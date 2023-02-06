@@ -10,7 +10,7 @@ import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -60,7 +60,9 @@ const RecDetails = ({ user, playlists }) => {
               <>
                 <Link to={`/recs/${id}/edit`} state={rec}>
                   <button>Edit</button></Link>
-                <button>Delete</button>
+                <button onClick={() => handleDeleteRec(id)}>
+                  Delete
+                </button>
               </>
             }
             <NewComment 
