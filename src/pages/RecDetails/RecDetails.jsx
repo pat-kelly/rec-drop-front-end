@@ -10,7 +10,7 @@ import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -86,6 +86,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist }) =
               handlePlaylistExpand={handlePlaylistExpand} 
               playlists={playlists}
               handleAddToPlaylist={handleAddToPlaylist}
+              handleCreatePlaylist={handleCreatePlaylist}
             />
           </>
         : <h2>Loading...</h2>
