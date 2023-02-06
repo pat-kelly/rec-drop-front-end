@@ -87,6 +87,16 @@ const App = () => {
     navigate('/recs')
   }
 
+  const handleCreatePlaylist = async (playlistData) =>  {
+    const newPlaylist = await playlistService.create(playlistData)
+    setPlaylists([newPlaylist, ...playlists])
+  }
+
+  const handleAddToPlaylist = async (playlistData, pid) => {
+    const updatedPlaylist = await playlistService.update(playlistData, pid)
+    setPlaylists(playlists.map((p) => pid === p._id ? updatedPlaylist : p))
+  }
+
   const handleDeletePlaylist = async (id) => {
     const deletedPlaylist = await playlistService.delete(id)
     setPlaylists(playlists.filter(p => p._id !== deletedPlaylist._id))
@@ -155,6 +165,8 @@ const App = () => {
                 user={user} 
                 playlists={playlists}
                 handleDeleteRec={handleDeleteRec}
+                handleCreatePlaylist={handleCreatePlaylist}
+                handleAddToPlaylist={handleAddToPlaylist}
               />
             </ProtectedRoute>}
         />
