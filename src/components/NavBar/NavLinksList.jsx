@@ -1,15 +1,11 @@
 import { NavLink } from "react-router-dom";
-import Logo from '../../assets/purple-narwhal.png'
 
-const NavLinksList = ({ user, handleLogout }) => {
+const NavLinksList = ({ user, handleLogout, isOpen }) => {
   return ( 
-    <nav>
+    <nav className={isOpen ? 'open-dropdown' : ''}>
       {user ?
         <>
           <div id="nav-left">
-            <NavLink to='/'>
-              <img src={Logo} alt="purple narwhal" />
-            </NavLink>
             <NavLink to='/recs'>RECS</NavLink>
             <NavLink to='/rec/new'>NEW REC</NavLink>
             <NavLink to={`/profile/${user.profile}`}>MY PROFILE</NavLink>
@@ -21,9 +17,6 @@ const NavLinksList = ({ user, handleLogout }) => {
       :
         <>
           <div id="nav-left">
-            <NavLink to='/'>
-              <img src={Logo} alt="put" />
-            </NavLink>
             <NavLink to='/recs'>RECS</NavLink>
           </div>
           <div id="nav-right">
