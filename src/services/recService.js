@@ -25,22 +25,6 @@ const show = async (id) => {
   }
 }
 
-// const create = async (recData) => {
-//   try {
-//     const res = await fetch(BASE_URL, {
-//       method: 'POST', 
-//       headers: {
-//         'Authorization': `Bearer ${tokenService.getToken()}`,
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(recData)
-//     })
-//     return res.json()
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
 const create = async (recData) => {
   console.log('CREATE REC DATA ', recData)
   try {
@@ -59,9 +43,6 @@ const create = async (recData) => {
 }
 
 const addPic = async (recData, photo) => {
-  console.log('photo (addPic) ', photo)
-  console.log('recData ', recData);
-  console.log('recData._id ', recData._id);
   if (photo) {
     const photoData = new FormData()
     photoData.append('photo', photo)
@@ -73,8 +54,6 @@ const addPic = async (recData, photo) => {
 }
 
 async function addPhoto(photoData, id) {
-  console.log('photoData (addPhoto) ', photoData)
-  console.log('id (addPhoto) ', id);
   const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
     method: 'PUT',
     headers: {

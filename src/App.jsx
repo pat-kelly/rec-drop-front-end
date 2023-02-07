@@ -61,17 +61,9 @@ const App = () => {
     fetchUserPlaylists()
   }, [])
 
-  // const handleAddRec = async (recData) => {
-  //   const newRec = await recService.create(recData)
-  //   setRecs([newRec, ...recs])
-  //   navigate('/recs')
-  // }
-
   const handleAddRec = async (recData, photo) => {
     const newRec = await recService.create(recData)
-    console.log('newRec from create ', newRec)
     const newRecWithPhoto = await recService.addPic(newRec, photo)
-    console.log('NewRecWithPhoto (handleAddRec) ', newRecWithPhoto)
     setRecs([newRecWithPhoto, ...recs])
     navigate('/recs')
   }
