@@ -4,6 +4,7 @@ import * as profileService from '../../services/profileService'
 
 import PlaylistList from '../../components/PlaylistList/PlaylistList'
 import { login } from '../../services/authService'
+import styles from './Profile.module.css'
 
 const Profile = ({ user, playlists }) => {
   const {id} = useParams()
@@ -20,13 +21,13 @@ const Profile = ({ user, playlists }) => {
 
   return (
     <>
-      <h1 className="myProfile">My Profile</h1>
-      <h2>{user.name}</h2>
+      <h1 className={styles.myProfile}>My Profile</h1>
+      <h2 className={styles.userName}>{user.name}</h2>
       {profile
-        ? <img src={profile.photo} alt={user.name} style={{width: '300px'}}/>
-        : <h2>Loading...</h2>}
+        ? <img className={styles.profileImage} src={profile.photo} alt={user.name} style={{width: '300px'}}/>
+        : <h2 className={styles.loading}>Loading...</h2>}
       
-      <PlaylistList className="playList" playlists={playlists}/>
+      <PlaylistList className={styles.playList} playlists={playlists}/>
     </>
   )
 }

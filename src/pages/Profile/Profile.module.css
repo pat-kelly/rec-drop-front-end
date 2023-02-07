@@ -1,7 +1,38 @@
 .myProfile {
+display: flex;
+justify-content: center;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+color: purple;
+align-items: center;
 
 }
 
 .playList {
-    
+    align-items: center;
+    align-content: center
+}
+
+.profileImage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 4px solid #b686dd;
+    align-content: center;
+}
+
+.userName {
+    color: #451d9a  ;
+    align-content: center;
+    font-size: 34px;
+}
+
+.loading {
+  
+
+}
+
+.p {
+    color: pruple;
 }
