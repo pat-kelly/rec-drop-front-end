@@ -42,8 +42,6 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
     fetchRec()
   }, [id])
 
-  console.log('REC DETAILS REC ', rec)
-
   return ( 
     <>  
       <h1>Rec Details</h1>

@@ -9,8 +9,6 @@ const EditRec = (props) => {
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
 
-  console.log('STATE ', state)
-  console.log('STATE CATEGORY ', state.category)
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
   }

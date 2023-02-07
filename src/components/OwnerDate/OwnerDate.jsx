@@ -1,5 +1,5 @@
 const OwnerDate = ({authorInfo}) => {
-  console.log('OWNER DATE Author info ', authorInfo)
+  // console.log('OWNER DATE Author info ', authorInfo)
   return ( 
     <>  
       <p>{authorInfo.owner.name}</p>
