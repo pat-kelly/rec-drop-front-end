@@ -13,9 +13,7 @@ const RecCard = ({rec, user})  => {
           <div className={styles.cardTop}>
             <div className={styles.recCardHeader}>
               <h2>{rec.title}</h2>
-              <div className={styles.iconContainer}>
                 <Icon category={rec.category}/>
-              </div>
             </div>
             <div className={styles.cardSubHeader}>
               <h4>{rec.creator}</h4>

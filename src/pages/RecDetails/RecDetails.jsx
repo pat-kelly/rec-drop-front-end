@@ -57,9 +57,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   {rec.genre && <h4>Genre: {rec.genre}</h4>}
                 </div>
                 <div className={styles.contentRight}>
-                  <div className={styles.iconContainer}>
-                    <Icon category={rec.category} />
-                  </div>
+                  <Icon category={rec.category} />
                   <OwnerDate authorInfo={rec}/>
                 </div>
                 {rec.photo && <img src={rec.photo} alt="" style={{width: '300px'}} />}

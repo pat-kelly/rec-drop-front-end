@@ -42,19 +42,9 @@
   -webkit-box-orient: vertical;
 }
 
-.iconContainer {
-  border: 1px solid #461e9a;
-  border-radius: 50%;
-  width: 50px;
+.recCardHeader > img {
+  width: 50x;
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.iconContainer > img {
-  width: 30x;
-  height: 30px;
 }
 
 .cardSubHeader {
