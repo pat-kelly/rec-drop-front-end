@@ -99,9 +99,10 @@ nav {
   gap: 8px;
   margin-top: 72px;
   padding: 0 32px;
-  height: 200px;
+  height: 250px;
+  width: 205px;
   background-color: #fcf7ff;
-  box-shadow: 0px 1px  3px #451d9a5c;
+  box-shadow: 0px 1px 3px #451d9a5c;
 }
 
 .open-dropdown > #nav-right {
