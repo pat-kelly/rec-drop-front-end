@@ -59,6 +59,9 @@ const create = async (recData) => {
 }
 
 const addPic = async (recData, photo) => {
+  console.log('photo (addPic) ', photo)
+  console.log('recData ', recData);
+  console.log('recData._id ', recData._id);
   if (photo) {
     const photoData = new FormData()
     photoData.append('photo', photo)
@@ -70,6 +73,8 @@ const addPic = async (recData, photo) => {
 }
 
 async function addPhoto(photoData, id) {
+  console.log('photoData (addPhoto) ', photoData)
+  console.log('id (addPhoto) ', id);
   const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
     method: 'PUT',
     headers: {

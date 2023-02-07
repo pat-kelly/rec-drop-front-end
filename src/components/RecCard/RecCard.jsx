@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
 
 const RecCard = ({rec, user})  => {
-  console.log('RECCARD ', rec)
+  // console.log('RECCARD ', rec)
   
   return ( 
     <>  

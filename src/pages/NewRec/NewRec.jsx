@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import styles from './NewRec.module.css'
 
 const NewRec = ({ handleAddRec }) => {
   const navigate = useNavigate()
@@ -47,7 +48,7 @@ const NewRec = ({ handleAddRec }) => {
   }
 
   return ( 
-    <main>
+    <main className={styles.main}>
       <form onSubmit={handleSubmit}>
         <div>{!category && 'Select a category:'}</div>
         <label htmlFor="category-select">Category:</label>
