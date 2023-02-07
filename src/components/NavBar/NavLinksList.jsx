@@ -11,7 +11,7 @@ const NavLinksList = ({ user, handleLogout, isOpen }) => {
             <NavLink to={`/profile/${user.profile}`}>MY PROFILE</NavLink>
           </div>
           <div id="nav-right">
-            <NavLink to="" onClick={handleLogout}>LOG OUT</NavLink>
+            <NavLink to="" onClick={handleLogout} className={isOpen ? 'logout-button' : ''}>LOG OUT</NavLink>
           </div>
         </>
       :

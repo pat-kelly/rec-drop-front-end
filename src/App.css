@@ -104,13 +104,19 @@ nav {
   box-shadow: 0px 1px  3px #451d9a5c;
 }
 
+.open-dropdown > #nav-right {
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
 .open-dropdown > #nav-left {
   flex-direction: column;
   justify-content: center;
   gap: 8px;
 }
 
-.open-dropdown > #nav-right > a:last-child {
+.logout-button {
   background-color: #eae2ee;
   border-radius: 25px;
 }
