@@ -29,7 +29,7 @@ const RecList = ({recs, user}) => {
 
   return ( 
     <main className={styles.main}>  
-      <h1>All Recs</h1>
+      <h1>Dropped Recs</h1>
       <select name="category" 
         onChange={handleCategorySelect}
       >
