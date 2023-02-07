@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './NewRec.module.css'
 
 const NewRec = ({ handleAddRec }) => {
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
     title: '',
@@ -10,6 +12,7 @@ const NewRec = ({ handleAddRec }) => {
     genre: ''
   })
   const [category, setCategory] = useState('')
+  const [photoData, setPhotoData] = useState({})
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -17,7 +20,11 @@ const NewRec = ({ handleAddRec }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    handleAddRec(form)
+    handleAddRec(form, photoData.photo)
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
   }
 
   const handleCategorySelect = ({ target }) => {
@@ -89,6 +96,15 @@ const NewRec = ({ handleAddRec }) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+            />
+            <label htmlFor="photo-upload">
+              Upload Photo
+            </label>
+            <input
+              type="file"
+              id="photo-upload"
+              name="photo"
+              onChange={handleChangePhoto}
             />
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 

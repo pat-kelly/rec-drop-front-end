@@ -4,6 +4,8 @@ import Icon from "../Icon/Icon";
 import styles from './RecCard.module.css'
 
 const RecCard = ({rec, user})  => {
+  // console.log('RECCARD ', rec)
+  
   return ( 
     <>
       {user ? 

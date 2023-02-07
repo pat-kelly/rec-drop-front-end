@@ -7,7 +7,8 @@ const RecList = ({recs, user}) => {
       <h1>All Recs</h1>
       <div className={styles.container}>
       {recs.map(rec => (
-        <RecCard key={rec._id} rec={rec} user={user}/> 
+        rec.show &&
+        <RecCard key={rec._id} rec={rec} user={user}/>
       ))}
       </div>
     </main>
