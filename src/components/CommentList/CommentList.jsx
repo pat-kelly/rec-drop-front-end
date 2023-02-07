@@ -1,13 +1,15 @@
 import CommentCard from "../CommentCard/CommentCard";
+import styles from "../../pages/RecDetails/RecDetails.module.css"
 
 const CommentList = (props) => {
   console.log('COMMENTLIST PROPS', props)
 
-  if(!props.comments.length) return <h3>No comments yet</h3>
+  if(!props.comments.length) return <h3 className={styles.commentForm}>No comments yet</h3>
 
   return ( 
     <>  
-      <h2>Comments</h2>
+    <div className={styles.commentForm}>
+      <h2 className={styles.test}>Comments</h2>
       {props.comments.map(comment => (
         <CommentCard 
           key={comment._id} 
@@ -18,6 +20,7 @@ const CommentList = (props) => {
           recOwner={props.recOwner}
         />
       ))}
+      </div>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from "../../pages/RecDetails/RecDetails.module.css"
 
 const NewComment = (props) => {
   const [form, setForm] = useState({ text: '' })
@@ -14,9 +15,9 @@ const NewComment = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label class="add-%comment-label" htmlFor="content-input">Add A Comment:</label>
-      <textarea class="comment-box"
+    <form className={styles.commentForm} onSubmit={handleSubmit}>
+      <label className={styles.commentForm}  htmlFor="content-input">Add A Comment:</label>
+      <textarea className={styles.commentForm}
         required
         type='text'
         name='content'
@@ -24,7 +25,7 @@ const NewComment = (props) => {
         value={form.content}
         onChange={handleChange}
       />
-      <button class="submit-comment-button" type='submit'>SUBMIT</button>
+      <button className={styles.submitCommentButton} type='submit'>SUBMIT</button>
     </form>
   )
 }
