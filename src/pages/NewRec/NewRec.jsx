@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import styles from './NewRec.module.css'
 
 const NewRec = ({ handleAddRec }) => {
   const [form, setForm] = useState({
@@ -36,7 +36,7 @@ const NewRec = ({ handleAddRec }) => {
   }
 
   return ( 
-    <main>
+    <main className={styles.main}>
       <form onSubmit={handleSubmit}>
         <div>{!category && 'Select a category:'}</div>
         <label htmlFor="category-select">Category:</label>
