@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import styles from './EditRec.module.css'
+
 const EditRec = (props) => {
 
   // state = rec, props = handleUpdateRec
@@ -29,7 +31,7 @@ const EditRec = (props) => {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <form onSubmit={handleSubmit}>
         {category && <div>
             <label htmlFor="title-input">Title:</label>
