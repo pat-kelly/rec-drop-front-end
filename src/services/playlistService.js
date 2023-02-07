@@ -15,7 +15,7 @@ const index = async () => {
 
 const create = async (recData) => {
   try {
-    const res = fetch(`${BASE_URL}/create`, {
+    const res = await fetch(`${BASE_URL}/create`, {
       method: 'POST', 
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
