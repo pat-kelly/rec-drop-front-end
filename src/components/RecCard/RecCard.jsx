@@ -1,6 +1,6 @@
 import OwnerDate from "../OwnerDate/OwnerDate";
 import { Link } from "react-router-dom";
-
+import Icon from "../Icon/Icon";
 
 const RecCard = ({rec, user})  => {
   console.log('RECCARD ', rec)
@@ -9,7 +9,7 @@ const RecCard = ({rec, user})  => {
     <>  
       <div class="rec-card">
         <div class="rec-card-content">
-        <h2>(category icon) {rec.title}</h2>
+        <Icon category={rec.category}/>
         <h3>Creator: {rec.creator}</h3>
         {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
         <h3>(Likes)</h3>

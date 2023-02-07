@@ -158,4 +158,5 @@ export {
   deleteComment,
   like,
   addPic,
+  addPhoto,
 }
