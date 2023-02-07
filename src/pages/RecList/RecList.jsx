@@ -18,7 +18,7 @@ const RecList = ({recs, user}) => {
       return ('Movie')
     } else if (filterCategory === "TV Show") {
       return ('TV Show') 
-    } else if (filterCategory === "Books") {
+    } else if (filterCategory === "Book") {
       return ('Book') 
     } else if (filterCategory === "Song") {
       return ('Song')
