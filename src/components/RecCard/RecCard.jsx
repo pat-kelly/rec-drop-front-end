@@ -7,18 +7,24 @@ const RecCard = ({rec, user})  => {
   return ( 
     <>  
       <div className={styles.recCard}>
-        <div className={styles.recCardContent}>
+        <div className={styles.recCardHeader}>
           <h2>{rec.title}</h2>
-          <Icon category={rec.category}/>
-          <h3>Creator: {rec.creator}</h3>
-          {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
-          <h3>(Likes)</h3>
+          <div className={styles.iconContainer}>
+            <Icon category={rec.category}/>
+          </div>
+        </div>
+        <div className={styles.cardSubHeader}>
+          <h4>{rec.creator}</h4>
+          <h4>{rec.likes.length} ♥️</h4>
+        </div>
+        {rec.photo ? <img src={rec.photo} alt={rec.title} style={{maxHeight: '150px'}} /> : <></>}
+        <div className="footer">
           <OwnerDate authorInfo={rec}/>
           {user && 
             <Link to={`/recs/${rec._id}`}>
               <button>More Info</button>
             </Link>
-          }
+            }
         </div>
       </div>
     </>

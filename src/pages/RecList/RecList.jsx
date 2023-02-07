@@ -3,8 +3,8 @@ import styles from './RecList.module.css'
 
 const RecList = ({recs, user}) => {
   return ( 
-    <main>  
-      <h1>Rec List</h1>
+    <main className={styles.main}>  
+      <h1>All Recs</h1>
       <div className={styles.container}>
       {recs.map(rec => (
         <RecCard key={rec._id} rec={rec} user={user}/> 

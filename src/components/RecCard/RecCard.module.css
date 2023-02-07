@@ -1,18 +1,56 @@
 .recCard {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 1;
   border: 1px solid rgb(200, 118, 200);
-  min-height: 200px;
+  min-width: 300px;
+  width: 100%;
   flex-basis: 31%;
-  margin:1%;
+  padding: 8px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.recCardContent {
-  padding-left:10px;
-  padding-right:10px;
-  padding-bottom:10px;
-  margin:0px;
+.recCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.recCardHeader > h2 {
+  margin: 0;
+  font-size: 20px;
+  width: 200px;
+  height: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iconContainer {
+  border: 1px solid #461e9a;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer > img {
+  width: 30x;
+  height: 30px;
+}
+
+.cardSubHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .comment-box {
