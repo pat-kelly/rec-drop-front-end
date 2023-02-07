@@ -20,7 +20,7 @@ const Profile = ({ user, playlists }) => {
 
   return (
     <>
-      <h1>My Profile</h1>
+      <h1 className="myProfile">My Profile</h1>
       <h2>{user.name}</h2>
       {profile
         ? <img src={profile.photo} alt={user.name} style={{width: '300px'}}/>
