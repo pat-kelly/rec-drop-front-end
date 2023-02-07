@@ -1,0 +1,83 @@
+.recCard {
+  border: 1px solid rgb(200, 118, 200);
+  min-width: 300px;
+  width: 100%;
+  flex-basis: 31%;
+  padding: 8px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #07081e;
+  text-decoration: none;
+}
+
+.recCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.recCardHeader > h2 {
+  margin: 0;
+  font-size: 20px;
+  width: 200px;
+  height: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iconContainer {
+  border: 1px solid #461e9a;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer > img {
+  width: 30x;
+  height: 30px;
+}
+
+.cardSubHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.cardSubHeader > h4 {
+  margin: 0;
+}
+
+.recCard > img {
+  max-height: 150px;
+  margin: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-box {
+  margin-left: 10px;
+  height: 75px;
+}
+
+.submit-comment-button {
+  margin-top: 10%;
+  margin-left: 2%;
+  margin-bottom: -100;
+  border: 1px solid;
+}
+
+.add-comment-label {
+margin-bottom: 100px;
+color: black;
+}

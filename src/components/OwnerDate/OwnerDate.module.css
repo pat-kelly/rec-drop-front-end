@@ -1,0 +1,8 @@
+.ownerDateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ownerDateContainer > p {
+  margin: 0;
+}
