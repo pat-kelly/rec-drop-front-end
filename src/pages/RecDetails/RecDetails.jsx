@@ -70,20 +70,22 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   </div>
                 }
               </div>
-              <Likes 
-                user={user} 
-                handleAddLike={handleAddLike} 
-                likes={rec.likes}
-              />
-              <AddToPlaylist 
-                user={user} 
-                rec={rec} 
-                playlistExpand={playlistExpand} 
-                handlePlaylistExpand={handlePlaylistExpand} 
-                playlists={playlists}
-                handleAddToPlaylist={handleAddToPlaylist}
-                handleCreatePlaylist={handleCreatePlaylist}
-              />
+              <div className={styles.buttonContainer}>
+                <Likes 
+                  user={user} 
+                  handleAddLike={handleAddLike} 
+                  likes={rec.likes}
+                />
+                <AddToPlaylist 
+                  user={user} 
+                  rec={rec} 
+                  playlistExpand={playlistExpand} 
+                  handlePlaylistExpand={handlePlaylistExpand} 
+                  playlists={playlists}
+                  handleAddToPlaylist={handleAddToPlaylist}
+                  handleCreatePlaylist={handleCreatePlaylist}
+                />
+              </div>
             </div>
             <NewComment 
               handleAddComment={handleAddComment} 
