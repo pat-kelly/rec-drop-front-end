@@ -2,7 +2,7 @@ import RecCard from "../../components/RecCard/RecCard";
 import styles from './RecList.module.css'
 
 const RecList = ({recs, user}) => {
-  const handleCategorySelect = () => {
+  const handleCategorySelect = ({target}) => {
     if (category === "Movie/TV") {
       return ("(rec.category === 'Movie' || rec.category === 'TV Show')")
     } else if (category === "Books") {
@@ -12,7 +12,7 @@ const RecList = ({recs, user}) => {
     }
   }
 
-  console.log(recCat)
+  // console.log(recCat)
 
   return ( 
     <main className={styles.main}>  
