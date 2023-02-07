@@ -20,6 +20,11 @@ const NewRec = ({ handleAddRec }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddRec(form, photoData.photo)
+    console.log('Event ', e)
+    console.log('form ', form)
+    console.log('photoData ', photoData)
+    console.log('PhotoData.photo ', photoData.photo)
+
   }
 
   const handleChangePhoto = (evt) => {

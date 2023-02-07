@@ -71,6 +71,7 @@ const App = () => {
     const newRec = await recService.create(recData)
     console.log('NEW REC ', newRec)
     const newRecWithPhoto = recService.addPic(newRec, photo)
+    console.l
     setRecs([newRecWithPhoto, ...recs])
     navigate('/recs')
   }
