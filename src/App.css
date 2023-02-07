@@ -66,10 +66,14 @@ nav {
   z-index: 2;
   background: none;
   border: none;
+  width: 40px;
+  height: 40px;
   font-size: 32px;
-  padding: 0 12px;
   margin-right: 16px;
   color: #07081e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav-right > button:hover {
