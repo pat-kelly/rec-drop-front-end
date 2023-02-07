@@ -27,7 +27,7 @@ const Profile = ({ user, playlists }) => {
         ? <img className={styles.profileImage} src={profile.photo} alt={user.name} style={{width: '300px'}}/>
         : <h2 className={styles.loading}>Loading...</h2>}
       
-      <PlaylistList className={styles.playList} playlists={playlists}/>
+      <PlaylistList playlists={playlists}/>
     </>
   )
 }
