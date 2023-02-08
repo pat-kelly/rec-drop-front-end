@@ -51,7 +51,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
       {rec 
         ? <>
             <h2 className={styles.h2}>Title: {rec.title}</h2>
-            <OwnerDate authorInfo={rec}/>
+            <OwnerDate styles={styles} authorInfo={rec}/>
             <h3 className={styles.h3}>Creator: {rec.creator}</h3>
             {rec.year ? <h3 className={styles.h3}>Year: {rec.year}</h3> : <></>}
             {rec.genre ? <h3 className={styles.h3}>Genre: {rec.genre}</h3> : <></>}
