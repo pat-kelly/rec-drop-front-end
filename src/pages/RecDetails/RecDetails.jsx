@@ -90,16 +90,19 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                 />
               </div>
             </div>
-            <NewComment 
-              handleAddComment={handleAddComment} 
-            />
-            <CommentList 
-              recId={id}
-              user={user}
-              comments={rec.comments}
-              handleDeleteComment={handleDeleteComment}
-              recOwner={rec.owner}
-            />
+            <div className={styles.commentContainer}>
+              <h2>Comments</h2>
+              <NewComment 
+                handleAddComment={handleAddComment} 
+              />
+              <CommentList 
+                recId={id}
+                user={user}
+                comments={rec.comments}
+                handleDeleteComment={handleDeleteComment}
+                recOwner={rec.owner}
+              />
+            </div>
           </>
         : <h2 className={styles.h2}>Loading...</h2>
       }
