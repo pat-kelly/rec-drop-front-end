@@ -10,8 +10,6 @@ import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
 import Icon from "../../components/Icon/Icon";
 import styles from "./RecDetails.module.css"
 
-
-import styles from './RecDetails.module.css'
 import * as recService from '../../services/recService'
 
 const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist }) => {
