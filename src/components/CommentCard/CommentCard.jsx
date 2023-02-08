@@ -1,8 +1,6 @@
 import OwnerDate from "../OwnerDate/OwnerDate";
 
 const CommentCard = (props) => {
-  // console.log(props.comment.owner)
-  console.log(props);
   const { recOwner } = props
   return ( 
     <>  
