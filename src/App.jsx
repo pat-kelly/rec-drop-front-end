@@ -69,9 +69,10 @@ const App = () => {
     navigate('/recs')
   }
 
-  const handleUpdateRec = async (recData) => {
+  const handleUpdateRec = async (recData, photo) => {
     const updatedRec = await recService.update(recData)
-    setRecs(recs.map((r) => recData._id === r._id ? updatedRec : r))
+    const updatedRecWithPhoto = await recService.addPic(updatedRec, photo)
+    setRecs(recs.map((r) => recData._id === r._id ? updatedRecWithPhoto : r))
     navigate(`/recs/${recData._id}`)
   }
 
