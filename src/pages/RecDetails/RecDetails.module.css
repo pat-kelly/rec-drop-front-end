@@ -48,6 +48,11 @@
   gap: 32px;
 }
 
+.contentRight > div > * {
+  margin: 0;
+  text-align: right;
+}
+
 .contentRight > img {
   max-width: 50px;
   height: 50px;
@@ -58,15 +63,25 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  margin-top: 16px;
 }
 
-.description {
-  width: 60%;
+.wPhoto {
+  width: 50%;
   margin: 0;
 }
 
-.recImage {
-  width: 40%;
+.woPhoto {
+  width: 100%;
+  margin: 0;
+}
+
+.wDescription {
+  width: 50%;
+}
+
+.woDescription {
+  width: 100%;
 }
 
 .contentFooter {
@@ -124,4 +139,67 @@
   display: flex;
   flex-direction: column;
   margin: 48px 32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contentMid {
+    flex-direction: column;
+  }
+
+  .wDescription {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .buttonContainer > * > img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contentRight > img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .pageTop {
+    width: 97%;
+  }
+
+  .contentLeft > h2 {
+    font-size: 20px;
+  }
+
+  .contentLeft > h3 {
+    font-size: 16px;
+  }
+
+  .contentLeft > h4 {
+    font-size: 14px;
+  }
+
+  .contentLeft > * {
+    margin-bottom: 4px;
+  }
+
+  .contentLeft > :nth-child(2) {
+    margin-bottom: 8px;
+  }
+
+  .contentRight > div > * {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .buttonContainer > * > img {
+    width: 30px;
+    height: 30px;
+  }
+  .contentRight > img {
+    width: 30px;
+    height: 30px;
+  }
 }
