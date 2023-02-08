@@ -107,15 +107,15 @@
 
 .buttonContainer > :nth-child(2) > img:active {
   transform: rotate(90)
+}
 
-*/
-.h1, .h2, .h3, .button, .img {
+/* .h1, .h2, .h3, .button, .img {
     color: #451d9a ;
     display: block;
     text-align: center;
     margin-left: auto;
-}
-*/
+} */
+
 
 .submitCommentButton {
     border: 5em;
