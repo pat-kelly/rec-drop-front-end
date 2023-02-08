@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import styles from './EditRec.module.css'
+
 const EditRec = (props) => {
 
   // state = rec, props = handleUpdateRec
@@ -9,8 +11,6 @@ const EditRec = (props) => {
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
 
-  console.log('STATE ', state)
-  console.log('STATE CATEGORY ', state.category)
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
   }
@@ -31,7 +31,7 @@ const EditRec = (props) => {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <form onSubmit={handleSubmit}>
         {category && <div>
             <label htmlFor="title-input">Title:</label>

@@ -13,7 +13,7 @@ const Icon = ({ category }) => {
     "TV Show": Tv,
   }
 
-  return <img style={{width: '30px'}} className="icon" src={icons[category]} alt={`A ${category} icon`} />
+  return <img className="icon" src={icons[category]} alt={`A ${category} icon`} />
 }
 
 export default Icon
