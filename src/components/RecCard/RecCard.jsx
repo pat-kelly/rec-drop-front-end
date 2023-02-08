@@ -1,24 +1,60 @@
 import OwnerDate from "../OwnerDate/OwnerDate";
 import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
+import styles from './RecCard.module.css'
 
-const RecCard = ({rec, user})  => {
+const RecCard = ({rec, user})  => {  
   return ( 
-    <>  
-      <div class="rec-card">
-        <div class="rec-card-content">
-        <Icon category={rec.category}/>
-        <h3>Creator: {rec.creator}</h3>
-        {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
-        <h3>(Likes)</h3>
-        <OwnerDate authorInfo={rec}/>
-        {user && 
-          <Link to={`/recs/${rec._id}`}>
-            <button>More Info</button>
-          </Link>
-        }
+    <>
+      {user && rec.show ? 
+        <Link className={`${styles.recCard} ${styles.link}`} to={`/recs/${rec._id}`}>
+          <div className={styles.cardTop}>
+            <div className={styles.recCardHeader}>
+              <h2>{rec.title}</h2>
+              <div className={styles.iconContainer}>
+                <Icon category={rec.category}/>
+              </div>
+            </div>
+            <div className={styles.cardSubHeader}>
+              <h4>{rec.creator}</h4>
+              <div className={styles.subRight}>
+                <h4>{rec.comments.length}</h4>
+                <Icon category='CommentEmoji' />
+                <h4>{rec.likes.length}</h4>
+                <Icon category='LikeEmoji' />
+              </div>
+            </div>
+          </div>
+          <div className="footer">
+            <OwnerDate authorInfo={rec}/>
+          </div>
+        </Link>
+        :
+        <div className={`${styles.recCard} ${user ? `${styles.deleted}` : ''}`}>
+          <div className={styles.cardTop}>
+            <div className={styles.recCardHeader}>
+              <h2>{rec.title}</h2>
+              <div className={styles.iconContainer}>
+                <Icon category={rec.category}/>
+              </div>
+            </div>
+            <div className={styles.cardSubHeader}>
+              <h4>{rec.creator}</h4>
+              {rec.show && 
+                <div className={styles.subRight}>
+                  <h4>{rec.comments.length}</h4>
+                  <Icon category='CommentEmoji' />
+                  <h4>{rec.likes.length}</h4>
+                  <Icon category='LikeEmoji' />
+                </div>
+              }
+            </div>
+          </div>
+          <div className="footer">
+            <OwnerDate authorInfo={rec}/>
+          </div>
         </div>
-      </div>
+      }
     </>
   )
 }

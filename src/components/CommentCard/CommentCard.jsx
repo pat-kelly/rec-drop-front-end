@@ -2,8 +2,6 @@ import OwnerDate from "../OwnerDate/OwnerDate";
 import styles from "./CommentCard.module.css"
 
 const CommentCard = (props) => {
-  // console.log(props.comment.owner)
-  console.log(props);
   const { recOwner } = props
   return ( 
     <>  

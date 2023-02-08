@@ -1,31 +1,25 @@
-import { useState, useEffect } from "react"
 import NewPlaylist from "../NewPlaylist/NewPlaylist"
 import AddForm from "./AddForm";
+import Icon from "../Icon/Icon";
 
 const AddToPlaylist = (props) => {
   const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists } = props
 
-  const [filteredPlaylists, setFilteredPlaylists] = useState([])
+  // console.log('addToPlaylist', playlists)
 
-  useEffect(() => {
-    setFilteredPlaylists(
-      playlists.filter(playlist => {
-        if (playlist) {
-          return !playlist?.recs.includes(rec._id)
-        } else {
-          return playlist
-        }
-      })
-    )
-  }, [playlists, rec._id])
+  const filteredPlaylist = playlists.filter((p)=>(
+    !p.recs.includes(rec._id)
+  ))
 
   return ( 
     <>
-      <button onClick={handlePlaylistExpand}>
-        {playlistExpand ? 'x' : '+'}
-      </button>
+      <div onClick={handlePlaylistExpand}>
+        <Icon 
+          category={playlistExpand ? 'Delete' : 'Add'} 
+        />
+      </div>
       {playlistExpand && 
-        filteredPlaylists.map(playlist => (
+        filteredPlaylist.map(playlist => (
           <AddForm 
             key={playlist._id}
             playlist={playlist}

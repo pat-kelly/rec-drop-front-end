@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import styles from './EditRec.module.css'
+
 const EditRec = (props) => {
 
   // state = rec, props = handleUpdateRec
@@ -8,16 +10,19 @@ const EditRec = (props) => {
   const {state} = useLocation()
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
+  const [photoData, setPhotoData] = useState(state)
 
-  console.log('STATE ', state)
-  console.log('STATE CATEGORY ', state.category)
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleUpdateRec(form)
+    props.handleUpdateRec(form, photoData.photo)
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
   }
 
   const displayCreatorLabel = () => {
@@ -31,7 +36,7 @@ const EditRec = (props) => {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <form onSubmit={handleSubmit}>
         {category && <div>
             <label htmlFor="title-input">Title:</label>
@@ -70,6 +75,15 @@ const EditRec = (props) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+            />
+            <label htmlFor="photo-upload">
+              Add/Change Photo
+            </label>
+            <input
+              type="file"
+              id="photo-upload"
+              name="photo"
+              onChange={handleChangePhoto}
             />
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 

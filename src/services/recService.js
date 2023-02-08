@@ -27,7 +27,7 @@ const show = async (id) => {
 
 const create = async (recData) => {
   try {
-    const res = fetch(BASE_URL, {
+    const res = await fetch(BASE_URL, {
       method: 'POST', 
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -36,9 +36,31 @@ const create = async (recData) => {
       body: JSON.stringify(recData)
     })
     return res.json()
-  } catch (error) {
-    console.log(error)
+    } catch (err) {
+    throw err
   }
+}
+
+const addPic = async (recData, photo) => {
+  if (photo) {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await addPhoto(
+      photoData,
+      recData._id
+    )
+  }
+}
+
+async function addPhoto(photoData, id) {
+  const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: photoData
+  })
+  return await res.json()
 }
 
 const update = async (recData) => {
@@ -118,4 +140,6 @@ export {
   createComment, 
   deleteComment,
   like,
+  addPic,
+  addPhoto,
 }
