@@ -53,14 +53,20 @@
   height: 50px;
 }
 
+.contentMid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .description {
   width: 60%;
   margin: 0;
 }
 
 .recImage {
-  width: 30%;
-  margin-left: 10%;
+  width: 40%;
 }
 
 .contentFooter {
