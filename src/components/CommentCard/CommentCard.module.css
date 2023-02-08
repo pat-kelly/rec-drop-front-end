@@ -1,9 +1,15 @@
 .commentContainer {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+	gap: 8px;
+	background-color: white;
+	border: 1px solid hsla(254, 35%, 43%, 0.272);
+  box-shadow: 0px 3px 10px #451d9a23;
+	border-radius: 4px;
+	padding: 16px 0;
 }
 
 .commentTop {
@@ -35,4 +41,5 @@
 .commentBottom {
 	width: 85%;
 	font-weight: normal;
+	margin: 0;
 }
