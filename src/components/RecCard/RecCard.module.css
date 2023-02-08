@@ -16,8 +16,13 @@
   text-decoration: none;
 }
 
-.recCard:hover .recCardHeader {
+.link:hover .recCardHeader {
   text-decoration: underline;
+}
+
+.deleted {
+  color: grey;
+  text-decoration: line-through;
 }
 
 .cardTop {

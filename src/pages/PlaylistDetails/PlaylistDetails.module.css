@@ -7,10 +7,26 @@
   align-items: center;
 }
 
-.main > h1 {
-  padding: 16px 0 8px 0;
-  width: 90%;
-  max-width: 1250px;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%; 
+  max-width: 1500px;
+}
+
+.header > div > img {
+  height: 50px;
+}
+
+.header > div > img:hover {
+  cursor: pointer;
+  background-color: #cecece;
+  border-radius: 50%;
+}
+
+.header > div > img:active {
+  transform: scale(0.92);
 }
 
 .container {
@@ -20,7 +36,7 @@
   justify-items: center;
   gap: 16px; 
   width: 90%;
-  max-width: 1250px;
+  max-width: 1500px;
   grid-template-columns: repeat(4, 1fr);
 }
 
