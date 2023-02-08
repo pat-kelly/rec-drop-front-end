@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   width: 60%;
   max-width: 800px;
-  height: 200px;
+  height: 300px;
   padding: 32px 32px;
   margin-left: auto;
   margin-right: auto;
@@ -34,5 +34,7 @@
   -webkit-transition: box-shadow 0.25s;
   transition: box-shadow 0.25s;
   color: white;
-  width: 170px;
+  width: 120px;
+  margin-left: 20%;
+  margin-top: 1%;
 }
