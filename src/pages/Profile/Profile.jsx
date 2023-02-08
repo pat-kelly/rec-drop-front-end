@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 
+import NarwhalProfile from '../../assets/narwhal-profile.jpg'
 import PlaylistList from '../../components/PlaylistList/PlaylistList'
 import { login } from '../../services/authService'
 import styles from './Profile.module.css'
@@ -26,10 +27,12 @@ const Profile = ({ user, playlists, handlePageChange }) => {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.myProfile}>My Profile</h1>
-      <h2 className={styles.userName}>{user.name}</h2>
       {profile
-        ? <img className={styles.profileImage} src={profile.photo} alt={user.name} style={{width: '300px'}}/>
+        ? 
+        <div className={styles.profileInfo}>
+          <h1 className={styles.userName}>{profile.name}</h1>
+          <img className={styles.profileImage} src={`${!profile.photo && NarwhalProfile}`} alt={user.name}/>
+        </div>
         : <h2 className={styles.loading}>Loading...</h2>}
       
       <PlaylistList playlists={playlists}/>
