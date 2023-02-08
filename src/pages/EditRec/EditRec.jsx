@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -5,17 +6,31 @@ import styles from './EditRec.module.css'
 
 const EditRec = (props) => {
 
-  // state = rec, props = handleUpdateRec
+  // state = rec, props = handleUpdateRec, handlePageChange 
 
   const {state} = useLocation()
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
   const [photoData, setPhotoData] = useState(state)
+  const [photoChanged, setPhotoChanged] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
     props.handlePageChange()
   }, [])
+
+  // allows file input to be hidden, and triggered by styled button click
+  const hiddenFileInput = React.useRef(null)
+
+  const handleClick = evt => {
+    hiddenFileInput.current.click()
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
+    setPhotoChanged(true)
+  }
+
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -26,9 +41,6 @@ const EditRec = (props) => {
     props.handleUpdateRec(form, photoData.photo)
   }
 
-  const handleChangePhoto = (evt) => {
-    setPhotoData({ photo: evt.target.files[0] })
-  }
 
   const displayCreatorLabel = () => {
     if (category === 'Movie' || category === 'TV Show') {
@@ -42,8 +54,8 @@ const EditRec = (props) => {
 
   return (
     <main className={styles.main}>
-      <form onSubmit={handleSubmit}>
-        {category && <div>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        {category && <div className={styles.formDiv}>
             <label htmlFor="title-input">Title:</label>
             <input 
               required
@@ -88,12 +100,29 @@ const EditRec = (props) => {
             <label htmlFor="photo-upload">
               Add/Change Photo
             </label>
-            <input
-              type="file"
-              id="photo-upload"
-              name="photo"
-              onChange={handleChangePhoto}
-            />
+            <div>
+              <div className={styles.upload}>
+                <button 
+                  className={styles.button} 
+                  onClick={handleClick}
+                  form=""
+                >
+                  Choose File
+                </button>
+                {photoChanged && 
+                  <p className={styles.uploadText}>
+                     image uploaded
+                  </p>}
+              </div>
+              <input
+                type="file"
+                id="photo-upload"
+                name="photo"
+                ref={hiddenFileInput}
+                onChange={handleChangePhoto}
+                className={styles.fileUpload}
+              />
+            </div>
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
               type='text'
@@ -104,7 +133,9 @@ const EditRec = (props) => {
               onChange={handleChange}
               autoComplete='off'
             />
-            <button type='submit'>SUBMIT</button>
+            <button type='submit' className={styles.button}>
+              SUBMIT
+            </button>
           </div>
         }
       </form>
