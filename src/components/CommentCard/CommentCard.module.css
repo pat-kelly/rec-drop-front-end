@@ -1,8 +1,38 @@
+.commentContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
 
-.commentForm {
-    color: #451d9a ;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+.commentTop {
+	width: 90%;
+	display: flex;
+	gap: 32px;
+	font-weight: bold;
+}
+
+.commentTop > div > * {
+	margin: 0 0 4px 0;
+}
+
+.commentTop > div > img {
+	width: 30px;
+	margin-top: 4px;
+}
+
+.commentTop > div > img:hover {
+	cursor: pointer;
+	background-color: #cecece;
+  border-radius: 50%;
+}
+
+.commentTop > div > img:active {
+	transform: scale(0.92);
+}
+
+.commentBottom {
+	width: 85%;
+	font-weight: normal;
 }
