@@ -143,15 +143,23 @@ const App = () => {
         />
         <Route 
           path='/logout' 
-          element={<Logout />} 
+          element={<Logout 
+              handlePageChange={handlePageChange}
+            />} 
         />
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Signup 
+              handleSignupOrLogin={handleSignupOrLogin} 
+              handlePageChange={handlePageChange}
+            />}
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Login 
+              handleSignupOrLogin={handleSignupOrLogin} 
+              handlePageChange={handlePageChange}
+            />}
         />
         <Route
           path='/profile/:id'
