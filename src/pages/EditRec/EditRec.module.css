@@ -12,6 +12,16 @@
 .form {
   display: flex;
   justify-content: center;
+  padding: 36px 0;
+}
+
+.upload {
+  display: flex;
+}
+
+.uploadText {
+  font-size: 14px;
+  margin: 5px 5px;
 }
 
 .button {
@@ -27,5 +37,5 @@
 }
 
 .fileUpload {
-  display: none;
+  visibility: hidden;
 }

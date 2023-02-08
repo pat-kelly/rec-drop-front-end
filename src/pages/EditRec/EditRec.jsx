@@ -12,6 +12,7 @@ const EditRec = (props) => {
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
   const [photoData, setPhotoData] = useState(state)
+  const [photoChanged, setPhotoChanged] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -23,25 +24,21 @@ const EditRec = (props) => {
 
   const handleClick = evt => {
     hiddenFileInput.current.click()
-    console.log('input clicked!')
   }
 
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
-    console.log('photoData ', photoData)
+    setPhotoChanged(true)
   }
 
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
-    console.log('handleChange form ', form)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleUpdateRec(form, photoData.photo)
-    console.log('form ', form)
-    console.log('photoData.photo ', photoData.photo)
   }
 
 
@@ -104,12 +101,19 @@ const EditRec = (props) => {
               Add/Change Photo
             </label>
             <div>
-              <button 
-                className={styles.button} 
-                onClick={handleClick}
-              >
-                Choose File
-              </button>
+              <div className={styles.upload}>
+                <button 
+                  className={styles.button} 
+                  onClick={handleClick}
+                  form=""
+                >
+                  Choose File
+                </button>
+                {photoChanged && 
+                  <p className={styles.uploadText}>
+                     image uploaded
+                  </p>}
+              </div>
               <input
                 type="file"
                 id="photo-upload"
