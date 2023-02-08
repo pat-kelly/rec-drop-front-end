@@ -1,3 +1,5 @@
+import styles from './NewPlaylist.module.css'
+
 import { useState } from "react"
 
 const NewPlaylist = (props) => {
@@ -23,7 +25,7 @@ const NewPlaylist = (props) => {
 
   return ( 
     <>
-      <button onClick={handleAddClick}>
+      <button onClick={handleAddClick} className={styles.button}>
         {addingPlaylist ? 
           '-'
           : '+ New'

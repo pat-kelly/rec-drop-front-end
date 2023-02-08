@@ -1,3 +1,5 @@
+import styles from './Add.module.css'
+
 const AddForm = (props) => {
   const { playlist, rec, handlePlaylistExpand, handleAddToPlaylist } = props
 
@@ -16,7 +18,7 @@ const AddForm = (props) => {
     <>
       <div>{playlist.title}</div>
       <form onSubmit={handleSubmit}>
-        <button>+</button>
+        <button className={styles.button}>+</button>
       </form>
     </>
   )
