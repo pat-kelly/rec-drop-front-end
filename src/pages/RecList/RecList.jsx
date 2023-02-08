@@ -41,7 +41,7 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
     <main className={styles.main}>  
       <div className={styles.header}>
         <h1>Dropped Recs</h1>
-          <input onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
+          <input className={styles.searchBar} onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
         <select name="category" 
           onChange={handleCategorySelect}
         >
