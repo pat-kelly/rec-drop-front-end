@@ -31,7 +31,7 @@ const Profile = ({ user, playlists, handlePageChange }) => {
         ? 
         <div className={styles.profileInfo}>
           <h1 className={styles.userName}>{profile.name}</h1>
-          <img className={styles.profileImage} src={`${!profile.photo && NarwhalProfile}`} alt={user.name}/>
+          <img className={styles.profileImage} src={`${profile.photo ? profile.photo : NarwhalProfile}`} alt={profile.name}/>
         </div>
         : <h2 className={styles.loading}>Loading...</h2>}
       
