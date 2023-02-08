@@ -99,7 +99,7 @@ const NewRec = ({ handleAddRec }) => {
               placeholder='Comment'
               onChange={handleChange}
             />
-            <button type='submit'>SUBMIT</button>
+            <button className={styles.submitNewRecButton} type='submit'>SUBMIT</button>
           </div>
         }
       </form>
