@@ -53,6 +53,7 @@ const EditRec = (props) => {
               value={form.title}
               placeholder={`${category} Title`}
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="creator-input">{displayCreatorLabel()}:</label>
             <input 
@@ -62,6 +63,7 @@ const EditRec = (props) => {
               value={form.creator}
               placeholder={displayCreatorLabel()}
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="year-input">Year:</label>
             <input 
@@ -71,6 +73,7 @@ const EditRec = (props) => {
               value={form.year}
               placeholder='Year'
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="genre-input">Genre:</label>
             <input 
@@ -80,6 +83,7 @@ const EditRec = (props) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="photo-upload">
               Add/Change Photo
@@ -98,6 +102,7 @@ const EditRec = (props) => {
               value={form.description}
               placeholder='Comment'
               onChange={handleChange}
+              autoComplete='off'
             />
             <button type='submit'>SUBMIT</button>
           </div>
