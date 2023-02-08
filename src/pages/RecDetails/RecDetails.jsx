@@ -66,8 +66,10 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   <Icon category={rec.category} />
                   <OwnerDate authorInfo={rec}/>
                 </div>
-                {rec.description && <h3 className={styles.description}>{rec.description}</h3>}
-                {rec.photo && <img src={rec.photo} alt=""  className={styles.recImage}/>}
+                <div className={styles.contentMid}>
+                  {rec.description && <p className={`${rec.photo ? `${styles.wPhoto}` : `${styles.woPhoto}`}`}>{rec.description}</p>}
+                  {rec.photo && <img src={rec.photo} alt=""  className={`${rec.description ? `${styles.wDescription}` : `${styles.woDescription}`}`}/>}
+                </div>
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>
