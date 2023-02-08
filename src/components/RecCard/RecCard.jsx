@@ -30,7 +30,7 @@ const RecCard = ({rec, user})  => {
           </div>
         </Link>
         :
-        <div className={`${styles.recCard} ${styles.deleted}`}>
+        <div className={`${styles.recCard} ${user ? `${styles.deleted}` : ''}`}>
           <div className={styles.cardTop}>
             <div className={styles.recCardHeader}>
               <h2>{rec.title}</h2>
