@@ -40,8 +40,9 @@ const NewPlaylist = (props) => {
             value={form.title}
             placeholder='Title'
             onChange={handleChange}
+            className={styles.input}
           />
-          <button type="submit">Add Playlist</button>
+          <button type="submit" className={styles.button}>Add Playlist</button>
         </form>
       }
     </>
