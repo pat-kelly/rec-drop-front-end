@@ -6,6 +6,7 @@ import styles from './RecList.module.css'
 
 const RecList = ({recs, user}) => {
   const [filterCategory, setFilterCategory] = useState('')
+  const [searchTerms, setSearchTerms] = useState('')
 
   const handleCategorySelect = ({ target }) => {
     setFilterCategory(target.value)
@@ -27,10 +28,23 @@ const RecList = ({recs, user}) => {
     }
   }
 
+  const handleSearch = (e) =>{
+    e.preventDefault();
+    
+  }
+
+  const updateSearchTerms  = ({ target })=>{
+    console.log(target.value)
+  }
+
   return ( 
     <main className={styles.main}>  
       <div className={styles.header}>
         <h1>Dropped Recs</h1>
+        <form onSubmit={handleSearch}>
+          <input onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
+          <button type="submit">🔍️</button>
+        </form>
         <select name="category" 
           onChange={handleCategorySelect}
         >
