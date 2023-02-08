@@ -61,8 +61,8 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   <Icon category={rec.category} />
                   <OwnerDate authorInfo={rec}/>
                 </div>
-                {rec.photo && <img src={rec.photo} alt="" style={{width: '300px'}} />}
                 {rec.description && <h3 className={styles.description}>{rec.description}</h3>}
+                {rec.photo && <img src={rec.photo} alt=""  className={styles.recImage}/>}
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>
@@ -90,16 +90,19 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                 />
               </div>
             </div>
-            <NewComment 
-              handleAddComment={handleAddComment} 
-            />
-            <CommentList 
-              recId={id}
-              user={user}
-              comments={rec.comments}
-              handleDeleteComment={handleDeleteComment}
-              recOwner={rec.owner}
-            />
+            <div className={styles.commentContainer}>
+              <h2>Comments</h2>
+              <NewComment 
+                handleAddComment={handleAddComment} 
+              />
+              <CommentList 
+                recId={id}
+                user={user}
+                comments={rec.comments}
+                handleDeleteComment={handleDeleteComment}
+                recOwner={rec.owner}
+              />
+            </div>
           </>
         : <h2 className={styles.h2}>Loading...</h2>
       }

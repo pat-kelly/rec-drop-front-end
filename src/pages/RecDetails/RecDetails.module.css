@@ -6,6 +6,7 @@
   width: 100%;
   min-height: 100vh;
   margin-top: 72px;
+  padding-bottom: 150px;
 }
 
 .pageTop {
@@ -52,12 +53,14 @@
   height: 50px;
 }
 
-.content > img {
-  width: 30%;
+.description {
+  width: 60%;
+  margin: 0;
 }
 
-.description {
-  width: 70%;
+.recImage {
+  width: 30%;
+  margin-left: 10%;
 }
 
 .contentFooter {
@@ -109,46 +112,10 @@
   transform: rotate(90)
 }
 
-/* .h1, .h2, .h3, .button, .img {
-    color: #451d9a ;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-} */
-
-
-.submitCommentButton {
-    border: 5em;
-    cursor: pointer;
-    outline: none;
-    font-size: 16px;
-    -webkit-transform: translate(0);
-    transform: translate(0);
-    background-image: linear-gradient(45deg, #4568dc, #b06ab3);
-    padding: 0.7em 2em;
-    border-radius: 1px;
-    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
-    -webkit-transition: box-shadow 0.25s;
-    transition: box-shadow 0.25s;
-    color: white;
-}
-
-.commentForm {
-    color: #451d9a ;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.test{
-    color: green;
-}
-
-.ownerDate {
-    color: #451d9a ;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+.commentContainer {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin: 48px 32px;
 }
