@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import RecCard from "../../components/RecCard/RecCard";
 import styles from './RecList.module.css'
 
 
-const RecList = ({recs, user}) => {
+const RecList = ({recs, user, handleSearchTerms}) => {
   const [filterCategory, setFilterCategory] = useState('')
 
   const handleCategorySelect = ({ target }) => {
@@ -27,10 +27,16 @@ const RecList = ({recs, user}) => {
     }
   }
 
+  const updateSearchTerms  = ({ target })=>{
+    console.log(target.value);
+    handleSearchTerms(target.value)
+  }
+
   return ( 
     <main className={styles.main}>  
       <div className={styles.header}>
         <h1>Dropped Recs</h1>
+          <input onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
         <select name="category" 
           onChange={handleCategorySelect}
         >

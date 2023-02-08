@@ -62,6 +62,14 @@ const App = () => {
     fetchUserPlaylists()
   }, [])
 
+  const handleSearchTerms = async (terms) =>{
+    const searchTerms = terms.toLowerCase();
+    const data = await recService.index();
+    setRecs(data.filter(rec =>(
+      rec.title.toLowerCase().includes(searchTerms)
+    )))
+  }
+
   const handleAddRec = async (recData, photo) => {
     const newRec = await recService.create(recData)
     const newRecWithPhoto = await recService.addPic(newRec, photo)
@@ -166,7 +174,7 @@ const App = () => {
         />
         <Route
           path='/recs'
-          element={<RecList recs={recs} user={user}/>}
+          element={<RecList recs={recs} user={user} handleSearchTerms={handleSearchTerms}/>}
         />
         <Route
           path='/recs/:id'
