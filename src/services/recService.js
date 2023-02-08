@@ -26,7 +26,6 @@ const show = async (id) => {
 }
 
 const create = async (recData) => {
-  console.log('CREATE REC DATA ', recData)
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST', 

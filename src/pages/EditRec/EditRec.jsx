@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import styles from './EditRec.module.css'
@@ -10,6 +10,12 @@ const EditRec = (props) => {
   const {state} = useLocation()
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
+  const [photoData, setPhotoData] = useState(state)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    props.handlePageChange()
+  }, [])
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -17,7 +23,11 @@ const EditRec = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleUpdateRec(form)
+    props.handleUpdateRec(form, photoData.photo)
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
   }
 
   const displayCreatorLabel = () => {
@@ -70,6 +80,15 @@ const EditRec = (props) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+            />
+            <label htmlFor="photo-upload">
+              Add/Change Photo
+            </label>
+            <input
+              type="file"
+              id="photo-upload"
+              name="photo"
+              onChange={handleChangePhoto}
             />
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
