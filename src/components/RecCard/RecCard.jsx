@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import styles from './RecCard.module.css'
 
-const RecCard = ({rec, user})  => {
-  // console.log('RECCARD ', rec)
-  
+const RecCard = ({rec, user})  => {  
   return ( 
     <>
       {user ? 
@@ -19,10 +17,14 @@ const RecCard = ({rec, user})  => {
             </div>
             <div className={styles.cardSubHeader}>
               <h4>{rec.creator}</h4>
-              <h4>{rec.likes.length} ♥️</h4>
+              <div className={styles.subRight}>
+                <h4>{rec.comments.length}</h4>
+                <Icon category='CommentEmoji' />
+                <h4>{rec.likes.length}</h4>
+                <Icon category='LikeEmoji' />
+              </div>
             </div>
           </div>
-          {rec.photo ? <img src={rec.photo} alt={rec.title} style={{maxHeight: '150px'}} /> : <></>}
           <div className="footer">
             <OwnerDate authorInfo={rec}/>
           </div>
@@ -38,10 +40,14 @@ const RecCard = ({rec, user})  => {
             </div>
             <div className={styles.cardSubHeader}>
               <h4>{rec.creator}</h4>
-              <h4>{rec.likes.length} ♥️</h4>
+              <div className={styles.subRight}>
+                <h4>{rec.comments.length}</h4>
+                <Icon category='CommentEmoji' />
+                <h4>{rec.likes.length}</h4>
+                <Icon category='LikeEmoji' />
+              </div>
             </div>
           </div>
-          {rec.photo ? <img src={rec.photo} alt={rec.title} style={{maxHeight: '150px'}} /> : <></>}
           <div className="footer">
             <OwnerDate authorInfo={rec}/>
           </div>

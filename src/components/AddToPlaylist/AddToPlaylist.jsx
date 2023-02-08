@@ -1,5 +1,6 @@
 import NewPlaylist from "../NewPlaylist/NewPlaylist"
 import AddForm from "./AddForm";
+import Icon from "../Icon/Icon";
 
 const AddToPlaylist = (props) => {
   const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists } = props
@@ -12,9 +13,11 @@ const AddToPlaylist = (props) => {
 
   return ( 
     <>
-      <button onClick={handlePlaylistExpand}>
-        {playlistExpand ? 'x' : '+'}
-      </button>
+      <div onClick={handlePlaylistExpand}>
+        <Icon 
+          category={playlistExpand ? 'Delete' : 'Add'} 
+        />
+      </div>
       {playlistExpand && 
         filteredPlaylist.map(playlist => (
           <AddForm 
