@@ -6,9 +6,14 @@ import Icon from '../../components/Icon/Icon';
 import styles from './PlaylistDetails.module.css'
 import * as playlistService from '../../services/playlistService'
 
-const PlaylistDetails = ({ user, handleDeletePlaylist }) => {
+const PlaylistDetails = ({ user, handleDeletePlaylist, handlePageChange }) => {
   const {id} = useParams()
   const [playlist, setPlaylist] = useState(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
 
   useEffect(() => {
     const fetchPlaylist = async () => {
