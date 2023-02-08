@@ -67,19 +67,19 @@
   gap: 16px;
 }
 
-.contentFooter > img, 
+.contentFooter > div > img, 
 .contentFooter > a > img {
   height: 50px;
 }
 
-.contentFooter > img:hover, 
+.contentFooter > div > img:hover, 
 .contentFooter > a > img:hover {
   cursor: pointer;
   background-color: #cecece;
   border-radius: 50%;
 }
 
-.contentFooter > img:active, 
+.contentFooter > div > img:active, 
 .contentFooter > a > img:active {
   transform: scale(0.92);
 }
