@@ -1,13 +1,3 @@
-.myProfile {
-display: flex;
-justify-content: center;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
-color: purple;
-align-items: center;
-
-}
 
 
 .profileImage {
@@ -27,10 +17,9 @@ align-items: center;
 }
 
 .loading {
-  
+    color: #451d9a ;
+    display: block;
+    text-align: center;
+    margin-left: auto;
 
-}
-
-.p {
-    color: pruple;
 }

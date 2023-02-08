@@ -7,6 +7,7 @@ import Likes from "../../components/Likes/Likes";
 import NewComment from "../../components/NewComment/NewComment";
 import OwnerDate from "../../components/OwnerDate/OwnerDate";
 import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
+import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
@@ -44,21 +45,21 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
 
   return ( 
     <>  
-      <h1>Rec Details</h1>
+      <h1 className={styles.h1}>Rec Details</h1>
       {rec 
         ? <>
-            <h2>Title: {rec.title}</h2>
-            <OwnerDate authorInfo={rec}/>
-            <h3>Creator: {rec.creator}</h3>
-            {rec.year ? <h3>Year: {rec.year}</h3> : <></>}
-            {rec.genre ? <h3>Genre: {rec.genre}</h3> : <></>}
-            {rec.description ? <h3>Description: {rec.description}</h3> : <></>}
-            {rec.photo ? <img src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
+            <h2 className={styles.h2}>Title: {rec.title}</h2>
+            <OwnerDate styles={styles} authorInfo={rec}/>
+            <h3 className={styles.h3}>Creator: {rec.creator}</h3>
+            {rec.year ? <h3 className={styles.h3}>Year: {rec.year}</h3> : <></>}
+            {rec.genre ? <h3 className={styles.h3}>Genre: {rec.genre}</h3> : <></>}
+            {rec.description ? <h3 className={styles.h3}>Description: {rec.description}</h3> : <></>}
+            {rec.photo ? <img className={styles.img}src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
             {rec.owner._id === user.profile &&
               <>
                 <Link to={`/recs/${id}/edit`} state={rec}>
-                  <button>Edit</button></Link>
-                <button onClick={() => handleDeleteRec(id)}>
+                  <button className={styles.button}>Edit</button></Link>
+                <button className={styles.button} onClick={() => handleDeleteRec(id)}>
                   Delete
                 </button>
               </>
@@ -88,7 +89,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
               handleCreatePlaylist={handleCreatePlaylist}
             />
           </>
-        : <h2>Loading...</h2>
+        : <h2 className={styles.h2}>Loading...</h2>
       }
     </>
   );
