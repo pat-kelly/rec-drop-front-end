@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import Icon from '../Icon/Icon'
 import styles from "./Likes.module.css"
+
 
 const Likes = (props) => {
   const [alreadyLiked, setAlreadyLiked] = useState((
@@ -12,11 +14,11 @@ const Likes = (props) => {
   }
 
   return ( 
-    <>  
-      <button className={styles.likeButton} onClick={handleClick}>
-        {alreadyLiked ? 'Unlike' : 'Like'}
-      </button>
-    </>
+    <div onClick={handleClick}>
+      <Icon 
+        category={alreadyLiked ? 'Unlike' : 'Like'} 
+      />
+    </div>
   );
 }
 

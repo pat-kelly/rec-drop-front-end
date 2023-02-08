@@ -7,9 +7,27 @@
   align-items: center;
 }
 
-.main > h1 {
+/* .main > h1 {
   padding: 16px 0 8px 0;
   width: 90%;
+} */
+
+.header {
+  width: 90%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > select {
+  height: 30px;
+  font-size: 16px;
+  font-family: 'Manrope';
+  border: 1px solid hsla(254, 35%, 43%, 0.408);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px #451d9a46;
+  color: #07081e;
 }
 
 .container {
@@ -19,7 +37,7 @@
   justify-items: center;
   gap: 16px;
   width: 90%; 
-  max-width: 1250px;
+  max-width: 1500px;
   grid-template-columns: repeat(4, 1fr);
 }
 

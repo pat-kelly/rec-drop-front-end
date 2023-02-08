@@ -7,8 +7,11 @@ import Likes from "../../components/Likes/Likes";
 import NewComment from "../../components/NewComment/NewComment";
 import OwnerDate from "../../components/OwnerDate/OwnerDate";
 import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
+import Icon from "../../components/Icon/Icon";
 import styles from "./RecDetails.module.css"
 
+
+import styles from './RecDetails.module.css'
 import * as recService from '../../services/recService'
 
 const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist }) => {
@@ -44,26 +47,49 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
   }, [id])
 
   return ( 
-    <>  
-      <h1 className={styles.h1}>Rec Details</h1>
+
+    <main className={styles.main}>  
       {rec 
         ? <>
-            <h2 className={styles.h2}>Title: {rec.title}</h2>
-            <OwnerDate styles={styles} authorInfo={rec}/>
-            <h3 className={styles.h3}>Creator: {rec.creator}</h3>
-            {rec.year ? <h3 className={styles.h3}>Year: {rec.year}</h3> : <></>}
-            {rec.genre ? <h3 className={styles.h3}>Genre: {rec.genre}</h3> : <></>}
-            {rec.description ? <h3 className={styles.h3}>Description: {rec.description}</h3> : <></>}
-            {rec.photo ? <img className={styles.img}src={rec.photo} alt={rec.title} style={{width: '300px'}} /> : <></>}
-            {rec.owner._id === user.profile &&
-              <>
-                <Link to={`/recs/${id}/edit`} state={rec}>
-                  <button className={styles.button}>Edit</button></Link>
-                <button className={styles.button} onClick={() => handleDeleteRec(id)}>
-                  Delete
-                </button>
-              </>
-            }
+            <div className={styles.pageTop}>
+              <div className={styles.content}>
+                <div className={styles.contentLeft}>
+                  <h2>{rec.title}</h2>
+                  {rec.creator && <h3>{rec.creator}</h3>}
+                  {rec.year && <h4>Year: {rec.year}</h4>}
+                  {rec.genre && <h4>Genre: {rec.genre}</h4>}
+                </div>
+                <div className={styles.contentRight}>
+                  <Icon category={rec.category} />
+                  <OwnerDate authorInfo={rec}/>
+                </div>
+                {rec.photo && <img src={rec.photo} alt="" style={{width: '300px'}} />}
+                {rec.description && <h3 className={styles.description}>{rec.description}</h3>}
+                {rec.owner._id === user.profile &&
+                  <div className={styles.contentFooter}>
+                    <Link to={`/recs/${id}/edit`} state={rec}>
+                      <Icon category='Edit'/></Link>
+                    <Icon category='Delete' onClick={() => handleDeleteRec(id)} />
+                  </div>
+                }
+              </div>
+              <div className={styles.buttonContainer}>
+                <Likes 
+                  user={user} 
+                  handleAddLike={handleAddLike} 
+                  likes={rec.likes}
+                />
+                <AddToPlaylist 
+                  user={user} 
+                  rec={rec} 
+                  playlistExpand={playlistExpand} 
+                  handlePlaylistExpand={handlePlaylistExpand} 
+                  playlists={playlists}
+                  handleAddToPlaylist={handleAddToPlaylist}
+                  handleCreatePlaylist={handleCreatePlaylist}
+                />
+              </div>
+            </div>
             <NewComment 
               handleAddComment={handleAddComment} 
             />
@@ -74,24 +100,10 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
               handleDeleteComment={handleDeleteComment}
               recOwner={rec.owner}
             />
-            <Likes 
-              user={user} 
-              handleAddLike={handleAddLike} 
-              likes={rec.likes}
-            />
-            <AddToPlaylist 
-              user={user} 
-              rec={rec} 
-              playlistExpand={playlistExpand} 
-              handlePlaylistExpand={handlePlaylistExpand} 
-              playlists={playlists}
-              handleAddToPlaylist={handleAddToPlaylist}
-              handleCreatePlaylist={handleCreatePlaylist}
-            />
           </>
         : <h2 className={styles.h2}>Loading...</h2>
       }
-    </>
+    </main>
   );
 }
 
