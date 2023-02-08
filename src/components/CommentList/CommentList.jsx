@@ -1,5 +1,5 @@
 import CommentCard from "../CommentCard/CommentCard";
-import styles from "../../pages/RecDetails/RecDetails.module.css"
+import styles from "./CommentList.module.css"
 
 const CommentList = (props) => {
   console.log('COMMENTLIST PROPS', props)

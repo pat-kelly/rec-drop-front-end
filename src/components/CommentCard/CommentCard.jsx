@@ -1,5 +1,5 @@
 import OwnerDate from "../OwnerDate/OwnerDate";
-import styles from "../../pages/RecDetails/RecDetails.module.css"
+import styles from "./CommentCard.module.css"
 
 const CommentCard = (props) => {
   // console.log(props.comment.owner)

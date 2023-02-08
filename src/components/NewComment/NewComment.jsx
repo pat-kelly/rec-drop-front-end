@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from "../../pages/RecDetails/RecDetails.module.css"
+import styles from "./NewComment.module.css"
 
 const NewComment = (props) => {
   const [form, setForm] = useState({ text: '' })
