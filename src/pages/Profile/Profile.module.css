@@ -24,7 +24,7 @@
 }
 
 .userName {
-	margin-top: 0;
+	margin: 0 0 20px 0;
 }
 
 .profileImage {
@@ -32,4 +32,26 @@
 	border-radius: 8px;
 	max-width: 500px;
 	width: 95%;
+}
+
+@media only screen and (max-width: 500px) {
+	.profileInfo {
+		padding: 16px
+	}
+	
+	.userName {
+		font-size: 28px;
+		margin-bottom: 12px;
+	}
+
+	.profileImage {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 400px) {	
+	.userName {
+		font-size: 20px;
+		margin-bottom: 12px;
+	}
 }
