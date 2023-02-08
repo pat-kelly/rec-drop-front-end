@@ -4,8 +4,8 @@
 ---
 
 ## [Launch Rec-Drop](https://rec-drop.netlify.app/)
-> Planning materials can be found on [Trello](https://trello.com/b/OvFbJtVV/rec-drop-by-the-purple-narwhals)
-
+> Planning materials can be found on [Trello](https://trello.com/b/OvFbJtVV/rec-drop-by-the-purple-narwhals)<br/>
+> Back end repository is [here](https://github.com/pat-kelly/rec-drop-back-end)
 
 ![main page](/src/assets/readme/readmeGif.gif)
 
