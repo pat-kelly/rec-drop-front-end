@@ -13,6 +13,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NavBar from './components/NavBar/NavBar'
 import SmallScreenNav from './components/NavBar/SmallScreenNav'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Logout from './pages/Logout/Logout'
 
 // services
 import * as authService from './services/authService'
@@ -38,7 +39,7 @@ const App = () => {
   const handleLogout = () => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    navigate('/logout')
   }
 
   const handleSignupOrLogin = () => {
@@ -122,6 +123,7 @@ const App = () => {
       }
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route path='/logout' element={<Logout />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
