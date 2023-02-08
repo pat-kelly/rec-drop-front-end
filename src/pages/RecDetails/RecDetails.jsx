@@ -8,6 +8,8 @@ import NewComment from "../../components/NewComment/NewComment";
 import OwnerDate from "../../components/OwnerDate/OwnerDate";
 import AddToPlaylist from "../../components/AddToPlaylist/AddToPlaylist";
 import Icon from "../../components/Icon/Icon";
+import styles from "./RecDetails.module.css"
+
 
 import styles from './RecDetails.module.css'
 import * as recService from '../../services/recService'
@@ -45,6 +47,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
   }, [id])
 
   return ( 
+
     <main className={styles.main}>  
       {rec 
         ? <>
@@ -98,7 +101,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
               recOwner={rec.owner}
             />
           </>
-        : <h2>Loading...</h2>
+        : <h2 className={styles.h2}>Loading...</h2>
       }
     </main>
   );

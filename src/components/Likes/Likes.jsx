@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Icon from '../Icon/Icon'
+import styles from "./Likes.module.css"
+
 
 const Likes = (props) => {
   const [alreadyLiked, setAlreadyLiked] = useState((
