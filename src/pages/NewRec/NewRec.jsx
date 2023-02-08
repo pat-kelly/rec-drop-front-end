@@ -21,15 +21,19 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
+    console.log('handleChange form ', form)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddRec(form, photoData.photo)
+    console.log('form ', form)
+    console.log('photodata.photo ', photoData.photo)
   }
 
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
+    console.log('photoData ', photoData)
   }
 
   const handleCategorySelect = ({ target }) => {
