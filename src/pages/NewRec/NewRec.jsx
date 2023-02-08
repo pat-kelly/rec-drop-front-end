@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './NewRec.module.css'
 
-const NewRec = ({ handleAddRec }) => {
+const NewRec = ({ handleAddRec, handlePageChange }) => {
   const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
@@ -13,6 +13,11 @@ const NewRec = ({ handleAddRec }) => {
   })
   const [category, setCategory] = useState('')
   const [photoData, setPhotoData] = useState({})
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -69,6 +74,7 @@ const NewRec = ({ handleAddRec }) => {
               value={form.title}
               placeholder={`${category} Title`}
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="creator-input">{displayCreatorLabel()}:</label>
             <input 
@@ -78,6 +84,7 @@ const NewRec = ({ handleAddRec }) => {
               value={form.creator}
               placeholder={displayCreatorLabel()}
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="year-input">Year:</label>
             <input 
@@ -87,6 +94,7 @@ const NewRec = ({ handleAddRec }) => {
               value={form.year}
               placeholder='Year'
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="genre-input">Genre:</label>
             <input 
@@ -96,6 +104,7 @@ const NewRec = ({ handleAddRec }) => {
               value={form.genre}
               placeholder='Genre'
               onChange={handleChange}
+              autoComplete='off'
             />
             <label htmlFor="photo-upload">
               Upload Photo
@@ -114,6 +123,7 @@ const NewRec = ({ handleAddRec }) => {
               value={form.description}
               placeholder='Comment'
               onChange={handleChange}
+              autoComplete='off'
             />
             <button className={styles.submitNewRecButton} type='submit'>SUBMIT</button>
           </div>

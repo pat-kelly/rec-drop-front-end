@@ -12,10 +12,15 @@ import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
 
   const handleAddComment = async (commentData) => {
     const newComment = await recService.createComment(id, commentData)
