@@ -50,6 +50,9 @@ const addPic = async (recData, photo) => {
       recData._id
     )
   }
+  else{
+    return recData
+  }
 }
 
 async function addPhoto(photoData, id) {
