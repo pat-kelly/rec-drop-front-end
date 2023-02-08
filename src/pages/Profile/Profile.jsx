@@ -25,7 +25,7 @@ const Profile = ({ user, playlists, handlePageChange }) => {
   }, [id])
 
   return (
-    <>
+    <main className={styles.main}>
       <h1 className={styles.myProfile}>My Profile</h1>
       <h2 className={styles.userName}>{user.name}</h2>
       {profile
@@ -33,7 +33,8 @@ const Profile = ({ user, playlists, handlePageChange }) => {
         : <h2 className={styles.loading}>Loading...</h2>}
       
       <PlaylistList playlists={playlists}/>
-    </>
+    
+    </main>
   )
 }
 

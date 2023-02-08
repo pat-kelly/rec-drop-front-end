@@ -1,6 +1,9 @@
 .playList {
-    color: #451d9a ;
+    color: black ;
     display: block;
     text-align: center;
     margin-left: auto;
+    font-size: x-large;
+    font-weight: 500;
+    margin-top: 20%;
 }
