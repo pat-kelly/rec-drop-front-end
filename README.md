@@ -28,7 +28,7 @@
 ### 🧊 Planned Features
 - [x] AAU, I want to be able to sort recommendations by category
 - [x] AAU, I want to be able to search through recommendations
-- [_] AAU, I want to be able to sort recommendations by 'likes'
-- [_] AAU, I want to be able to edit the comments I wrote
-- [_] APIs to lookup media
-- [_] Public / Private playlists and being able to share
+- [ ] AAU, I want to be able to sort recommendations by 'likes'
+- [ ] AAU, I want to be able to edit the comments I wrote
+- [ ] APIs to lookup media
+- [ ] Public / Private playlists and being able to share
