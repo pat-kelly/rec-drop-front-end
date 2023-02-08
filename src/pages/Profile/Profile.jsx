@@ -6,10 +6,15 @@ import PlaylistList from '../../components/PlaylistList/PlaylistList'
 import { login } from '../../services/authService'
 import styles from './Profile.module.css'
 
-const Profile = ({ user, playlists }) => {
+const Profile = ({ user, playlists, handlePageChange }) => {
   const {id} = useParams()
 
   const [profile, setProfile] = useState(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
 
   useEffect(() => {
     const fetchProfiles = async () => {
