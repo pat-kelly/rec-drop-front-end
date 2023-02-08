@@ -8,3 +8,4 @@
 
 Splash Page:
 ![main page](/src/assets/readme/rec-drop-readme-splash.png)
+
