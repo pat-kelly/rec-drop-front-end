@@ -106,6 +106,10 @@ const App = () => {
     setIsOpen(!isOpen)
   }
 
+  const handlePageChange = () => {
+    setIsOpen(false)
+  }
+
   return (
     <>
       {width < 768 ?
@@ -123,8 +127,14 @@ const App = () => {
       />
       }
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route path='/logout' element={<Logout />} />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />} 
+        />
+        <Route 
+          path='/logout' 
+          element={<Logout />} 
+        />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -137,7 +147,11 @@ const App = () => {
           path='/profile/:id'
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} playlists={playlists}/>
+              <Profile 
+                user={user} 
+                playlists={playlists}
+                handlePageChange={handlePageChange}
+              />
             </ProtectedRoute>
           }
         />
@@ -145,7 +159,8 @@ const App = () => {
           path="/change-password"
           element={
             <ProtectedRoute user={user}>
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+              <ChangePassword 
+                handleSignupOrLogin={handleSignupOrLogin} />
             </ProtectedRoute>
           }
         />
@@ -170,7 +185,9 @@ const App = () => {
           path="/recs/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditRec handleUpdateRec={handleUpdateRec} />
+              <EditRec handleUpdateRec={handleUpdateRec} 
+              handlePageChange={handlePageChange}
+            />
             </ProtectedRoute>
           }
         

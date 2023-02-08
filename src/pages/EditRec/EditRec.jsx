@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import styles from './EditRec.module.css'
@@ -11,6 +11,11 @@ const EditRec = (props) => {
   const [form, setForm] = useState(state)
   const [category, setCategory] = useState(state.category)
   const [photoData, setPhotoData] = useState(state)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    props.handlePageChange()
+  }, [])
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
