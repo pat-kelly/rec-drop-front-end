@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import styles from './Login.module.css'
 
 const LoginPage = props => {
   const [message, setMessage] = useState([''])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    props.handlePageChange()
+  }, [])
 
   const updateMessage = msg => {
     setMessage(msg)

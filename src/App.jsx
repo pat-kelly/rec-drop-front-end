@@ -137,19 +137,29 @@ const App = () => {
       <Routes>
         <Route 
           path="/" 
-          element={<Landing user={user} />} 
+          element={<Landing 
+            user={user} 
+            handlePageChange={handlePageChange}/>} 
         />
         <Route 
           path='/logout' 
-          element={<Logout />} 
+          element={<Logout 
+              handlePageChange={handlePageChange}
+            />} 
         />
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Signup 
+              handleSignupOrLogin={handleSignupOrLogin} 
+              handlePageChange={handlePageChange}
+            />}
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Login 
+              handleSignupOrLogin={handleSignupOrLogin} 
+              handlePageChange={handlePageChange}
+            />}
         />
         <Route
           path='/profile/:id'
@@ -174,7 +184,8 @@ const App = () => {
         />
         <Route
           path='/recs'
-          element={<RecList recs={recs} user={user} handleSearchTerms={handleSearchTerms}/>}
+          element={<RecList recs={recs} user={user} handleSearchTerms={handleSearchTerms}
+          handlePageChange={handlePageChange}/>}
         />
         <Route
           path='/recs/:id'
@@ -186,6 +197,7 @@ const App = () => {
                 handleDeleteRec={handleDeleteRec}
                 handleCreatePlaylist={handleCreatePlaylist}
                 handleAddToPlaylist={handleAddToPlaylist}
+                handlePageChange={handlePageChange}
               />
             </ProtectedRoute>}
         />
@@ -204,7 +216,10 @@ const App = () => {
           path='/rec/new'
           element={
             <ProtectedRoute user={user}>
-              <NewRec handleAddRec={handleAddRec}/>
+              <NewRec 
+                handleAddRec={handleAddRec}
+                handlePageChange={handlePageChange}
+              />
             </ProtectedRoute>}
         />
         <Route
@@ -214,6 +229,7 @@ const App = () => {
               <PlaylistDetails 
                 user={user}
                 handleDeletePlaylist={handleDeletePlaylist}
+                handlePageChange={handlePageChange}
               />
             </ProtectedRoute>}
         />

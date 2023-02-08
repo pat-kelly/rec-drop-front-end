@@ -1,7 +1,13 @@
+import { useEffect } from 'react'
 import styles from './Landing.module.css'
 import Splash from '../../assets/splash.png'
 
-const Landing = ({ user }) => {
+const Landing = ({ user, handlePageChange }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
+
   return (
     <main className={styles.container}>
       <div className={styles.welcome}>

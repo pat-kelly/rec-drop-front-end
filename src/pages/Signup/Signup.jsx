@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SignupForm from '../../components/SignupForm/SignupForm'
 import styles from './Signup.module.css'
 
 const Signup = props => {
   const [message, setMessage] = useState([''])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    props.handlePageChange()
+  }, [])
 
   const updateMessage = msg => {
     setMessage(msg)
