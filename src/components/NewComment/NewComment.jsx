@@ -16,12 +16,11 @@ const NewComment = (props) => {
 
   return (
     <form className={styles.commentForm} onSubmit={handleSubmit}>
-      <label className={styles.commentForm}  htmlFor="content-input">Add A Comment:</label>
-      <textarea className={styles.commentForm}
+      <textarea className={styles.textarea}
         required
         type='text'
         name='content'
-        id='content-input'
+        placeholder='Add a comment...'
         value={form.content}
         onChange={handleChange}
       />
