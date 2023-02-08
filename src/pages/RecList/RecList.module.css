@@ -19,7 +19,7 @@
   justify-items: center;
   gap: 16px;
   width: 90%; 
-  max-width: 1250px;
+  max-width: 1500px;
   grid-template-columns: repeat(4, 1fr);
 }
 
