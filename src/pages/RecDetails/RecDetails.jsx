@@ -12,10 +12,15 @@ import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    handlePageChange()
+  }, [])
 
   const handleAddComment = async (commentData) => {
     const newComment = await recService.createComment(id, commentData)
@@ -61,8 +66,8 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   <Icon category={rec.category} />
                   <OwnerDate authorInfo={rec}/>
                 </div>
-                {rec.photo && <img src={rec.photo} alt="" style={{width: '300px'}} />}
                 {rec.description && <h3 className={styles.description}>{rec.description}</h3>}
+                {rec.photo && <img src={rec.photo} alt=""  className={styles.recImage}/>}
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>

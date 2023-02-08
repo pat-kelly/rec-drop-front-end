@@ -53,12 +53,14 @@
   height: 50px;
 }
 
-.content > img {
-  width: 30%;
+.description {
+  width: 60%;
+  margin: 0;
 }
 
-.description {
-  width: 70%;
+.recImage {
+  width: 30%;
+  margin-left: 10%;
 }
 
 .contentFooter {
