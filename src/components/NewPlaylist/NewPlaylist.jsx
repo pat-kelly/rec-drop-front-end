@@ -25,12 +25,15 @@ const NewPlaylist = (props) => {
 
   return ( 
     <>
-      <button onClick={handleAddClick} className={styles.button}>
-        {addingPlaylist ? 
-          '-'
-          : '+ New'
-        }
-      </button>
+      {addingPlaylist 
+      ? 
+        <button onClick={handleAddClick} className=   {styles.collapseButton}>
+            -
+        </button>
+      : 
+        <button onClick={handleAddClick} className={styles.button}>
+          + New
+        </button>}
       {addingPlaylist && 
         <form onSubmit={handleSubmit}>
           <input 

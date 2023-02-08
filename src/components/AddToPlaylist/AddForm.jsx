@@ -16,8 +16,8 @@ const AddForm = (props) => {
   
   return (
     <>
-      <div>{playlist.title}</div>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.center}>{playlist.title}</div>
+      <form onSubmit={handleSubmit} >
         <button className={styles.button}>+</button>
       </form>
     </>
