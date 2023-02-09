@@ -15,12 +15,12 @@ const AddForm = (props) => {
   }
   
   return (
-    <>
-      <div className={styles.center}>{playlist.title}</div>
+    <div className={styles.playlistCard}>
+      <div className={styles.title}>{playlist.title}</div>
       <form onSubmit={handleSubmit} >
         <button className={styles.button}>+</button>
       </form>
-    </>
+    </div>
   )
 }
 
