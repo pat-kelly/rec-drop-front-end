@@ -23,7 +23,6 @@
 
 .deleted {
   color: grey;
-  text-decoration: line-through;
 }
 
 .cardTop {
@@ -109,19 +108,6 @@
   text-decoration: underline;
 }
 
-.comment-box {
-  margin-left: 10px;
-  height: 75px;
-}
-
-.submit-comment-button {
-  margin-top: 10%;
-  margin-left: 2%;
-  margin-bottom: -100;
-  border: 1px solid;
-}
-
-.add-comment-label {
-margin-bottom: 100px;
-color: black;
+.footer > a:active {
+  transform: scale(0.92);
 }

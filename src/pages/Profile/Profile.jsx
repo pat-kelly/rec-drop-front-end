@@ -4,7 +4,7 @@ import * as profileService from '../../services/profileService'
 
 import NarwhalProfile from '../../assets/narwhal-profile.jpg'
 import PlaylistList from '../../components/PlaylistList/PlaylistList'
-import { login } from '../../services/authService'
+import { Link } from 'react-router-dom'
 import styles from './Profile.module.css'
 
 const Profile = ({ user, playlists, handlePageChange }) => {
@@ -32,6 +32,9 @@ const Profile = ({ user, playlists, handlePageChange }) => {
         <div className={styles.profileInfo}>
           <h1 className={styles.userName}>{profile.name}</h1>
           <img className={styles.profileImage} src={`${profile.photo ? profile.photo : NarwhalProfile}`} alt={profile.name}/>
+          <Link to='/change-password'>
+            Change Password
+          </Link>
         </div>
         : <h2 className={styles.loading}>Loading...</h2>}
       
