@@ -5,6 +5,8 @@
 .playlistDropdown {
   width: 500%;
   min-width: 200px;
+  max-height: 280px;
+  overflow-y: scroll;
   position: absolute;
   right: 0;
   left: auto;
@@ -60,6 +62,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .playlistDropdown {
+    max-height: 276px;
+  }
+
   .playlistHeader {
     font-size: 14px;
   }
@@ -71,6 +77,7 @@
 
 @media only screen and (max-width: 400px) {
   .playlistDropdown {
+    max-height: 262px;
     gap: 6px;
   }
 }
