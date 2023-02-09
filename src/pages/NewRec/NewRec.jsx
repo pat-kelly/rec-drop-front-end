@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './NewRec.module.css'
 
 const NewRec = ({ handleAddRec, handlePageChange }) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
     title: '',
@@ -13,11 +13,24 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
   })
   const [category, setCategory] = useState('')
   const [photoData, setPhotoData] = useState({})
+  const [photoChanged, setPhotoChanged] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
     handlePageChange()
   }, [])
+
+  // allows file input to be hidden, and triggered by styled button click
+  const hiddenFileInput = React.useRef(null)
+
+  const handleClick = evt => {
+    hiddenFileInput.current.click()
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
+    setPhotoChanged(true)
+  }
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -28,9 +41,6 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
     handleAddRec(form, photoData.photo)
   }
 
-  const handleChangePhoto = (evt) => {
-    setPhotoData({ photo: evt.target.files[0] })
-  }
 
   const handleCategorySelect = ({ target }) => {
     setCategory(target.value)
@@ -114,12 +124,35 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
             <label htmlFor="photo-upload">
               Upload Photo
             </label>
-            <input
+            {/* <input
               type="file"
               id="photo-upload"
               name="photo"
               onChange={handleChangePhoto}
-            />
+            /> */}
+            <div>
+              <div className={styles.upload}>
+                <button 
+                  className={styles.button} 
+                  onClick={handleClick}
+                  form=""
+                >
+                  Choose File
+                </button>
+                {photoChanged && 
+                  <p className={styles.uploadText}>
+                     image uploaded
+                  </p>}
+              </div>
+              <input
+                type="file"
+                id="photo-upload"
+                name="photo"
+                ref={hiddenFileInput}
+                onChange={handleChangePhoto}
+                className={styles.fileUpload}
+              />
+            </div>
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
               type='text'

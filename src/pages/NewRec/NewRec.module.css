@@ -19,25 +19,20 @@
 }
 
 .formDiv input {
-  /* display: grid; */
-  /* grid-template-columns: 40% 60%; */
-  width: 50%;
+  width: 70%;
   padding: 4px;
 }
 
 .categoryDiv {
   display: grid;
   grid-template-columns: 40% 60%;
-  width: 60%;
+  width: 50%;
   margin: 8px;
   padding: 8px 0;
   font-weight: bold;
 }
 
 .categoryDiv select {
-  /* display: grid; */
-  /* grid-template-columns: 40% 60%; */
-  width: 50%;
   padding: 4px;
 }
 

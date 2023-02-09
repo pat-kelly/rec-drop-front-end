@@ -31,7 +31,6 @@ const EditRec = (props) => {
     setPhotoChanged(true)
   }
 
-
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
   }
