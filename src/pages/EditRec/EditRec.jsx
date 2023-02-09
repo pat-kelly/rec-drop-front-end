@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import ModifyRec from '../../assets/modify-rec.png'
 import styles from './EditRec.module.css'
 
 const EditRec = (props) => {
@@ -57,6 +58,7 @@ const EditRec = (props) => {
 
   return (
     <main className={styles.main}>
+      <img src={ModifyRec} alt="modify rec" />
       <form onSubmit={handleSubmit} className={styles.form}>
         {category && <div className={styles.formDiv}>
           <label htmlFor="category-select" className={styles.category}>
@@ -117,7 +119,7 @@ const EditRec = (props) => {
               autoComplete='off'
             />
             <label htmlFor="photo-upload">
-              Add/Change Photo
+              Add/Change Photo:
             </label>
             <div>
               <div className={styles.upload}>
@@ -130,7 +132,7 @@ const EditRec = (props) => {
                 </button>
                 {photoChanged && 
                   <p className={styles.uploadText}>
-                     image uploaded
+                    image uploaded
                   </p>}
               </div>
               <input
