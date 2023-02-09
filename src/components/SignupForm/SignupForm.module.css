@@ -5,6 +5,7 @@
 }
 
 .inputContainer {
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -22,17 +23,55 @@
   padding: 4px 8px;
   font-size: 14px;
   font-family: 'Manrope';
+  max-width: 300px;
 }
 
-.inputContainer > :last-child() {
-  border: 0;
+input[type='file']  { 
+  border: none;
 }
 
-.label,
+input[type='file']::file-selector-button {
+  cursor: pointer;
+	font-size: 14px;
+	height: fit-content;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+  border: none;
+  color: white;
+}
+
+input[type='file']::file-selector-button:active {
+  transform: scale(0.92)
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .button {
-  margin-right: .5rem;
+	cursor: pointer;
+	font-size: 14px;
+	height: fit-content;
+  border-radius: 4px;
+  padding: 8px 16px;
 }
 
-.inputContainer {
-  margin-bottom: 1rem;
+.button:active {
+  transform: scale(0.92);
+}
+
+.buttonContainer > :first-child > button {
+  border: 2px solid #b06ab3;
+  background-color: white;
+  color: #b06ab3;
+  padding: 6px 14px;
+}
+
+.buttonContainer > :nth-child(2) {
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+  border: none;
+  color: white;
 }
