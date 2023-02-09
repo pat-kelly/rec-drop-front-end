@@ -34,7 +34,6 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   }
 
   const updateSearchTerms  = ({ target })=>{
-    console.log(target.value);
     handleSearchTerms(target.value)
   }
 
