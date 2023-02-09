@@ -6,8 +6,6 @@ import styles from './Add.module.css'
 const AddToPlaylist = (props) => {
   const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists } = props
 
-  // console.log('addToPlaylist', playlists)
-
   const filteredPlaylist = playlists.filter((p)=>(
     !p.recs.includes(rec._id)
   ))
