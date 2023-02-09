@@ -117,7 +117,7 @@ const EditRec = (props) => {
               autoComplete='off'
             />
             <label htmlFor="photo-upload">
-              Add/Change Photo
+              Add/Change Photo:
             </label>
             <div>
               <div className={styles.upload}>
@@ -130,7 +130,7 @@ const EditRec = (props) => {
                 </button>
                 {photoChanged && 
                   <p className={styles.uploadText}>
-                     image uploaded
+                    image uploaded
                   </p>}
               </div>
               <input
