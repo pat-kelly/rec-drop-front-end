@@ -26,13 +26,24 @@
   max-width: 300px;
 }
 
-input[type='file']  { 
-  border: none;
+.uploadContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-input[type='file']::file-selector-button {
-  cursor: pointer;
-	font-size: 14px;
+.upload {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fileUpload {
+  visibility: hidden;
+  width: 0;
+}
+
+.uploadButton {
 	height: fit-content;
   border-radius: 4px;
   padding: 8px 16px;
@@ -41,8 +52,10 @@ input[type='file']::file-selector-button {
   color: white;
 }
 
-input[type='file']::file-selector-button:active {
-  transform: scale(0.92)
+.uploadText {
+  font-size: 14px;
+  margin: 5px 5px;
+  text-align: right;
 }
 
 .buttonContainer {

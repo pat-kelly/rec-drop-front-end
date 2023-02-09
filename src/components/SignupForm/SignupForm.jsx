@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
@@ -12,6 +13,12 @@ const SignupForm = props => {
     passwordConf: '',
   })
   const [photoData, setPhotoData] = useState({})
+  const [photoChanged, setPhotoChanged] = useState(false)
+  const hiddenFileInput = React.useRef(null)
+
+  const handleClick = evt => {
+    hiddenFileInput.current.click()
+  }
 
   const handleChange = e => {
     props.updateMessage('')
@@ -23,6 +30,7 @@ const SignupForm = props => {
 
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
+    setPhotoChanged(true)
   }
 
   const handleSubmit = async e => {
@@ -96,14 +104,31 @@ const SignupForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="photo-upload" className={styles.label}>
-          Upload Photo
+          Upload Photo:
         </label>
-        <input
-          type="file"
-          id="photo-upload"
-          name="photo"
-          onChange={handleChangePhoto}
-        />
+        <div className={styles.uploadContainer}>
+          <div className={styles.upload}>
+            <button 
+              className={`${styles.uploadButton} ${styles.button}`}
+              form=""
+              onClick={handleClick}
+            >
+              Choose File
+            </button>
+            {photoChanged && 
+              <p className={styles.uploadText}>
+                image uploaded
+              </p>}
+          </div>
+          <input
+            type="file"
+            id="photo-upload"
+            name="photo"
+            className={styles.fileUpload}
+            ref={hiddenFileInput}
+            onChange={handleChangePhoto}
+          />
+        </div>
       </div>
       <div className={styles.buttonContainer}>
         <Link to="/">
