@@ -4,7 +4,7 @@
 
 .dropContainer:hover .toolTip{
   transform: scale(1);
-  left:100%;
+  left:110%;
 }
 
 .toolTip{
@@ -17,7 +17,7 @@
   font-weight: 700;
   font-size: .8em;
   white-space: nowrap;
-  left:0;
+  left:-20px;
   top: 15%;
   transform: scale(0);
   transition: ease-out 200ms

@@ -82,8 +82,11 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>
-                      <Icon category='Edit'/></Link>
-                    <div onClick={() => handleDeleteRec(id)}>
+                      <div className={styles.likeToolTip}>
+                        <Icon category='Edit'/>
+                      </div>
+                    </Link>
+                    <div className={styles.delToolTip} onClick={() => handleDeleteRec(id)}>
                       <Icon category='Delete'/>
                     </div>
                   </div>
