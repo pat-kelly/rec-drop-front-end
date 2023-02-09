@@ -17,12 +17,13 @@
 
 .header > div > img {
   height: 50px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .header > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
-  border-radius: 50%;
 }
 
 .header > div > img:active {
