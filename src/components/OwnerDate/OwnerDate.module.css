@@ -3,7 +3,8 @@
   flex-direction: column;
 }
 
-.ownerDateContainer > p {
+.ownerDateContainer > p, 
+.ownerDiv > p {
   margin: 0;
 }
 
