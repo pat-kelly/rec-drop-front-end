@@ -59,8 +59,8 @@ const App = () => {
       const data = await playlistService.index()
       setPlaylists(data)
     }
-    fetchUserPlaylists()
-  }, [])
+    if(user) fetchUserPlaylists()
+  }, [user])
 
   const handleSearchTerms = async (terms) =>{
     const searchTerms = terms.toLowerCase();
