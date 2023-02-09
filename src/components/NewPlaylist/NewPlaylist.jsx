@@ -1,3 +1,5 @@
+import styles from './NewPlaylist.module.css'
+
 import { useState } from "react"
 
 const NewPlaylist = (props) => {
@@ -22,13 +24,16 @@ const NewPlaylist = (props) => {
   }
 
   return ( 
-    <>
-      <button onClick={handleAddClick}>
-        {addingPlaylist ? 
-          '-'
-          : '+ New'
-        }
-      </button>
+    <div className={styles.newContainer}>
+      {addingPlaylist 
+      ? 
+        <button onClick={handleAddClick} className={`${styles.button} ${styles.minusButton}`}>
+            -
+        </button>
+      : 
+        <button onClick={handleAddClick} className={`${styles.button} ${styles.newButton}`}>
+          + New
+        </button>}
       {addingPlaylist && 
         <form onSubmit={handleSubmit}>
           <input 
@@ -38,11 +43,12 @@ const NewPlaylist = (props) => {
             value={form.title}
             placeholder='Title'
             onChange={handleChange}
+            className={styles.input}
           />
-          <button type="submit">Add Playlist</button>
+          <button type="submit" className={`${styles.button} ${styles.smallButton}`}>+</button>
         </form>
       }
-    </>
+    </div>
   );
 }
 

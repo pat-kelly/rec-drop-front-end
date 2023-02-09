@@ -1,0 +1,83 @@
+.dropContainer {
+  position: relative;
+}
+
+.playlistDropdown {
+  width: 500%;
+  min-width: 200px;
+  max-height: 280px;
+  overflow-y: scroll;
+  position: absolute;
+  right: 0;
+  left: auto;
+  background-color: #b9b0c9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid hsla(254, 24%, 58%, 0.408);
+  border-radius: 4px;
+  box-shadow: 0px 3px 15px #2c1e498d;
+}
+
+.playlistHeader {
+  color: white;
+}
+
+.playlistCard {
+  background-color: white;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  width: 85%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.button {
+  border: none;
+	cursor: pointer;
+	outline: none;
+	font-size: 18px;
+  height: 24px;
+  width: 24px;
+	background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+	padding: 8px;
+	border-radius: 50%;
+	color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:active {
+  transform: scale(0.92);
+}
+
+@media only screen and (max-width: 600px) {
+  .playlistDropdown {
+    max-height: 276px;
+  }
+
+  .playlistHeader {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .playlistDropdown {
+    max-height: 262px;
+    gap: 6px;
+  }
+}
