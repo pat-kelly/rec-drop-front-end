@@ -16,6 +16,8 @@ const RecCard = ({rec, user})  => {
           </div>
           <div className={styles.cardSubHeader}>
             <h4>{rec.creator}</h4>
+          </div>
+          <div>
             {rec.show && 
               <div className={styles.subRight}>
                 <h4>{rec.comments.length}</h4>
