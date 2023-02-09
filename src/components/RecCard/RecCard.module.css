@@ -62,12 +62,14 @@
 
 .cardSubHeader > h4 {
   margin: 0;
+  height: 22px;
 }
 
 .subRight {
   display: flex;
   align-items: center;
   gap: 4px;
+  justify-content: end;
 }
 
 .subRight > * {
