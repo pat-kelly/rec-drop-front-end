@@ -44,7 +44,7 @@ const ChangePasswordForm = props => {
     >
       <div className={styles.inputContainer}>
         <label htmlFor="password" className={styles.label}>
-          Current Password
+          Current Password:
         </label>
         <input
           type="password"
@@ -57,7 +57,7 @@ const ChangePasswordForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="newPassword" className={styles.label}>
-          New Password
+          New Password:
         </label>
         <input
           type="password"
@@ -70,7 +70,7 @@ const ChangePasswordForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="newPasswordConf" className={styles.label}>
-          Confirm New Password
+          Confirm New Password:
         </label>
         <input
           type="password"
@@ -81,13 +81,13 @@ const ChangePasswordForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className={styles.buttonContainer}>
+        <Link to="/">
+          <button type="button" className={styles.button}>Cancel</button>
+        </Link>
+        <button disabled={isFormInvalid()} className={`${styles.button} ${isFormInvalid() ? styles.disabled : styles.enabled}`}>
           Change Password
         </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
       </div>
     </form>
   )
