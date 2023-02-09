@@ -21,3 +21,17 @@
   align-items: center;
   gap: 4px;
 }
+
+@media only screen and (max-width: 600px) {
+  .photo {
+    max-width: 24px;
+    max-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .photo {
+    max-width: 18px;
+    max-height: 18px;
+  }
+}
