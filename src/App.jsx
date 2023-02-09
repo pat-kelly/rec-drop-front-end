@@ -78,6 +78,7 @@ const App = () => {
   }
 
   const handleUpdateRec = async (recData, photo) => {
+    console.log(recData);
     const updatedRec = await recService.update(recData)
     const updatedRecWithPhoto = await recService.addPic(updatedRec, photo)
     setRecs(recs.map((r) => recData._id === r._id ? updatedRecWithPhoto : r))
@@ -198,6 +199,7 @@ const App = () => {
                 handleCreatePlaylist={handleCreatePlaylist}
                 handleAddToPlaylist={handleAddToPlaylist}
                 handlePageChange={handlePageChange}
+                handleUpdateRec={handleUpdateRec}
               />
             </ProtectedRoute>}
         />
