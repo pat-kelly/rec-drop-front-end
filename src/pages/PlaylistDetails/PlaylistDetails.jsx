@@ -29,7 +29,7 @@ const PlaylistDetails = ({ user, handleDeletePlaylist, handlePageChange }) => {
         ? <>
             <div className={styles.header}>
               <h1>{playlist.title}</h1>
-              <div onClick={() => handleDeletePlaylist(id)}>
+              <div className={styles.delToolTip} onClick={() => handleDeletePlaylist(id)}>
                 <Icon category='Delete'/>
               </div>
             </div>

@@ -76,14 +76,27 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   <OwnerDate authorInfo={rec}/>
                 </div>
                 <div className={styles.contentMid}>
-                  {rec.description && <p className={`${rec.photo ? `${styles.wPhoto}` : `${styles.woPhoto}`}`}>{rec.description}</p>}
-                  {rec.photo && <img src={rec.photo} alt=""  className={`${rec.description ? `${styles.wDescription}` : `${styles.woDescription}`}`}/>}
+                  {rec.description && 
+                    <p className={`${rec.photo 
+                      ? `${styles.wPhoto}` 
+                      : `${styles.woPhoto}`}`}>
+                        {rec.description}
+                    </p>}
+                  {rec.photo && 
+                    <img src={rec.photo} alt=""  
+                      className={`${rec.description 
+                        ? `${styles.wDescription}` 
+                        : `${styles.woDescription}`}`}
+                    />}
                 </div>
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>
-                      <Icon category='Edit'/></Link>
-                    <div onClick={() => handleDeleteRec(id)}>
+                      <div className={styles.likeToolTip}>
+                        <Icon category='Edit'/>
+                      </div>
+                    </Link>
+                    <div className={styles.delToolTip} onClick={() => handleDeleteRec(id)}>
                       <Icon category='Delete'/>
                     </div>
                   </div>

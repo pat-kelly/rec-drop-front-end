@@ -2,6 +2,27 @@
   position: relative;
 }
 
+.dropContainer:hover .toolTip{
+  transform: scale(1);
+  left:110%;
+}
+
+.toolTip{
+  display: block;
+  position:absolute;
+  background-color: rgba(0,0,0,0.4);
+  color:white;
+  padding: .5em 1.5em;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .8em;
+  white-space: nowrap;
+  left:-20px;
+  top: 15%;
+  transform: scale(0);
+  transition: ease-out 200ms
+}
+
 .playlistDropdown {
   width: 500%;
   min-width: 200px;

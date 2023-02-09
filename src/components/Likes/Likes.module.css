@@ -1,7 +1,24 @@
 .likeButton {
-    color: #451d9a ;
-display: block;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+    position: relative;
+}
+
+.toolTip{
+    display: block;
+    position:absolute;
+    background-color: rgba(0,0,0,0.4);
+    color:white;
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: .8em;
+    white-space: nowrap;
+    left:-10px;
+    top: 15%;
+    transform: scale(0);
+    transition: ease-out 200ms
+}
+
+.likeButton:hover .toolTip{
+    transform: scale(1);
+    left:110%;
 }
