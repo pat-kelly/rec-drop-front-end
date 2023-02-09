@@ -60,10 +60,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .playlistDropdown {
-    gap: 8px;
-  }
-
   .playlistHeader {
     font-size: 14px;
   }
