@@ -47,7 +47,7 @@ main {
 }
 
 .description {
-  /* background-color: #fcf7ff; */
+  background-color: hsl(278, 100%, 98%, 0.2);
   min-height: 200px;
   width: 100%;
   box-shadow: 0px 3px 10px #451d9a46;
