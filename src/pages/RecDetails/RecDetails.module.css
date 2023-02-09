@@ -54,6 +54,10 @@
   text-align: right;
 }
 
+.contentRight > div > div {
+  justify-content: flex-end;
+}
+
 .contentRight > img {
   max-width: 50px;
   height: 50px;
@@ -184,10 +188,6 @@ a{
   transform: scale(0.92)
 }
 
-.buttonContainer > :nth-child(2) > div > img:active {
-  transform: rotate(90)
-}
-
 .commentContainer {
   width: 80%;
   max-width: 800px;
@@ -199,6 +199,10 @@ a{
 @media only screen and (max-width: 768px) {
   .contentMid {
     flex-direction: column;
+  }
+
+  .wPhoto {
+    width: 100%;
   }
 
   .wDescription {
@@ -219,13 +223,13 @@ a{
   }
 
   .contentFooter > div > img, 
-  .contentFooter > a > img {
+  .contentFooter > a > div > img {
     height: 40px;
     width: 40px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 525px) {
   .pageTop {
     width: 97%;
   }
@@ -266,8 +270,12 @@ a{
     height: 30px;
   }
   .contentFooter > div > img, 
-  .contentFooter > a > img {
+  .contentFooter > a > div > img {
     height: 30px;
     width: 30px;
+  }
+  
+  .contentRight > div > div > img {
+    display: none;
   }
 }
