@@ -68,7 +68,7 @@ const EditRec = (props) => {
             id="category-select"
             onChange={handleCategorySelect}
           >
-            <option value="">{form.category}</option>
+            <option value={form.category}>{form.category}</option>
             <option value="Movie">Movie</option>
             <option value="TV Show">TV Show</option>
             <option value="Song">Song</option>
@@ -151,6 +151,7 @@ const EditRec = (props) => {
               placeholder='Comment'
               onChange={handleChange}
               autoComplete='off'
+              className={styles.textarea}
             />
             <button type='submit' className={styles.button}>
               SUBMIT
