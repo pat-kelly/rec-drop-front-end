@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import ModifyRec from '../../assets/modify-rec.png'
 import styles from './EditRec.module.css'
 
 const EditRec = (props) => {
@@ -57,6 +58,7 @@ const EditRec = (props) => {
 
   return (
     <main className={styles.main}>
+      <img src={ModifyRec} alt="modify rec" />
       <form onSubmit={handleSubmit} className={styles.form}>
         {category && <div className={styles.formDiv}>
           <label htmlFor="category-select" className={styles.category}>
