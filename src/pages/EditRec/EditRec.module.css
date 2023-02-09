@@ -11,7 +11,7 @@
 .formDiv {
   display: grid;
   grid-template-columns: 40% 60%;
-  width: 50%;
+  width: 60%;
   grid-gap: 5%;
   padding: 5%;
 }
