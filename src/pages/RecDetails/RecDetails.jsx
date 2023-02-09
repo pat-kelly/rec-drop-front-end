@@ -12,7 +12,7 @@ import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange, handleUpdateRec }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange, updateRecState }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -29,8 +29,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
 
   const handleAddLike = async () => {
     const updatedRec = await recService.like(id)
-    console.log(updatedRec);
-    handleUpdateRec();
+    setRec(updatedRec)
   }
 
   const handleDeleteComment = async (recId, commentId) => {
@@ -51,7 +50,6 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
   }, [id])
 
   return ( 
-
     <main className={styles.main}>  
       {rec 
         ? <>

@@ -8,7 +8,8 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   useEffect(() => {
     window.scrollTo(0, 0)
     handlePageChange()
-  })
+    handleSearchTerms('')
+  }, [])
 
   const [filterCategory, setFilterCategory] = useState('')
 
@@ -38,7 +39,7 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   }
 
   return ( 
-    <main className={styles.main}>  
+    <main className={styles.main}> 
       <div className={styles.header}>
         <img src={DroppedRecs} alt="dropped recs with purple narwhal" />
         <input className={styles.searchBar} onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
