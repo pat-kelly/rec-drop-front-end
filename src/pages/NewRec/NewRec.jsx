@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './NewRec.module.css'
+import DropRec from '../../assets/drop-rec.png'
 
 const NewRec = ({ handleAddRec, handlePageChange }) => {
   const [form, setForm] = useState({
@@ -57,6 +58,7 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
 
   return ( 
     <main className={styles.main}>
+      <img src={DropRec} alt="drop a rec" />
       <form 
         onSubmit={handleSubmit}
         className={styles.form}
