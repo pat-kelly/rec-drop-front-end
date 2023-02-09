@@ -12,29 +12,56 @@
 	padding: 16px 0;
 }
 
+.toolTip::after{
+	content: 'Delete Comment?';
+	display: block;
+	position:absolute;
+	background-color: rgba(0,0,0,0.4);
+	color:white;
+	padding: .5em 1.5em;
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: .8em;
+	white-space: nowrap;
+	right:-50px;
+	top: 10%;
+	transform: scale(0);
+	transition: ease-out 200ms
+}
+
+.toolTip:hover::after{
+	transform: scale(1);
+	right: 100%;
+}
+
+.toolTip{
+	position: relative;
+}
+
 .commentTop {
 	width: 90%;
 	display: flex;
 	gap: 32px;
 	font-weight: bold;
+	justify-content: space-between;
 }
 
 .commentTop > div > * {
 	margin: 0 0 4px 0;
 }
 
-.commentTop > div > img {
+.commentTop > div > div > img {
 	width: 30px;
 	margin-top: 4px;
 }
 
-.commentTop > div > img:hover {
+.commentTop > div > div > img:hover {
 	cursor: pointer;
 	background-color: #cecece;
   border-radius: 50%;
 }
 
-.commentTop > div > img:active {
+.commentTop > div > div > img:active {
 	transform: scale(0.92);
 }
 

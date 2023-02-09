@@ -11,7 +11,7 @@ const CommentCard = (props) => {
         <OwnerDate authorInfo={props.comment}/>
         {(props.comment.owner._id === props.user.profile || recOwner._id === props.user.profile) &&
           <div onClick={() => props.handleDeleteComment(props.recId, props.comment._id)}>
-            <Icon category='Delete'/>
+            <div className={styles.toolTip}><Icon category='Delete'/></div>
           </div>
         }
       </div>
