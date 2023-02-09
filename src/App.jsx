@@ -58,6 +58,7 @@ const App = () => {
     const fetchUserPlaylists = async() => {
       const data = await playlistService.index()
       setPlaylists(data)
+      console.log(playlists)
     }
     fetchUserPlaylists()
   }, [])

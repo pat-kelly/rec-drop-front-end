@@ -4,10 +4,9 @@ import Icon from "../Icon/Icon";
 import styles from './Add.module.css'
 
 const AddToPlaylist = (props) => {
-  const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists } = props
+  const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists} = props
 
-
-  const filteredPlaylist = playlists 
+  const filteredPlaylist = playlists.length > 0 
     ? playlists.filter((p)=>(!p.recs.includes(rec._id))) 
     : []
 
