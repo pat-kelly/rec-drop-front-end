@@ -6,3 +6,17 @@
 .ownerDateContainer > p {
   margin: 0;
 }
+
+.photo {
+  max-width: 40px;
+  width: auto;
+  max-height: 40px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.ownerDiv {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
