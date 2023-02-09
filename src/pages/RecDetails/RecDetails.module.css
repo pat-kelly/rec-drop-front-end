@@ -1,5 +1,5 @@
 .main {
-  background-color: #fcf7ff;
+  background: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +25,7 @@
   width: 80%;
   max-width: 800px;
   padding: 32px 32px;
+  background-color: #fcf7ff;
 }
 
 .contentLeft {

@@ -13,6 +13,7 @@
   justify-content: space-between;
   color: #07081e;
   text-decoration: none;
+  background-color: #fcf7ff;
 }
 
 .playlistCard > h3 {
@@ -43,4 +44,8 @@
 
 .playlistMoreInfoButton:hover {
 	text-decoration: underline;
+}
+
+.playlistMoreInfoButton:active {
+	transform: scale(0.92);
 }
