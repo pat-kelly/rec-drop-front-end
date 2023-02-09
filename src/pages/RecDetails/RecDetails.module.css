@@ -178,6 +178,12 @@
     width: 40px;
     height: 40px;
   }
+
+  .contentFooter > div > img, 
+  .contentFooter > a > img {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -219,5 +225,10 @@
   .contentRight > img {
     width: 30px;
     height: 30px;
+  }
+  .contentFooter > div > img, 
+  .contentFooter > a > img {
+    height: 30px;
+    width: 30px;
   }
 }
