@@ -8,7 +8,7 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   useEffect(() => {
     window.scrollTo(0, 0)
     handlePageChange()
-  }, [])
+  })
 
   const [filterCategory, setFilterCategory] = useState('')
 
