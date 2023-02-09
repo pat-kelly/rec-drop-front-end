@@ -1,7 +1,9 @@
 .main {
   display: flex;
   justify-content: center;
-  padding-top: 172px;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .main > img {

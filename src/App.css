@@ -2,7 +2,10 @@
   background-color: #fcf7ff;
   min-height: 100vh;
   color: #07081e;
-  /* background-image: url("https://images.unsplash.com/photo-1477093782505-e10aaeb27c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80"); */
+}
+
+main {
+  --background: linear-gradient(to bottom right, #dacefc, #6a6ffa);
 }
 
 #nav-container {

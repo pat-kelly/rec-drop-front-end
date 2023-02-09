@@ -8,6 +8,7 @@
 	padding-bottom: 150px;
 	margin-right: 0;
 	gap: 32px;
+	background: var(--background);
 }
 
 .profileInfo {
@@ -20,7 +21,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 16px 32px;
+	padding: 32px;
+	background-color: #fcf7ff;
+
 }
 
 .userName {

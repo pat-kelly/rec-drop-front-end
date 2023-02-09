@@ -2,12 +2,14 @@
   padding-top: 72px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
   width: 80%;
   max-width: 400px;
-  margin-top: 100px;
+  margin-bottom: 100px;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -16,6 +18,7 @@
   border: 1px solid hsla(254, 35%, 43%, 0.408);
   box-shadow: 0px 3px 10px #451d9a46;
   border-radius: 4px;
+  background-color: #fcf7ff;
 }
 
 .container > h1 {
