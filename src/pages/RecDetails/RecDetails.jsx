@@ -49,6 +49,16 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
     fetchRec()
   }, [id])
 
+  const displayCreatorLabel = () => {
+    if (rec.category === 'Movie' || rec.category === 'TV Show') {
+      return 'Director'
+    } else if (rec.category === 'Song' || rec.category === 'Album') {
+      return 'Artist'
+    } else if (rec.category === 'Book') {
+      return 'Author'
+    }
+  }
+
   return ( 
     <main className={styles.main}>  
       {rec 
@@ -57,7 +67,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
               <div className={styles.content}>
                 <div className={styles.contentLeft}>
                   <h2>{rec.title}</h2>
-                  {rec.creator && <h3>{rec.creator}</h3>}
+                  {rec.creator && <h3>{displayCreatorLabel(rec)}: {rec.creator}</h3>}
                   {rec.year && <h4>Year: {rec.year}</h4>}
                   {rec.genre && <h4>Genre: {rec.genre}</h4>}
                 </div>
