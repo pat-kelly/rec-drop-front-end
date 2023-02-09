@@ -19,6 +19,7 @@
   padding: 32px;
   width: 60%;
   background-color: #fcf7ff;
+  max-width: 700px;
 }
 
 .formDiv  {
@@ -30,18 +31,28 @@
 }
 
 .formDiv input {
-  width: 80%;
-  padding: 4px;
+  width: 90%;
+  max-width: 200px;
+  padding: 4px 8px;
   font-family: "Manrope";
+  outline: 0;
+  border: 1px solid hsla(254, 35%, 43%, 0.408);
+  border-radius: 4px;
 }
 
 .categoryDiv {
   display: grid;
   grid-template-columns: 40% 60%;
-  width: 80%;
+  width: 85%;
   margin: 8px;
   padding: 8px 0;
   font-weight: bold;
+}
+
+.categoryDiv > select {
+  outline: 0;
+  border: 1px solid hsla(254, 35%, 43%, 0.408);
+  border-radius: 4px;
 }
 
 .categoryDiv select {
@@ -71,14 +82,30 @@
   font-family: "Manrope";
 }
 
+.button:active {
+  transform: scale(0.92);
+}
+
 .fileUpload {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 650px) {
+.textarea {
+  resize: vertical;
+  width: 90%;
+  max-width: 250px;
+  height: 60px;
+  outline: 0;
+  border: 1px solid hsla(254, 35%, 43%, 0.408);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+@media only screen and (max-width: 768px) {
   .form {
     width: 90%;
   }
+
   .formDiv  {
     width: 100%;
   }

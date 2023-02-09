@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import styles from './NewRec.module.css'
 
 const NewRec = ({ handleAddRec, handlePageChange }) => {
-  // const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
     title: '',
@@ -123,14 +121,8 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
               autoComplete='off'
             />
             <label htmlFor="photo-upload">
-              Upload Photo
+              Upload Photo:
             </label>
-            {/* <input
-              type="file"
-              id="photo-upload"
-              name="photo"
-              onChange={handleChangePhoto}
-            /> */}
             <div>
               <div className={styles.upload}>
                 <button 
@@ -156,6 +148,7 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
             </div>
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
+              className={styles.textarea}
               type='text'
               name='description'
               id='description-input'
