@@ -102,13 +102,52 @@
   gap: 16px;
 }
 
-.contentFooter > div > img, 
-.contentFooter > a > img {
+.contentFooter > * > img, 
+.contentFooter > * > * > img {
   height: 50px;
 }
 
+.likeToolTip::after,
+.delToolTip::after{
+  display: block;
+  position:absolute;
+  background-color: rgba(0,0,0,0.4);
+  color:white;
+  padding: .5em 1.5em;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .8em;
+  white-space: nowrap;
+  left:-50%;
+  top: 15%;
+  transform: scale(0);
+  transition: ease-out 200ms
+}
+
+.likeToolTip::after{
+  content:'Edit Rec?'
+}
+
+.delToolTip::after{
+  content:'Delete Rec?'
+}
+
+.likeToolTip:hover::after,
+.delToolTip:hover::after{
+  transform: scale(1);
+  top:100%
+}
+
+a{
+  text-decoration: none;
+}
+
+.likeToolTip, .delToolTip{
+  position: relative;
+}
+
 .contentFooter > div > img:hover, 
-.contentFooter > a > img:hover {
+.contentFooter > a > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
   border-radius: 50%;

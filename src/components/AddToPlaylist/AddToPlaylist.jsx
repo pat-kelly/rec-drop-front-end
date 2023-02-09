@@ -14,6 +14,7 @@ const AddToPlaylist = (props) => {
     <>
       <div className={styles.dropContainer}>
         <div onClick={handlePlaylistExpand}>
+          <div className={styles.toolTip}>Add to playlist!</div>
           <Icon 
             category={playlistExpand ? 'Minus' : 'Add'} 
           />

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 90%;
 }
 
 .inputContainer {
@@ -26,13 +27,25 @@
   max-width: 300px;
 }
 
-input[type='file']  { 
-  border: none;
+.uploadContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-input[type='file']::file-selector-button {
-  cursor: pointer;
-	font-size: 14px;
+.upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fileUpload {
+  visibility: hidden;
+  width: 0;
+}
+
+.uploadButton {
 	height: fit-content;
   border-radius: 4px;
   padding: 8px 16px;
@@ -41,8 +54,10 @@ input[type='file']::file-selector-button {
   color: white;
 }
 
-input[type='file']::file-selector-button:active {
-  transform: scale(0.92)
+.uploadText {
+  font-size: 14px;
+  margin: 5px 5px;
+  text-align: right;
 }
 
 .buttonContainer {
@@ -70,7 +85,13 @@ input[type='file']::file-selector-button:active {
   padding: 6px 14px;
 }
 
-.buttonContainer > :nth-child(2) {
+.disabled {
+  background-color: rgb(189, 189, 189);
+  border: 2px solid #9a9a9a;
+  padding: 6px 14px;
+}
+
+.enabled {
   background-image: linear-gradient(45deg, #4568dc, #b06ab3);
   border: none;
   color: white;
