@@ -8,11 +8,11 @@
 }
 
 .photo {
-  max-width: 40px;
+  max-width: 35px;
   width: auto;
-  max-height: 40px;
+  max-height: 35px;
   height: auto;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .ownerDiv {
