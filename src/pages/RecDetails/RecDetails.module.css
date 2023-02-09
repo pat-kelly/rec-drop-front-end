@@ -79,10 +79,12 @@
 
 .wDescription {
   width: 50%;
+  max-width: 300px;
 }
 
 .woDescription {
   width: 100%;
+  max-width: 300px;
 }
 
 .contentFooter {
