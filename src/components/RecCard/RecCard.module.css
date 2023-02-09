@@ -84,8 +84,29 @@
 }
 
 .footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer > div > * {
+  margin: 0;
+}
+
+.footer > a {
+	outline: none;
+	font-size: 16px;
+	height: fit-content;
+	background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+	padding: 8px 16px;
+	border-radius: 4px;
+	color: white;
+  text-decoration: none;
+}
+
+.footer > a:hover {
+  text-decoration: underline;
 }
 
 .comment-box {
