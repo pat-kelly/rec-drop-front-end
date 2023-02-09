@@ -21,6 +21,10 @@
 	font-size: 18px;
 }
 
+.button:active {
+	transform: scale(0.92);
+}
+
 .newButton {
 	font-size: 16px;
 	border-radius: 4px;
