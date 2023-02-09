@@ -44,3 +44,7 @@
 .playlistMoreInfoButton:hover {
 	text-decoration: underline;
 }
+
+.playlistMoreInfoButton:active {
+	transform: scale(0.92);
+}
