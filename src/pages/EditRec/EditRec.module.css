@@ -2,6 +2,12 @@
   margin-top: 72px;
 }
 
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 36px 0;
+}
+
 .formDiv {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -10,14 +16,24 @@
   padding: 5%;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  padding: 36px 0;
+.formDiv input {
+  width: 70%;
+  padding: 4px;
+}
+
+.formDiv select {
+  width: 70%;
+  padding: 4px;
+  /* font-weight: bold; */
+  /* margin-bottom: 16px; */
 }
 
 .upload {
   display: flex;
+}
+
+.category {
+  /* font-weight: bold; */
 }
 
 .uploadText {

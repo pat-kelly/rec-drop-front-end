@@ -65,7 +65,8 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
         >
           <div>{!category && 'Select a category:'}</div>
         <div className={styles.categoryDiv}>
-          <label htmlFor="category-select">Category:</label>
+          <label htmlFor="category-select">
+            Category:</label>
           <select
             required
             name="category"
@@ -141,7 +142,7 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
                 </button>
                 {photoChanged && 
                   <p className={styles.uploadText}>
-                     image uploaded
+                    image uploaded
                   </p>}
               </div>
               <input

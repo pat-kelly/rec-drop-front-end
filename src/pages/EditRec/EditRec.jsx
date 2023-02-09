@@ -40,6 +40,10 @@ const EditRec = (props) => {
     props.handleUpdateRec(form, photoData.photo)
   }
 
+  const handleCategorySelect = ({ target }) => {
+    setCategory(target.value)
+    setForm({...form, 'category': target.value})
+  }
 
   const displayCreatorLabel = () => {
     if (category === 'Movie' || category === 'TV Show') {
@@ -55,6 +59,22 @@ const EditRec = (props) => {
     <main className={styles.main}>
       <form onSubmit={handleSubmit} className={styles.form}>
         {category && <div className={styles.formDiv}>
+          <label htmlFor="category-select" className={styles.category}>
+            Category:
+          </label>
+          <select
+            required
+            name="category"
+            id="category-select"
+            onChange={handleCategorySelect}
+          >
+            <option value="">{form.category}</option>
+            <option value="Movie">Movie</option>
+            <option value="TV Show">TV Show</option>
+            <option value="Song">Song</option>
+            <option value="Album">Album</option>
+            <option value="Book">Book</option>
+          </select>
             <label htmlFor="title-input">Title:</label>
             <input 
               required
