@@ -10,6 +10,7 @@ import Like from '../../assets/like.png'
 import Unlike from '../../assets/unlike.png'
 import CommentEmoji from '../../assets/comment-emoji.png'
 import LikeEmoji from '../../assets/like-emoji.png'
+import Minus from '../../assets/minus.png'
 
 const Icon = ({ category }) => {
   const icons = {
@@ -25,6 +26,7 @@ const Icon = ({ category }) => {
     Unlike: Unlike,
     CommentEmoji: CommentEmoji,
     LikeEmoji: LikeEmoji,
+    Minus: Minus,
   }
 
   return <img className="icon" src={icons[category]} alt={`A ${category} icon`} />

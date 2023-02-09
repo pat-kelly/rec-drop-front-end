@@ -1,6 +1,7 @@
 import NewPlaylist from "../NewPlaylist/NewPlaylist"
 import AddForm from "./AddForm";
 import Icon from "../Icon/Icon";
+import styles from './Add.module.css'
 
 const AddToPlaylist = (props) => {
   const { rec, playlistExpand, handlePlaylistExpand, handleAddToPlaylist, handleCreatePlaylist, playlists } = props
@@ -13,27 +14,32 @@ const AddToPlaylist = (props) => {
 
   return ( 
     <>
-      <div onClick={handlePlaylistExpand}>
-        <Icon 
-          category={playlistExpand ? 'Delete' : 'Add'} 
-        />
-      </div>
-      {playlistExpand && 
-        filteredPlaylist.map(playlist => (
-          <AddForm 
-            key={playlist._id}
-            playlist={playlist}
-            rec={rec}
-            handleAddToPlaylist={handleAddToPlaylist}
+      <div className={styles.dropContainer}>
+        <div onClick={handlePlaylistExpand}>
+          <Icon 
+            category={playlistExpand ? 'Minus' : 'Add'} 
+          />
+        </div>
+        {playlistExpand && <div className={styles.playlistDropdown}>
+          <div className={styles.playlistHeader}>Add to a playlist:</div>
+          {filteredPlaylist.map(playlist => (
+            <AddForm 
+              key={playlist._id}
+              playlist={playlist}
+              rec={rec}
+              handleAddToPlaylist={handleAddToPlaylist}
+              handlePlaylistExpand={handlePlaylistExpand}
+              />
+            ))
+          }
+          <NewPlaylist 
+            rec={rec} 
             handlePlaylistExpand={handlePlaylistExpand}
-            />
-        ))
-      }
-      {playlistExpand && <NewPlaylist 
-        rec={rec} 
-        handlePlaylistExpand={handlePlaylistExpand}
-        handleCreatePlaylist={handleCreatePlaylist}
-      />}
+            handleCreatePlaylist={handleCreatePlaylist}
+          />
+        </div>
+        }
+      </div>
     </>
   );
 }

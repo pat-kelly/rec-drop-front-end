@@ -24,14 +24,14 @@ const NewPlaylist = (props) => {
   }
 
   return ( 
-    <>
+    <div className={styles.newContainer}>
       {addingPlaylist 
       ? 
-        <button onClick={handleAddClick} className=   {styles.collapseButton}>
+        <button onClick={handleAddClick} className={`${styles.button} ${styles.minusButton}`}>
             -
         </button>
       : 
-        <button onClick={handleAddClick} className={styles.button}>
+        <button onClick={handleAddClick} className={`${styles.button} ${styles.newButton}`}>
           + New
         </button>}
       {addingPlaylist && 
@@ -45,10 +45,10 @@ const NewPlaylist = (props) => {
             onChange={handleChange}
             className={styles.input}
           />
-          <button type="submit" className={styles.button}>Add Playlist</button>
+          <button type="submit" className={`${styles.button} ${styles.smallButton}`}>+</button>
         </form>
       }
-    </>
+    </div>
   );
 }
 
