@@ -6,7 +6,8 @@
   display: grid;
   grid-template-columns: 40% 60%;
   width: 50%;
-  grid-gap: 5%
+  grid-gap: 5%;
+  padding: 5%;
 }
 
 .form {

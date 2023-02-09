@@ -49,22 +49,27 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
 
   return ( 
     <main className={styles.main}>
-      <form onSubmit={handleSubmit}>
-        <div>{!category && 'Select a category:'}</div>
-        <label htmlFor="category-select">Category:</label>
-        <select
-          required
-          name="category"
-          id="category-select"
-          onChange={handleCategorySelect}>
-            <option value="">Select...</option>
-            <option value="Movie">Movie</option>
-            <option value="TV Show">TV Show</option>
-            <option value="Song">Song</option>
-            <option value="Album">Album</option>
-            <option value="Book">Book</option>
-        </select>
-        {category && <div>
+      <form 
+        onSubmit={handleSubmit}
+        className={styles.form}
+        >
+          <div>{!category && 'Select a category:'}</div>
+        <div className={styles.categoryDiv}>
+          <label htmlFor="category-select">Category:</label>
+          <select
+            required
+            name="category"
+            id="category-select"
+            onChange={handleCategorySelect}>
+              <option value="">Select...</option>
+              <option value="Movie">Movie</option>
+              <option value="TV Show">TV Show</option>
+              <option value="Song">Song</option>
+              <option value="Album">Album</option>
+              <option value="Book">Book</option>
+          </select>
+        </div>
+        {category && <div className={styles.formDiv}>
             <label htmlFor="title-input">Title:</label>
             <input 
               required
@@ -125,7 +130,7 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
               onChange={handleChange}
               autoComplete='off'
             />
-            <button className={styles.submitNewRecButton} type='submit'>SUBMIT</button>
+            <button className={styles.button} type='submit'>SUBMIT</button>
           </div>
         }
       </form>
