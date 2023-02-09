@@ -12,7 +12,7 @@ import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange, updateRecState }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -50,7 +50,6 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
   }, [id])
 
   return ( 
-
     <main className={styles.main}>  
       {rec 
         ? <>
