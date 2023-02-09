@@ -4,7 +4,6 @@ import * as profileService from '../../services/profileService'
 
 import NarwhalProfile from '../../assets/narwhal-profile.jpg'
 import PlaylistList from '../../components/PlaylistList/PlaylistList'
-import { login } from '../../services/authService'
 import styles from './Profile.module.css'
 
 const Profile = ({ user, playlists, handlePageChange }) => {
