@@ -8,6 +8,7 @@ const OwnerDate = ({authorInfo}) => {
       <p>{authorInfo.owner.name}</p>
       </div>
       <p>{new Date(authorInfo.createdAt).toLocaleDateString()}</p>
+      <img src={authorInfo.owner.photo} alt={authorInfo.owner.name}/>
     </div>
   );
 }
