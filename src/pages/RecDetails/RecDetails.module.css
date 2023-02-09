@@ -25,6 +25,7 @@
   width: 80%;
   max-width: 800px;
   padding: 32px 32px;
+  background-color: #fcf7ff;
 }
 
 .contentLeft {
@@ -114,22 +115,25 @@
   margin: 32px 16px;
 }
 
-.buttonContainer > * > img {
+.buttonContainer > * > img,
+.buttonContainer > div > div > img {
   height: 50px;
   width: 50px;
 }
 
-.buttonContainer > * > img:hover {
+.buttonContainer > * > img:hover,
+.buttonContainer > div > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
   border-radius: 50%;
 }
 
-.buttonContainer > * > img:active {
+.buttonContainer > * > img:active,
+.buttonContainer > div > div > img:active {
   transform: scale(0.92)
 }
 
-.buttonContainer > :nth-child(2) > img:active {
+.buttonContainer > :nth-child(2) > div > img:active {
   transform: rotate(90)
 }
 
@@ -152,7 +156,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .buttonContainer > * > img {
+  .buttonContainer > * > img,
+  .buttonContainer > div > div > img {
     width: 40px;
     height: 40px;
   }
@@ -194,7 +199,8 @@
 }
 
 @media only screen and (max-width: 400px) {
-  .buttonContainer > * > img {
+  .buttonContainer > * > img,
+  .buttonContainer > div > div > img {
     width: 30px;
     height: 30px;
   }
