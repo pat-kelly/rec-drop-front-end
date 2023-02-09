@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 
 import RecCard from "../../components/RecCard/RecCard";
 import styles from './RecList.module.css'
-
+import DroppedRecs from '../../assets/dropped-recs.png'
 
 const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   useEffect(() => {
     window.scrollTo(0, 0)
     handlePageChange()
+    handleSearchTerms('')
   }, [])
 
   const [filterCategory, setFilterCategory] = useState('')
@@ -33,15 +34,14 @@ const RecList = ({recs, user, handleSearchTerms, handlePageChange}) => {
   }
 
   const updateSearchTerms  = ({ target })=>{
-    console.log(target.value);
     handleSearchTerms(target.value)
   }
 
   return ( 
-    <main className={styles.main}>  
+    <main className={styles.main}> 
       <div className={styles.header}>
-        <h1>Dropped Recs</h1>
-          <input onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
+        <img src={DroppedRecs} alt="dropped recs with purple narwhal" />
+        <input className={styles.searchBar} onChange={updateSearchTerms} placeholder="I'm searching for..." type="text" name="searchTerms" />
         <select name="category" 
           onChange={handleCategorySelect}
         >

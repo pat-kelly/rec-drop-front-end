@@ -14,7 +14,8 @@ const Likes = (props) => {
   }
 
   return ( 
-    <div onClick={handleClick}>
+    <div className={styles.likeButton} onClick={handleClick}>
+      <div className={styles.toolTip}>{alreadyLiked ? 'Unlike' : 'Like'} this rec!</div>
       <Icon 
         category={alreadyLiked ? 'Unlike' : 'Like'} 
       />

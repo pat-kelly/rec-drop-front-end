@@ -1,7 +1,7 @@
 .main {
-  margin-top: 72px;
+  padding-top: 72px;
   min-height: 100vh;
-  padding-bottom: 150px;
+  padding-bottom: 150px;max-width: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,12 +17,13 @@
 
 .header > div > img {
   height: 50px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .header > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
-  border-radius: 50%;
 }
 
 .header > div > img:active {
@@ -38,6 +39,32 @@
   width: 90%;
   max-width: 1500px;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.header > div{
+  position: relative;
+}
+
+.delToolTip::after{
+  content:'Delete Playlist?';
+  display: block;
+  position:absolute;
+  background-color: rgba(0,0,0,0.4);
+  color:white;
+  padding: .5em 1.5em;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .8em;
+  white-space: nowrap;
+  top:18%;
+  right: -100%;
+  transform: scale(0);
+  transition: ease-out 200ms
+}
+
+.delToolTip:hover::after{
+  transform: scale(1);
+  right:105%;
 }
 
 @media only screen and (max-width: 1275px) {

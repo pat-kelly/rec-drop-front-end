@@ -3,6 +3,35 @@
   flex-direction: column;
 }
 
-.ownerDateContainer > p {
+.ownerDateContainer > p, 
+.ownerDiv > p {
   margin: 0;
+}
+
+.photo {
+  max-width: 35px;
+  width: auto;
+  max-height: 35px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.ownerDiv {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .photo {
+    max-width: 24px;
+    max-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .photo {
+    max-width: 18px;
+    max-height: 18px;
+  }
 }

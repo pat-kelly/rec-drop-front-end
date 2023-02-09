@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import styles from './NewRec.module.css'
+import DropRec from '../../assets/drop-rec.png'
 
 const NewRec = ({ handleAddRec, handlePageChange }) => {
-  const navigate = useNavigate()
   const [form, setForm] = useState({
     category: '',
     title: '',
@@ -13,11 +12,24 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
   })
   const [category, setCategory] = useState('')
   const [photoData, setPhotoData] = useState({})
+  const [photoChanged, setPhotoChanged] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
     handlePageChange()
   }, [])
+
+  // allows file input to be hidden, and triggered by styled button click
+  const hiddenFileInput = React.useRef(null)
+
+  const handleClick = evt => {
+    hiddenFileInput.current.click()
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({ photo: evt.target.files[0] })
+    setPhotoChanged(true)
+  }
 
   const handleChange = ({ target }) => {
     setForm({...form, [target.name]: target.value})
@@ -28,9 +40,6 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
     handleAddRec(form, photoData.photo)
   }
 
-  const handleChangePhoto = (evt) => {
-    setPhotoData({ photo: evt.target.files[0] })
-  }
 
   const handleCategorySelect = ({ target }) => {
     setCategory(target.value)
@@ -49,22 +58,29 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
 
   return ( 
     <main className={styles.main}>
-      <form onSubmit={handleSubmit}>
-        <div>{!category && 'Select a category:'}</div>
-        <label htmlFor="category-select">Category:</label>
-        <select
-          required
-          name="category"
-          id="category-select"
-          onChange={handleCategorySelect}>
-            <option value="">Select...</option>
-            <option value="Movie">Movie</option>
-            <option value="TV Show">TV Show</option>
-            <option value="Song">Song</option>
-            <option value="Album">Album</option>
-            <option value="Book">Book</option>
-        </select>
-        {category && <div>
+      <img src={DropRec} alt="drop a rec" />
+      <form 
+        onSubmit={handleSubmit}
+        className={styles.form}
+        >
+          <div>{!category && 'Select a category:'}</div>
+        <div className={styles.categoryDiv}>
+          <label htmlFor="category-select">
+            Category:</label>
+          <select
+            required
+            name="category"
+            id="category-select"
+            onChange={handleCategorySelect}>
+              <option value="">Select...</option>
+              <option value="Movie">Movie</option>
+              <option value="TV Show">TV Show</option>
+              <option value="Song">Song</option>
+              <option value="Album">Album</option>
+              <option value="Book">Book</option>
+          </select>
+        </div>
+        {category && <div className={styles.formDiv}>
             <label htmlFor="title-input">Title:</label>
             <input 
               required
@@ -107,16 +123,34 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
               autoComplete='off'
             />
             <label htmlFor="photo-upload">
-              Upload Photo
+              Upload Photo:
             </label>
-            <input
-              type="file"
-              id="photo-upload"
-              name="photo"
-              onChange={handleChangePhoto}
-            />
+            <div>
+              <div className={styles.upload}>
+                <button 
+                  className={styles.button} 
+                  onClick={handleClick}
+                  form=""
+                >
+                  Choose File
+                </button>
+                {photoChanged && 
+                  <p className={styles.uploadText}>
+                    image uploaded
+                  </p>}
+              </div>
+              <input
+                type="file"
+                id="photo-upload"
+                name="photo"
+                ref={hiddenFileInput}
+                onChange={handleChangePhoto}
+                className={styles.fileUpload}
+              />
+            </div>
             <label htmlFor="description-input">Additional Comments:</label>
             <textarea 
+              className={styles.textarea}
               type='text'
               name='description'
               id='description-input'
@@ -125,7 +159,7 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
               onChange={handleChange}
               autoComplete='off'
             />
-            <button className={styles.submitNewRecButton} type='submit'>SUBMIT</button>
+            <button className={styles.button} type='submit'>SUBMIT</button>
           </div>
         }
       </form>

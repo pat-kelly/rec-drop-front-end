@@ -18,7 +18,6 @@ const show = async (id) => {
     const res = await fetch(`${BASE_URL}/${id}`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
     })
-    // console.log('RES ', res)
     return res.json()
   } catch (error) {
     console.log(error)
@@ -49,6 +48,9 @@ const addPic = async (recData, photo) => {
       photoData,
       recData._id
     )
+  }
+  else{
+    return recData
   }
 }
 

@@ -14,6 +14,7 @@
   justify-content: space-between;
   color: #07081e;
   text-decoration: none;
+  background-color: #fcf7ff;
 }
 
 .link:hover .recCardHeader {
@@ -22,7 +23,6 @@
 
 .deleted {
   color: grey;
-  text-decoration: line-through;
 }
 
 .cardTop {
@@ -62,12 +62,14 @@
 
 .cardSubHeader > h4 {
   margin: 0;
+  height: 22px;
 }
 
 .subRight {
   display: flex;
   align-items: center;
   gap: 4px;
+  justify-content: end;
 }
 
 .subRight > * {
@@ -83,23 +85,31 @@
 }
 
 .footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
-.comment-box {
-  margin-left: 10px;
-  height: 75px;
+.footer > div > * {
+  margin: 0;
 }
 
-.submit-comment-button {
-  margin-top: 10%;
-  margin-left: 2%;
-  margin-bottom: -100;
-  border: 1px solid;
+.footer > a {
+	outline: none;
+	font-size: 16px;
+	height: fit-content;
+	background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+	padding: 8px 16px;
+	border-radius: 4px;
+	color: white;
+  text-decoration: none;
 }
 
-.add-comment-label {
-margin-bottom: 100px;
-color: black;
+.footer > a:hover {
+  text-decoration: underline;
+}
+
+.footer > a:active {
+  transform: scale(0.92);
 }

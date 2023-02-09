@@ -1,11 +1,11 @@
 .main {
-  background-color: #fcf7ff;
+  background: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  margin-top: 72px;
+  padding-top: 72px;
   padding-bottom: 150px;
 }
 
@@ -25,6 +25,7 @@
   width: 80%;
   max-width: 800px;
   padding: 32px 32px;
+  background-color: #fcf7ff;
 }
 
 .contentLeft {
@@ -45,7 +46,16 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  gap: 32px;
+  gap: 8px;
+}
+
+.contentRight > div > * {
+  margin: 0;
+  text-align: right;
+}
+
+.contentRight > div > div {
+  justify-content: flex-end;
 }
 
 .contentRight > img {
@@ -53,14 +63,40 @@
   height: 50px;
 }
 
-.description {
-  width: 60%;
+.contentMid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.wPhoto {
+  width: 50%;
   margin: 0;
 }
 
-.recImage {
-  width: 30%;
-  margin-left: 10%;
+.woPhoto {
+  width: 100%;
+  margin: 0;
+}
+
+.wDescription {
+  width: 50%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: .5px solid rgb(62, 62, 62, 0.6);
+  max-width: 300px;
+}
+
+.woDescription {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: .5px solid rgb(62, 62, 62, 0.6);
+  max-width: 300px;
 }
 
 .contentFooter {
@@ -70,13 +106,52 @@
   gap: 16px;
 }
 
-.contentFooter > div > img, 
-.contentFooter > a > img {
+.contentFooter > * > img, 
+.contentFooter > * > * > img {
   height: 50px;
 }
 
+.likeToolTip::after,
+.delToolTip::after{
+  display: block;
+  position:absolute;
+  background-color: rgba(0,0,0,0.4);
+  color:white;
+  padding: .5em 1.5em;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .8em;
+  white-space: nowrap;
+  left:-50%;
+  top: 15%;
+  transform: scale(0);
+  transition: ease-out 200ms
+}
+
+.likeToolTip::after{
+  content:'Edit Rec?'
+}
+
+.delToolTip::after{
+  content:'Delete Rec?'
+}
+
+.likeToolTip:hover::after,
+.delToolTip:hover::after{
+  transform: scale(1);
+  top:100%
+}
+
+a{
+  text-decoration: none;
+}
+
+.likeToolTip, .delToolTip{
+  position: relative;
+}
+
 .contentFooter > div > img:hover, 
-.contentFooter > a > img:hover {
+.contentFooter > a > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
   border-radius: 50%;
@@ -93,23 +168,24 @@
   margin: 32px 16px;
 }
 
-.buttonContainer > * > img {
+.buttonContainer > * > img,
+.buttonContainer > div > div > img {
   height: 50px;
   width: 50px;
+  background-color: white;
+  border-radius: 50%;
 }
 
-.buttonContainer > * > img:hover {
+.buttonContainer > * > img:hover,
+.buttonContainer > div > div > img:hover {
   cursor: pointer;
   background-color: #cecece;
   border-radius: 50%;
 }
 
-.buttonContainer > * > img:active {
+.buttonContainer > * > img:active,
+.buttonContainer > div > div > img:active {
   transform: scale(0.92)
-}
-
-.buttonContainer > :nth-child(2) > img:active {
-  transform: rotate(90)
 }
 
 .commentContainer {
@@ -118,4 +194,88 @@
   display: flex;
   flex-direction: column;
   margin: 48px 32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contentMid {
+    flex-direction: column;
+  }
+
+  .wPhoto {
+    width: 100%;
+  }
+
+  .wDescription {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .buttonContainer > * > img,
+  .buttonContainer > div > div > img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contentRight > img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contentFooter > div > img, 
+  .contentFooter > a > div > img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  .pageTop {
+    width: 97%;
+  }
+
+  .contentLeft > h2 {
+    font-size: 20px;
+  }
+
+  .contentLeft > h3 {
+    font-size: 16px;
+  }
+
+  .contentLeft > h4 {
+    font-size: 14px;
+  }
+
+  .contentLeft > * {
+    margin-bottom: 4px;
+  }
+
+  .contentLeft > :nth-child(2) {
+    margin-bottom: 8px;
+  }
+
+  .contentRight > div > * {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .buttonContainer > * > img,
+  .buttonContainer > div > div > img {
+    width: 30px;
+    height: 30px;
+  }
+  .contentRight > img {
+    width: 30px;
+    height: 30px;
+  }
+  .contentFooter > div > img, 
+  .contentFooter > a > div > img {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .contentRight > div > div > img {
+    display: none;
+  }
 }

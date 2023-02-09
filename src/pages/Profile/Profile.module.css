@@ -1,25 +1,80 @@
+.main {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 72px;
+	padding-bottom: 150px;
+	margin-right: 0;
+	gap: 32px;
+	background: var(--background);
+}
 
+.profileInfo {
+	margin-top: 56px;
+	border: 1px solid hsla(254, 35%, 43%, 0.408);
+	box-shadow: 0px 3px 10px #451d9a46;
+	border-radius: 4px;
+	width: 90%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 32px;
+	background-color: #fcf7ff;
 
-.profileImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #b686dd;
 }
 
 .userName {
-    color: #451d9a  ;
- 
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
+	margin: 0 0 20px 0;
 }
 
-.loading {
-    color: #451d9a ;
-    display: block;
-    text-align: center;
-    margin-left: auto;
+.profileImage {
+	border: 1px solid #b686dd;
+	border-radius: 8px;
+	max-width: 500px;
+	width: 95%;
+}
 
+.profileInfo > a {
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
+	margin-top: 16px;
+	padding: 4px 8px;
+	background-color: #9773d1;
+	border: 1px solid #7d54d4a7;
+	border-radius: 4px;
+	margin-left: auto;
+}
+
+.profileInfo > a:hover {
+	text-decoration: underline;
+}
+
+.profileInfo > a:active {
+	transform: scale(0.92);
+}
+
+@media only screen and (max-width: 500px) {
+	.profileInfo {
+		padding: 16px
+	}
+	
+	.userName {
+		font-size: 28px;
+		margin-bottom: 12px;
+	}
+
+	.profileImage {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 400px) {	
+	.userName {
+		font-size: 20px;
+		margin-bottom: 12px;
+	}
 }

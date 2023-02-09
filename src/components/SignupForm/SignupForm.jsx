@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
@@ -12,6 +13,12 @@ const SignupForm = props => {
     passwordConf: '',
   })
   const [photoData, setPhotoData] = useState({})
+  const [photoChanged, setPhotoChanged] = useState(false)
+  const hiddenFileInput = React.useRef(null)
+
+  const handleClick = evt => {
+    hiddenFileInput.current.click()
+  }
 
   const handleChange = e => {
     props.updateMessage('')
@@ -23,6 +30,7 @@ const SignupForm = props => {
 
   const handleChangePhoto = (evt) => {
     setPhotoData({ photo: evt.target.files[0] })
+    setPhotoChanged(true)
   }
 
   const handleSubmit = async e => {
@@ -49,7 +57,7 @@ const SignupForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+        <label htmlFor="name" className={styles.label}>Name:</label>
         <input
           type="text"
           autoComplete="off"
@@ -60,7 +68,7 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+        <label htmlFor="email" className={styles.label}>Email:</label>
         <input
           type="text"
           autoComplete="off"
@@ -71,7 +79,7 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+        <label htmlFor="password" className={styles.label}>Password:</label>
         <input
           type="password"
           autoComplete="off"
@@ -83,7 +91,7 @@ const SignupForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
+          Confirm Password:
         </label>
         <input
           type="password"
@@ -96,22 +104,39 @@ const SignupForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="photo-upload" className={styles.label}>
-          Upload Photo
+          Upload Photo:
         </label>
-        <input
-          type="file"
-          id="photo-upload"
-          name="photo"
-          onChange={handleChangePhoto}
-        />
+        <div className={styles.uploadContainer}>
+          <div className={styles.upload}>
+            <button 
+              className={`${styles.uploadButton} ${styles.button}`}
+              form=""
+              onClick={handleClick}
+            >
+              Choose File
+            </button>
+            {photoChanged && 
+              <p className={styles.uploadText}>
+                image uploaded
+              </p>}
+          </div>
+          <input
+            type="file"
+            id="photo-upload"
+            name="photo"
+            className={styles.fileUpload}
+            ref={hiddenFileInput}
+            onChange={handleChangePhoto}
+          />
+        </div>
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className={styles.buttonContainer}>
+        <Link to="/">
+          <button type='button' className={styles.button}>Cancel</button>
+        </Link>
+        <button disabled={isFormInvalid()} className={`${styles.button} ${isFormInvalid() ? styles.disabled : styles.enabled}`}>
           Sign Up
         </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
       </div>
     </form>
   )

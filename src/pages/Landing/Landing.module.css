@@ -1,6 +1,9 @@
+main {
+  background: var(--background);
+}
+
 .container {
-  margin-top: 72px;
-  padding-top: 18px;
+  padding-top: 100px;
   background-color: white;
   min-height: 100vh;
   width: 100%;
@@ -20,7 +23,7 @@
 }
 
 .header {
-  background-color: #fcf7ff;
+  /* background-color: #fcf7ff; */
   color: #07081e;
   display: flex;
   width: 100%;
@@ -44,7 +47,7 @@
 }
 
 .description {
-  background-color: #fcf7ff;
+  background-color: hsl(278, 100%, 98%, 0.2);
   min-height: 200px;
   width: 100%;
   box-shadow: 0px 3px 10px #451d9a46;

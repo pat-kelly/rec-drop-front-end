@@ -1,13 +1,18 @@
 import PlaylistCard from "../PlaylistCard/PlaylistCard";
 import styles from './PlaylistList.module.css'
 
-const PlaylistList = ({ playlists }) => {
+const PlaylistList = (props) => {
+
+  const playlists = props.playlists.length > 0 ? props.playlists : []
+
   return ( 
     <>  
-      <h1 className={styles.playList}>↻  ◃◃  Play List  ▹▹   ↻</h1>
-      {playlists.map(playlist => (
-        <PlaylistCard key={playlist._id} playlist={playlist} />
-      ))}
+      <h2 className={styles.playListTitle}>↻  ◃◃  My Playlists  ▹▹   ↻</h2>
+      <div className={styles.container}>
+        {playlists.map(playlist => (
+          <PlaylistCard key={playlist._id} playlist={playlist} />
+        ))}
+      </div>
     </>
   );
 }

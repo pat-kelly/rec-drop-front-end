@@ -12,7 +12,7 @@ import styles from "./RecDetails.module.css"
 
 import * as recService from '../../services/recService'
 
-const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange }) => {
+const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, handleCreatePlaylist, handlePageChange, updateRecState }) => {
   const {id} = useParams()
   const [rec, setRec] = useState(null)
   const [playlistExpand, setPlaylistExpand] = useState(false)
@@ -49,8 +49,17 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
     fetchRec()
   }, [id])
 
-  return ( 
+  const displayCreatorLabel = () => {
+    if (rec.category === 'Movie' || rec.category === 'TV Show') {
+      return 'Director'
+    } else if (rec.category === 'Song' || rec.category === 'Album') {
+      return 'Artist'
+    } else if (rec.category === 'Book') {
+      return 'Author'
+    }
+  }
 
+  return ( 
     <main className={styles.main}>  
       {rec 
         ? <>
@@ -58,7 +67,7 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
               <div className={styles.content}>
                 <div className={styles.contentLeft}>
                   <h2>{rec.title}</h2>
-                  {rec.creator && <h3>{rec.creator}</h3>}
+                  {rec.creator && <h3>{displayCreatorLabel(rec)}: {rec.creator}</h3>}
                   {rec.year && <h4>Year: {rec.year}</h4>}
                   {rec.genre && <h4>Genre: {rec.genre}</h4>}
                 </div>
@@ -66,13 +75,28 @@ const RecDetails = ({ user, playlists, handleDeleteRec, handleAddToPlaylist, han
                   <Icon category={rec.category} />
                   <OwnerDate authorInfo={rec}/>
                 </div>
-                {rec.description && <h3 className={styles.description}>{rec.description}</h3>}
-                {rec.photo && <img src={rec.photo} alt=""  className={styles.recImage}/>}
+                <div className={styles.contentMid}>
+                  {rec.description && 
+                    <p className={`${rec.photo 
+                      ? `${styles.wPhoto}` 
+                      : `${styles.woPhoto}`}`}>
+                        {rec.description}
+                    </p>}
+                  {rec.photo && 
+                    <img src={rec.photo} alt=""  
+                      className={`${rec.description 
+                        ? `${styles.wDescription}` 
+                        : `${styles.woDescription}`}`}
+                    />}
+                </div>
                 {rec.owner._id === user.profile &&
                   <div className={styles.contentFooter}>
                     <Link to={`/recs/${id}/edit`} state={rec}>
-                      <Icon category='Edit'/></Link>
-                    <div onClick={() => handleDeleteRec(id)}>
+                      <div className={styles.likeToolTip}>
+                        <Icon category='Edit'/>
+                      </div>
+                    </Link>
+                    <div className={styles.delToolTip} onClick={() => handleDeleteRec(id)}>
                       <Icon category='Delete'/>
                     </div>
                   </div>
