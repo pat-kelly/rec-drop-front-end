@@ -3,6 +3,7 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	gap: 8px;
 	width: 100%;
 	max-width: 800px;
 }
@@ -35,4 +36,18 @@
 
 .submitCommentButton:active {
 	transform: scale(0.92)
+}
+
+@media only screen and (max-width: 400px) {
+	.commentForm {
+		flex-direction: column;
+	}
+
+	.textarea {
+		width: 100%;
+	}
+	
+	.submitCommentButton {
+		margin-left: auto;
+	}
 }
