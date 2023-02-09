@@ -22,7 +22,7 @@
 }
 
 .submitCommentButton {
-	border: 5em;
+	border: 1px solid white;
 	cursor: pointer;
 	outline: none;
 	font-size: 14px;
