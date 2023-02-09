@@ -79,11 +79,17 @@
 
 .wDescription {
   width: 50%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: .5px solid rgb(62, 62, 62, 0.6);
   max-width: 300px;
 }
 
 .woDescription {
   width: 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: .5px solid rgb(62, 62, 62, 0.6);
   max-width: 300px;
 }
 
