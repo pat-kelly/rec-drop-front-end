@@ -16,22 +16,13 @@
   padding: 5%;
 }
 
-.formDiv input {
-  width: 70%;
-  padding: 4px;
-}
-
-.formDiv select {
-  width: 70%;
+.formDiv input, .formDiv select {
+  width: 100%;
   padding: 4px;
 }
 
 .upload {
   display: flex;
-}
-
-.category {
-  /* font-weight: bold; */
 }
 
 .uploadText {
@@ -53,4 +44,17 @@
 
 .fileUpload {
   visibility: hidden;
+}
+
+.textarea {
+  height: 48px;
+}
+
+@media only screen and (max-width: 650px) {
+  .formDiv  {
+    width: 95%;
+  }
+  .formDiv input, .formDiv select, .formDiv textarea {
+    width: 90%;
+  }
 }

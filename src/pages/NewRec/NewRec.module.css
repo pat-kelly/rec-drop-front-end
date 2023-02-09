@@ -62,34 +62,11 @@
 }
 
 @media only screen and (max-width: 650px) {
-  /* .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 36px 0;
-    align-items: center;
-  } */
-  
   .formDiv  {
-    /* display: grid;
-    grid-template-columns: 40% 60%; */
     width: 90%;
-    /* grid-gap: 8px;
-    padding: 8px; */
   }
-  
-  /* .formDiv input {
-    width: 70%;
-    padding: 4px;
-  } */
   
   .categoryDiv {
-    /* display: grid;
-    grid-template-columns: 40% 60%; */
     width: 88%;
-    /* margin: 8px;
-    padding: 8px 0;
-    font-weight: bold; */
   }
-  
 }
