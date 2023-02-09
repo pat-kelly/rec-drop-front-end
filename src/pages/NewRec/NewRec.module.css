@@ -2,7 +2,15 @@
   margin-top: 72px;
 }
 
-.formDiv {
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 0;
+  align-items: center;
+}
+
+.formDiv  {
   display: grid;
   grid-template-columns: 40% 60%;
   width: 50%;
@@ -10,19 +18,27 @@
   padding: 8px;
 }
 
+.formDiv input {
+  /* display: grid; */
+  /* grid-template-columns: 40% 60%; */
+  width: 50%;
+  padding: 4px;
+}
+
 .categoryDiv {
   display: grid;
   grid-template-columns: 40% 60%;
-  width: 50%;
+  width: 60%;
   margin: 8px;
-  padding: 8px;
+  padding: 8px 0;
+  font-weight: bold;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 36px 0;
+.categoryDiv select {
+  /* display: grid; */
+  /* grid-template-columns: 40% 60%; */
+  width: 50%;
+  padding: 4px;
 }
 
 .upload {
