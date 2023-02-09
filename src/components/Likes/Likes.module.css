@@ -1,7 +1,11 @@
 .likeButton {
-    color: #451d9a ;
-display: block;
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+    
+}
+
+.likeButton::after{
+    content: 'like this rec!';
+    display: block;
+    position:absolute;
+    background-color: rgba(0,0,0,0.4);
+    color:white;
 }

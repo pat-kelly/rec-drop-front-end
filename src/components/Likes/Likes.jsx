@@ -14,7 +14,7 @@ const Likes = (props) => {
   }
 
   return ( 
-    <div onClick={handleClick}>
+    <div className={styles.likeButton} onClick={handleClick}>
       <Icon 
         category={alreadyLiked ? 'Unlike' : 'Like'} 
       />
