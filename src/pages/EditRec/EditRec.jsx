@@ -6,7 +6,6 @@ import ModifyRec from '../../assets/modify-rec.png'
 import styles from './EditRec.module.css'
 
 const EditRec = (props) => {
-
   // state = rec, props = handleUpdateRec, handlePageChange 
 
   const {state} = useLocation()
