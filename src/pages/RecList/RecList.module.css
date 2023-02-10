@@ -38,7 +38,7 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
-  gap: 16px;
+  gap: 24px;
   width: 90%; 
   max-width: 1500px;
   grid-template-columns: repeat(4, 1fr);

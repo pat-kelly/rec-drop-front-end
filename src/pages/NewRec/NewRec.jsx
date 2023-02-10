@@ -40,7 +40,6 @@ const NewRec = ({ handleAddRec, handlePageChange }) => {
     handleAddRec(form, photoData.photo)
   }
 
-
   const handleCategorySelect = ({ target }) => {
     setCategory(target.value)
     setForm({...form, 'category': target.value})
